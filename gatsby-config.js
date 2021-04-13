@@ -23,7 +23,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-fathom",
       options: {
-        siteId: "KLRVPIAL",
+        siteId: "BFWJFNRB",
       },
     },
   ],
