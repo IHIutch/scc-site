@@ -1,6 +1,5 @@
-import { Image } from "@chakra-ui/image";
-import { Box, Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/layout";
 import React from "react";
+import { Box, Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
 import Container from "../../components/common/Container";
 import Navbar from "../../components/global/Navbar";
