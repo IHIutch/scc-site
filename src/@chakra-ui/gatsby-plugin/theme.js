@@ -21,6 +21,20 @@ const theme = extendTheme({
         // bg: "#f4fbfa",
         bg: 'blue.50',
       },
+      '.post-content': {
+        h1: {
+          fontSize: 'xl',
+          mb: '4',
+        },
+        p: {
+          fontSize: '2xl',
+          lineHeight: '1.6',
+          color: 'tealGreen.700',
+        },
+        '* + p': {
+          mt: '12',
+        },
+      },
     },
   },
 })

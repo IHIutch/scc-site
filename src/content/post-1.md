@@ -2,6 +2,7 @@
 slug: '/blog/reclaiming-the-scajaquada-creek-corridor'
 date: '2019-05-04'
 title: 'Reclaiming the Scajaquada Creek Corridor | Part 1 of 4'
+featuredImage: '../images/delaware_full1.webp'
 ---
 
 Speak now or forever hold your peace comes to mind in response to the reclamation of the Scajaquada Creek Corridor. After years of trying to restore this once magnificent waterway back to its original state, groups and individuals are coming together again and inviting the public to take part in what could be one of the biggest conservation comebacks Buffalo has seen.
