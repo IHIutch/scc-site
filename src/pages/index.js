@@ -1,9 +1,9 @@
-import React from "react";
-import { Box, Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
-import { Helmet } from "react-helmet";
-import Container from "../../components/common/Container";
-import Navbar from "../../components/global/Navbar";
-import bgImage from "../images/delaware_full1.webp";
+import React from 'react'
+import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
+import { Helmet } from 'react-helmet'
+import Container from '../components/common/Container'
+import Navbar from '../components/global/Navbar'
+import bgImage from '../images/delaware_full1.webp'
 
 export default function Home() {
   return (
@@ -19,18 +19,18 @@ export default function Home() {
         position="relative"
         _before={{
           content: "''",
-          position: "absolute",
-          top: "0px",
-          right: "0px",
-          bottom: "0px",
-          left: "0px",
-          bg: "tealGreen.700",
-          backgroundBlendMode: "luminosity",
+          position: 'absolute',
+          top: '0px',
+          right: '0px',
+          bottom: '0px',
+          left: '0px',
+          bg: 'tealGreen.700',
+          backgroundBlendMode: 'luminosity',
           backgroundImage: `url(${bgImage})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          opacity: "20%",
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          opacity: '20%',
         }}
       >
         <Box mt="auto" w="100%" mb="12" position="relative">
@@ -72,5 +72,5 @@ export default function Home() {
         </Grid>
       </Container>
     </main>
-  );
+  )
 }

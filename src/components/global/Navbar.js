@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   Box,
   Flex,
@@ -7,12 +7,12 @@ import {
   CloseButton,
   Icon,
   Button,
-} from "@chakra-ui/react";
-import Container from "../../components/common/Container";
-import { Link as GatsbyLink } from "gatsby";
+} from '@chakra-ui/react'
+import Container from '../../components/common/Container'
+import { Link as GatsbyLink } from 'gatsby'
 
 const Navbar = ({ sx }) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure()
 
   const navItemsLeft = [
     // {
@@ -23,18 +23,18 @@ const Navbar = ({ sx }) => {
     //   name: "Alerts",
     //   path: "/alerts",
     // },
-  ];
+  ]
 
   const navItemsRight = [
     {
-      name: "Blog",
-      path: "/blog",
+      name: 'Blog',
+      path: '/blog',
     },
     {
-      name: "Subscribe",
-      path: "/subscribe",
+      name: 'Subscribe',
+      path: '/subscribe',
     },
-  ];
+  ]
 
   return (
     <Box>
@@ -68,7 +68,7 @@ const Navbar = ({ sx }) => {
             </Box>
             <CloseButton
               ml="auto"
-              d={{ base: "block", md: "none" }}
+              d={{ base: 'block', md: 'none' }}
               onClick={onToggle}
             >
               {/* <Icon as={isOpen ? X : Menu} h="6" w="6" /> */}
@@ -77,8 +77,8 @@ const Navbar = ({ sx }) => {
               <Box
                 alignItems="stretch"
                 h="100%"
-                d={{ base: isOpen ? "block" : "none", md: "flex" }}
-                w={{ base: "full", md: "auto" }}
+                d={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
+                w={{ base: 'full', md: 'auto' }}
               >
                 {navItemsLeft.map((link, idx) => (
                   <Link
@@ -86,9 +86,9 @@ const Navbar = ({ sx }) => {
                     key={idx}
                     to={link.path}
                     h="16"
-                    d={{ base: "flex", md: "inline-flex" }}
-                    _hover={{ color: { md: "black" } }}
-                    rounded={{ base: "md", md: "none" }}
+                    d={{ base: 'flex', md: 'inline-flex' }}
+                    _hover={{ color: { md: 'black' } }}
+                    rounded={{ base: 'md', md: 'none' }}
                     fontWeight="medium"
                     alignItems="center"
                     px="4"
@@ -102,8 +102,8 @@ const Navbar = ({ sx }) => {
             <Box
               alignItems="stretch"
               h="100%"
-              d={{ base: isOpen ? "block" : "none", md: "flex" }}
-              w={{ base: "full", md: "auto" }}
+              d={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
+              w={{ base: 'full', md: 'auto' }}
               ml="auto"
             >
               {navItemsRight.map((link, idx) => (
@@ -112,7 +112,7 @@ const Navbar = ({ sx }) => {
                   key={idx}
                   to={link.path}
                   h="16"
-                  d={{ base: "flex", md: "inline-flex" }}
+                  d={{ base: 'flex', md: 'inline-flex' }}
                   fontWeight="medium"
                   alignItems="center"
                   px="8"
@@ -131,7 +131,7 @@ const Navbar = ({ sx }) => {
         </Container>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
