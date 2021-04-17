@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <Helmet>
-        <title>Gatsby + Node.js (TypeScript) API</title>
+        <title>Scajaquada Corridor Coalition</title>
       </Helmet>
       <Navbar />
       <Flex
