@@ -32,7 +32,7 @@ const Navbar = ({ sx }) => {
     },
     {
       name: 'Subscribe',
-      path: '/subscribe',
+      // path: '/subscribe',
     },
   ]
 
@@ -62,6 +62,7 @@ const Navbar = ({ sx }) => {
                 fontSize="lg"
                 fontWeight="bold"
                 color="white"
+                to="/"
               >
                 Scajaquada Corridor Coalition
               </Link>
@@ -84,7 +85,7 @@ const Navbar = ({ sx }) => {
                   <Link
                     as={GatsbyLink}
                     key={idx}
-                    to={link.path}
+                    to={link.path || '/'}
                     h="16"
                     d={{ base: 'flex', md: 'inline-flex' }}
                     _hover={{ color: { md: 'black' } }}
@@ -110,7 +111,7 @@ const Navbar = ({ sx }) => {
                 <Link
                   as={GatsbyLink}
                   key={idx}
-                  to={link.path}
+                  to={link.path || '/'}
                   h="16"
                   d={{ base: 'flex', md: 'inline-flex' }}
                   fontWeight="medium"
