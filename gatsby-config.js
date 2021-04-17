@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'scc-site',
+    title: 'Scajaquada Corridor Coalition',
+    siteUrl: `https://scc-site.vercel.app`,
   },
   plugins: [
     'gatsby-plugin-image',
