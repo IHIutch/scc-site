@@ -1,30 +1,59 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby + Node.js (TypeScript) API",
+    title: 'scc-site',
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-image',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: "Gatsby + Node.js (TypeScript) API",
-        short_name: "Gatsby + Node.js (TypeScript)",
-        start_url: "/",
-        icon: "src/images/gatsby-icon.png",
+        name: 'Gatsby API',
+        short_name: 'Gatsby',
+        start_url: '/',
+        icon: 'src/images/icon.png',
       },
     },
+    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: "@chakra-ui/gatsby-plugin",
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: './src/images/',
+      },
+      __key: 'images',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: './src/pages/',
+      },
+      __key: 'pages',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: './src/content/',
+      },
+      __key: 'content',
+    },
+    {
+      resolve: '@chakra-ui/gatsby-plugin',
       options: {
         isResettingCSS: true,
         isUsingColorMode: false,
       },
     },
     {
-      resolve: "gatsby-plugin-fathom",
+      resolve: 'gatsby-plugin-fathom',
       options: {
-        siteId: "BFWJFNRB",
+        siteId: 'BFWJFNRB',
       },
     },
   ],
-};
+}
