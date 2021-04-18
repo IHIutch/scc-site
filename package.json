@@ -19,6 +19,7 @@
     "@chakra-ui/react": "^1.5.0",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
+    "@fontsource/vollkorn": "^4.2.2",
     "framer-motion": "^4.1.3",
     "gatsby": "^3.2.1",
     "gatsby-plugin-fathom": "^2.1.0",

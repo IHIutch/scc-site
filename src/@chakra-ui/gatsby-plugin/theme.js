@@ -1,6 +1,12 @@
 import { extendTheme } from '@chakra-ui/react'
+import '@fontsource/vollkorn'
 
 const theme = extendTheme({
+  fonts: {
+    heading: 'Vollkorn',
+    // body: 'Vollkorn',
+    vollkorn: 'Vollkorn',
+  },
   colors: {
     tealGreen: {
       50: '#e2faf8',

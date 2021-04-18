@@ -49,7 +49,7 @@ export default function Post({
                   </Heading>
                 </Box>
                 <Box mt="6">
-                  <Text color="white" fontSize="xl">
+                  <Text color="white" fontSize="xl" fontFamily="vollkorn">
                     {frontmatter.date}
                   </Text>
                 </Box>
