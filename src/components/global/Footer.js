@@ -63,7 +63,7 @@ export default function Footer() {
                     target="_blank"
                   >
                     <div id="mc_embed_signup_scroll">
-                      <div class="mc-field-group">
+                      <div>
                         <FormControl id="mce-EMAIL" color="white">
                           <FormLabel fontFamily="crimson" fontSize="2xl">
                             Subscribe to Our Newsletter
@@ -101,8 +101,7 @@ export default function Footer() {
                         <input
                           type="text"
                           name="b_51f05a4ccef31c3fd7476eb6f_b0bef5e224"
-                          tabindex="-1"
-                          value=""
+                          tabIndex="-1"
                         />
                       </div>
                     </div>
