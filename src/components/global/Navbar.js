@@ -16,6 +16,8 @@ const Navbar = ({ sx }) => {
   const { isOpen, onToggle } = useDisclosure()
 
   const mobileBreakpoint = 'lg'
+  const paypalLink =
+    'https://www.paypal.com/donate?token=DkgMRsVnpMUQ42T7CKVdWWG5gKp5064YsAq524gtOlWqUYKoSWGTZEDCdFyESnyCGB-jzCYWvyRQpIxJ'
 
   const navItemsLeft = [
     // {
@@ -35,7 +37,8 @@ const Navbar = ({ sx }) => {
     },
     {
       name: 'Subscribe',
-      // path: '/subscribe',
+      path: 'http://eepurl.com/gnIkIv',
+      isExternal: true,
     },
   ]
 
@@ -74,12 +77,13 @@ const Navbar = ({ sx }) => {
             <Flex align="center" ml="auto">
               <Button
                 d={{ base: 'flex', [mobileBreakpoint]: 'none' }}
-                to="/donate"
+                href={paypalLink}
+                isExternal
                 px="8"
                 color="tealGreen.700"
                 fontSize="lg"
                 fontWeight="bold"
-                as={GatsbyLink}
+                as={Link}
               >
                 Donate
               </Button>
@@ -140,15 +144,17 @@ const Navbar = ({ sx }) => {
             >
               {navItemsRight.map((link, idx) => (
                 <Link
-                  as={GatsbyLink}
+                  as={link.isExternal ? '' : GatsbyLink}
                   key={idx}
-                  to={link.path || '/'}
+                  to={link.isExternal ? null : link.path || '/'}
+                  href={link.isExternal ? link.path || '/' : null}
                   h="16"
                   d={{ base: 'flex', [mobileBreakpoint]: 'inline-flex' }}
                   fontWeight="medium"
                   alignItems="center"
                   px={{ base: '4', [mobileBreakpoint]: '8' }}
                   mx={{ base: '-4', [mobileBreakpoint]: '0' }}
+                  isExternal={link.isExternal}
                 >
                   {link.name}
                 </Link>
@@ -157,12 +163,13 @@ const Navbar = ({ sx }) => {
             <Button
               d={{ base: 'none', [mobileBreakpoint]: 'flex' }}
               ml="4"
-              to="/donate"
+              href={paypalLink}
+              isExternal
               px="8"
               color="tealGreen.700"
               fontSize="lg"
               fontWeight="bold"
-              as={GatsbyLink}
+              as={Link}
             >
               Donate
             </Button>

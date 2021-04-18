@@ -35,7 +35,10 @@ export default function Footer() {
                 </Link>
               </Box>
               <Box>
-                <Link isExternal href="www.paypal.com">
+                <Link
+                  isExternal
+                  href="https://www.paypal.com/donate?token=DkgMRsVnpMUQ42T7CKVdWWG5gKp5064YsAq524gtOlWqUYKoSWGTZEDCdFyESnyCGB-jzCYWvyRQpIxJ"
+                >
                   Donate
                 </Link>
               </Box>
@@ -50,24 +53,62 @@ export default function Footer() {
               fontSize="2xl"
             >
               <Box>
-                <FormControl id="email" color="white">
-                  <FormLabel fontFamily="crimson" fontSize="2xl">
-                    Subscribe to Our Newsletter
-                  </FormLabel>
-                  <InputGroup size="lg">
-                    <Input borderWidth="2px" />
-                    <InputRightElement w="auto" mr=".25rem">
-                      <Button
-                        color="tealGreen.700"
-                        fontSize="lg"
-                        fontWeight="bold"
-                        onClick={(e) => console.log(e)}
+                {/* <!-- Begin Mailchimp Signup Form --> */}
+                <div id="mc_embed_signup">
+                  <form
+                    action="https://sccoalition.us18.list-manage.com/subscribe/post?u=51f05a4ccef31c3fd7476eb6f&amp;id=b0bef5e224"
+                    method="post"
+                    id="mc-embedded-subscribe-form"
+                    name="mc-embedded-subscribe-form"
+                    target="_blank"
+                  >
+                    <div id="mc_embed_signup_scroll">
+                      <div class="mc-field-group">
+                        <FormControl id="mce-EMAIL" color="white">
+                          <FormLabel fontFamily="crimson" fontSize="2xl">
+                            Subscribe to Our Newsletter
+                          </FormLabel>
+                          <InputGroup size="lg">
+                            <Input borderWidth="2px" name="EMAIL" isRequired />
+                            <InputRightElement w="auto" mr=".25rem">
+                              <Button
+                                type="submit"
+                                color="tealGreen.700"
+                                fontSize="lg"
+                                fontWeight="bold"
+                              >
+                                Subscribe
+                              </Button>
+                            </InputRightElement>
+                          </InputGroup>
+                        </FormControl>
+                      </div>
+                      <div id="mce-responses">
+                        <div
+                          id="mce-error-response"
+                          style={{ display: 'none' }}
+                        ></div>
+                        <div
+                          id="mce-success-response"
+                          style={{ display: 'none' }}
+                        ></div>
+                      </div>
+                      {/* <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--> */}
+                      <div
+                        style={{ position: 'absolute', left: '-5000px' }}
+                        aria-hidden="true"
                       >
-                        Subscribe
-                      </Button>
-                    </InputRightElement>
-                  </InputGroup>
-                </FormControl>
+                        <input
+                          type="text"
+                          name="b_51f05a4ccef31c3fd7476eb6f_b0bef5e224"
+                          tabindex="-1"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                {/* <!--End mc_embed_signup--> */}
               </Box>
               <Flex
                 fontSize="lg"
