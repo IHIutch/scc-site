@@ -15,6 +15,8 @@ import { X, Menu } from 'react-feather'
 const Navbar = ({ sx }) => {
   const { isOpen, onToggle } = useDisclosure()
 
+  const mobileBreakpoint = 'lg'
+
   const navItemsLeft = [
     // {
     //   name: "Reports",
@@ -41,8 +43,8 @@ const Navbar = ({ sx }) => {
     <Box>
       <Box
         as="nav"
-        bg="transparent"
         position="fixed"
+        bg={isOpen ? 'tealGreen.700' : 'transparent'}
         zIndex="1"
         top="0"
         left="0"
@@ -69,21 +71,38 @@ const Navbar = ({ sx }) => {
                 Scajaquada Corridor Coalition
               </Link>
             </Box>
-            <CloseButton
-              ml="auto"
-              d={{ base: 'block', md: 'none' }}
-              color="white"
-              onClick={onToggle}
-            >
-              <Icon as={isOpen ? X : Menu} h="6" w="6" />
-            </CloseButton>
+            <Flex align="center" ml="auto">
+              <Button
+                d={{ base: 'flex', [mobileBreakpoint]: 'none' }}
+                to="/donate"
+                px="8"
+                color="tealGreen.700"
+                fontSize="lg"
+                fontWeight="bold"
+                as={GatsbyLink}
+              >
+                Donate
+              </Button>
+              <CloseButton
+                ml="4"
+                size="lg"
+                d={{ base: 'block', [mobileBreakpoint]: 'none' }}
+                color="white"
+                onClick={onToggle}
+              >
+                <Icon as={isOpen ? X : Menu} boxSize="8" />
+              </CloseButton>
+            </Flex>
             {navItemsLeft && navItemsLeft.length > 0 && (
               <Box
                 ml="12"
                 alignItems="stretch"
                 h="100%"
-                d={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
-                w={{ base: 'full', md: 'auto' }}
+                d={{
+                  base: isOpen ? 'block' : 'none',
+                  [mobileBreakpoint]: 'flex',
+                }}
+                w={{ base: 'full', [mobileBreakpoint]: 'auto' }}
               >
                 {navItemsLeft.map((link, idx) => (
                   <Link
@@ -91,13 +110,13 @@ const Navbar = ({ sx }) => {
                     key={idx}
                     to={link.path || '/'}
                     h="16"
-                    d={{ base: 'flex', md: 'inline-flex' }}
-                    _hover={{ color: { md: 'black' } }}
-                    rounded={{ base: 'md', md: 'none' }}
+                    d={{ base: 'flex', [mobileBreakpoint]: 'inline-flex' }}
+                    _hover={{ color: { [mobileBreakpoint]: 'black' } }}
+                    rounded={{ base: 'md', [mobileBreakpoint]: 'none' }}
                     fontWeight="medium"
                     fontFamily="crimson"
                     alignItems="center"
-                    px="4"
+                    px={{ [mobileBreakpoint]: '8' }}
                     colorScheme="white"
                   >
                     {link.name}
@@ -108,8 +127,11 @@ const Navbar = ({ sx }) => {
             <Box
               alignItems="stretch"
               h="100%"
-              d={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
-              w={{ base: 'full', md: 'auto' }}
+              d={{
+                base: isOpen ? 'block' : 'none',
+                [mobileBreakpoint]: 'flex',
+              }}
+              w={{ base: 'full', [mobileBreakpoint]: 'auto' }}
               ml="auto"
               fontFamily="crimson"
               color="white"
@@ -122,27 +144,28 @@ const Navbar = ({ sx }) => {
                   key={idx}
                   to={link.path || '/'}
                   h="16"
-                  d={{ base: 'flex', md: 'inline-flex' }}
+                  d={{ base: 'flex', [mobileBreakpoint]: 'inline-flex' }}
                   fontWeight="medium"
                   alignItems="center"
-                  px="8"
+                  px={{ base: '4', [mobileBreakpoint]: '8' }}
+                  mx={{ base: '-4', [mobileBreakpoint]: '0' }}
                 >
                   {link.name}
                 </Link>
               ))}
             </Box>
-            <Flex align="center" ml="4">
-              <Button
-                to="/donate"
-                px="8"
-                color="tealGreen.700"
-                fontSize="lg"
-                fontWeight="bold"
-                as={GatsbyLink}
-              >
-                Donate
-              </Button>
-            </Flex>
+            <Button
+              d={{ base: 'none', [mobileBreakpoint]: 'flex' }}
+              ml="4"
+              to="/donate"
+              px="8"
+              color="tealGreen.700"
+              fontSize="lg"
+              fontWeight="bold"
+              as={GatsbyLink}
+            >
+              Donate
+            </Button>
           </Flex>
         </Container>
       </Box>
