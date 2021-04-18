@@ -1,11 +1,18 @@
 import { extendTheme } from '@chakra-ui/react'
-import '@fontsource/vollkorn'
+
+import '@fontsource/crimson-pro/400.css'
+import '@fontsource/crimson-pro/500.css'
+import '@fontsource/crimson-pro/600.css'
+import '@fontsource/crimson-pro/700.css'
+import '@fontsource/crimson-pro/800.css'
 
 const theme = extendTheme({
   fonts: {
-    heading: 'Vollkorn',
+    heading: 'Crimson Pro',
     // body: 'Vollkorn',
     vollkorn: 'Vollkorn',
+    domine: 'Domine',
+    crimson: 'Crimson Pro',
   },
   colors: {
     tealGreen: {

@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import Container from '../../components/common/Container'
 import { Link as GatsbyLink } from 'gatsby'
+import { X, Menu } from 'react-feather'
 
 const Navbar = ({ sx }) => {
   const { isOpen, onToggle } = useDisclosure()
@@ -46,6 +47,7 @@ const Navbar = ({ sx }) => {
         top="0"
         left="0"
         right="0"
+        fontFamily="crimson"
         sx={sx}
       >
         <Container>
@@ -59,7 +61,7 @@ const Navbar = ({ sx }) => {
                 mx="-4"
                 h="16"
                 _hover=""
-                fontSize="lg"
+                fontSize="2xl"
                 fontWeight="bold"
                 color="white"
                 to="/"
@@ -70,9 +72,10 @@ const Navbar = ({ sx }) => {
             <CloseButton
               ml="auto"
               d={{ base: 'block', md: 'none' }}
+              color="white"
               onClick={onToggle}
             >
-              {/* <Icon as={isOpen ? X : Menu} h="6" w="6" /> */}
+              <Icon as={isOpen ? X : Menu} h="6" w="6" />
             </CloseButton>
             {navItemsLeft && navItemsLeft.length > 0 && (
               <Box
@@ -91,6 +94,7 @@ const Navbar = ({ sx }) => {
                     _hover={{ color: { md: 'black' } }}
                     rounded={{ base: 'md', md: 'none' }}
                     fontWeight="medium"
+                    fontFamily="crimson"
                     alignItems="center"
                     px="4"
                     colorScheme="white"
@@ -106,6 +110,10 @@ const Navbar = ({ sx }) => {
               d={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
               w={{ base: 'full', md: 'auto' }}
               ml="auto"
+              fontFamily="crimson"
+              color="white"
+              fontSize="xl"
+              fontWeight="bold"
             >
               {navItemsRight.map((link, idx) => (
                 <Link
@@ -117,14 +125,20 @@ const Navbar = ({ sx }) => {
                   fontWeight="medium"
                   alignItems="center"
                   px="8"
-                  color="white"
                 >
                   {link.name}
                 </Link>
               ))}
             </Box>
             <Flex align="center" ml="4">
-              <Button to="/donate" px="8" as={GatsbyLink}>
+              <Button
+                to="/donate"
+                px="8"
+                color="tealGreen.700"
+                fontSize="lg"
+                fontWeight="bold"
+                as={GatsbyLink}
+              >
                 Donate
               </Button>
             </Flex>
