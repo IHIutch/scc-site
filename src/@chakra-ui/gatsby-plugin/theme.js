@@ -47,6 +47,10 @@ const theme = extendTheme({
         '* + p': {
           mt: '12',
         },
+        a: {
+          fontWeight: 'bold',
+          textDecoration: 'underline',
+        },
       },
     },
   },
