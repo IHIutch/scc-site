@@ -66,7 +66,7 @@ export default function Home() {
         </Flex>
         <Container>
           <Grid py="32" templateColumns="repeat(12, 1fr)" gap="6">
-            <GridItem colStart="3" colSpan="8">
+            <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box>
                 <Text fontSize="2xl" lineHeight="2" color="tealGreen.700">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

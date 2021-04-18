@@ -41,7 +41,7 @@ export default function Footer() {
               </Box>
             </Stack>
           </GridItem>
-          <GridItem colSpan={{ base: '12', lg: '6' }}>
+          <GridItem colSpan={{ base: '12', md: '9', lg: '6' }}>
             <Stack
               direction="column"
               spacing="10"
@@ -59,6 +59,7 @@ export default function Footer() {
                     <InputRightElement w="auto" mr=".25rem">
                       <Button
                         color="tealGreen.700"
+                        fontSize="lg"
                         fontWeight="bold"
                         onClick={(e) => console.log(e)}
                       >
