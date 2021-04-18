@@ -52,7 +52,7 @@ const Navbar = ({ sx }) => {
       >
         <Container>
           <Flex wrap="wrap" align="center">
-            <Box mr="12">
+            <Box>
               <Link
                 as={GatsbyLink}
                 d="flex"
@@ -79,6 +79,7 @@ const Navbar = ({ sx }) => {
             </CloseButton>
             {navItemsLeft && navItemsLeft.length > 0 && (
               <Box
+                ml="12"
                 alignItems="stretch"
                 h="100%"
                 d={{ base: isOpen ? 'block' : 'none', md: 'flex' }}

@@ -16,7 +16,7 @@ export default function Home() {
       <main>
         <Flex
           w="100%"
-          h="100vh"
+          h="75vh"
           bg="tealGreen.700"
           position="relative"
           _before={{
@@ -38,14 +38,22 @@ export default function Home() {
           <Box mt="auto" w="100%" mb="12" position="relative">
             <Container>
               <Grid py="6" templateColumns="repeat(12, 1fr)" gap="6">
-                <GridItem colStart="3" colSpan="8">
+                <GridItem
+                  colStart={{ lg: '2', xl: '3' }}
+                  colSpan={{ base: '12', lg: '10', xl: '8' }}
+                >
                   <Box borderBottomWidth="1px" borderColor="white">
-                    <Heading size="xl" mb="8" color="white">
+                    <Heading size="3xl" mb="8" color="white" lineHeight="1.125">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </Heading>
                   </Box>
                   <Box mt="6">
-                    <Text color="white" fontSize="xl">
+                    <Text
+                      color="white"
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontFamily="crimson"
+                      lineHeight="1.25"
+                    >
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua.

@@ -1,12 +1,10 @@
 import React from 'react'
 import {
   Box,
-  Flex,
   Grid,
   GridItem,
   Heading,
   Text,
-  Link,
   AspectRatio,
   LinkBox,
   LinkOverlay,
@@ -30,17 +28,25 @@ export default function Blog({ data }) {
       </Helmet>
       <Navbar />
       <main>
-        <Box bg="tealGreen.700" pt="24">
+        <Box bg="tealGreen.700" pt="32">
           <Container>
-            <Grid py="6" templateColumns="repeat(12, 1fr)">
-              <GridItem colStart="3" colSpan="8">
+            <Grid pb="20" templateColumns="repeat(12, 1fr)">
+              <GridItem
+                colStart={{ lg: '2', xl: '3' }}
+                colSpan={{ base: '12', lg: '10', xl: '8' }}
+              >
                 <Box borderBottomWidth="1px" borderColor="white">
-                  <Heading size="xl" mb="8" color="white">
+                  <Heading size="3xl" mb="8" color="white" lineHeight="1.125">
                     Blog
                   </Heading>
                 </Box>
                 <Box mt="6">
-                  <Text color="white" fontSize="xl">
+                  <Text
+                    color="white"
+                    fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                    fontFamily="crimson"
+                    lineHeight="1.25"
+                  >
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua.
@@ -52,12 +58,15 @@ export default function Blog({ data }) {
         </Box>
         <Container>
           <Grid py="6" templateColumns="repeat(12, 1fr)">
-            <GridItem colStart="3" colSpan="8">
+            <GridItem
+              colStart={{ lg: '2', xl: '3' }}
+              colSpan={{ base: '12', lg: '10', xl: '8' }}
+            >
               <Grid py="32" templateColumns="repeat(12, 1fr)" gap="6">
                 {nodes &&
                   nodes.length > 0 &&
                   nodes.map((post) => (
-                    <GridItem key={post.id} colSpan="6">
+                    <GridItem key={post.id} colSpan={{ base: '12', md: '6' }}>
                       <LinkBox>
                         <AspectRatio ratio={16 / 9} mb="4">
                           <Box h="100%" w="100%">

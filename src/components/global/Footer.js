@@ -13,7 +13,10 @@ export default function Footer() {
     <Box as="footer" bg="tealGreen.700" py="24">
       <Container>
         <Grid templateColumns="repeat(12, 1fr)" gap="6">
-          <GridItem colSpan="6">
+          <GridItem
+            d={{ base: 'none', lg: 'block' }}
+            colSpan={{ base: '12', lg: '6' }}
+          >
             <Stack
               direction="column"
               spacing="6"
@@ -38,7 +41,7 @@ export default function Footer() {
               </Box>
             </Stack>
           </GridItem>
-          <GridItem colSpan="6">
+          <GridItem colSpan={{ base: '12', lg: '6' }}>
             <Stack
               direction="column"
               spacing="10"

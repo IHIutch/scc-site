@@ -12,7 +12,7 @@ const Container = ({ sx, children }) => {
   ]
 
   return (
-    <Box sx={sx} maxWidth={containerWidths} mx="auto">
+    <Box sx={sx} maxWidth={containerWidths} mx="auto" px="6">
       {children}
     </Box>
   )
