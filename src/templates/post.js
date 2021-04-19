@@ -21,7 +21,7 @@ export default function Post({
       </Helmet>
       <Navbar />
       <main>
-        <Flex w="100%" h="75vh" position="relative">
+        <Flex w="100%" minH={{ base: '90vh', lg: '75vh' }} position="relative">
           <Box
             position="absolute"
             top="0"
@@ -112,7 +112,7 @@ export const pageQuery = graphql`
         meta
         featuredImage {
           childImageSharp {
-            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
           }
         }
       }

@@ -7,6 +7,7 @@ import {
   CloseButton,
   Icon,
   Button,
+  Text,
 } from '@chakra-ui/react'
 import Container from '../../components/common/Container'
 import { Link as GatsbyLink } from 'gatsby'
@@ -71,7 +72,12 @@ const Navbar = ({ sx }) => {
                 color="white"
                 to="/"
               >
-                Scajaquada Corridor Coalition
+                <Text as="span" d={{ base: 'none', md: 'inline' }}>
+                  Scajaquada Corridor Coalition
+                </Text>
+                <Text as="span" d={{ base: 'flex', md: 'none' }}>
+                  SCC
+                </Text>
               </Link>
             </Box>
             <Flex align="center" ml="auto">

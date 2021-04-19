@@ -16,7 +16,7 @@ export default function Home() {
       <main>
         <Flex
           w="100%"
-          h="75vh"
+          minH={{ base: '90vh', lg: '75vh' }}
           bg="tealGreen.700"
           position="relative"
           _before={{
