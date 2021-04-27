@@ -11,6 +11,7 @@ const SEO = ({ post }) => {
           titleTemplate
           description
           siteUrl
+          image
         }
       }
     }
@@ -30,7 +31,9 @@ const SEO = ({ post }) => {
   const title = post.title || defaults.title
   const description = post.description || defaults.description
   const url = new URL(post.path || '', defaults.siteUrl)
-  const image = post.image ? new URL(post.image, defaults.siteUrl) : false
+  const image = post.image
+    ? new URL(post.image, defaults.siteUrl)
+    : new URL(defaults.image, defaults.siteUrl)
 
   return (
     <Helmet

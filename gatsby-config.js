@@ -5,6 +5,7 @@ module.exports = {
     titleTemplate: '%s · Parks Not Highways',
     description:
       'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
+    image: 'images/meta-image.jpg',
   },
   plugins: [
     'gatsby-plugin-image',
