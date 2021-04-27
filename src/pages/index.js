@@ -5,6 +5,11 @@ import Container from '../components/common/Container'
 import Navbar from '../components/global/Navbar'
 import bgImage from '../images/delaware_full1.webp'
 import Footer from '../components/global/Footer'
+import { StaticImage } from 'gatsby-plugin-image'
+import aRender from '../assets/images/web/a_render.jpg'
+import bRender from '../assets/images/web/b_render.jpg'
+import cRender from '../assets/images/web/c_render.jpg'
+import dRender from '../assets/images/web/d_render.jpg'
 
 export default function Home() {
   return (
@@ -65,10 +70,18 @@ export default function Home() {
           </Box>
         </Flex>
         <Container>
-          <Grid py="32" templateColumns="repeat(12, 1fr)" gap="6">
+          <Grid
+            py={{ base: '16', lg: '32' }}
+            templateColumns="repeat(12, 1fr)"
+            gap="6"
+          >
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box>
-                <Text fontSize="2xl" lineHeight="2" color="tealGreen.700">
+                <Text
+                  fontSize={{ base: 'xl', lg: '2xl' }}
+                  lineHeight="2"
+                  color="tealGreen.700"
+                >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -81,6 +94,106 @@ export default function Home() {
               </Box>
             </GridItem>
           </Grid>
+          <Box>
+            <StaticImage
+              src="../assets/images/web/a_render.jpg"
+              alt=""
+              placeholder="blurred"
+            />
+          </Box>
+          <Grid
+            py={{ base: '16', lg: '32' }}
+            templateColumns="repeat(12, 1fr)"
+            gap="6"
+          >
+            <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
+              <Box>
+                <Text
+                  fontSize={{ base: 'xl', lg: '2xl' }}
+                  lineHeight="2"
+                  color="tealGreen.700"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </Text>
+              </Box>
+            </GridItem>
+          </Grid>
+          <Box>
+            <StaticImage
+              src="../assets/images/web/b_render.jpg"
+              alt=""
+              placeholder="blurred"
+            />
+          </Box>
+          <Grid
+            py={{ base: '16', lg: '32' }}
+            templateColumns="repeat(12, 1fr)"
+            gap="6"
+          >
+            <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
+              <Box>
+                <Text
+                  fontSize={{ base: 'xl', lg: '2xl' }}
+                  lineHeight="2"
+                  color="tealGreen.700"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </Text>
+              </Box>
+            </GridItem>
+          </Grid>
+          <Box>
+            <StaticImage
+              src="../assets/images/web/c_render.jpg"
+              alt=""
+              placeholder="blurred"
+            />
+          </Box>
+          <Grid
+            py={{ base: '16', lg: '32' }}
+            templateColumns="repeat(12, 1fr)"
+            gap="6"
+          >
+            <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
+              <Box>
+                <Text
+                  fontSize={{ base: 'xl', lg: '2xl' }}
+                  lineHeight="2"
+                  color="tealGreen.700"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
+                </Text>
+              </Box>
+            </GridItem>
+          </Grid>
+          <Box mb="32">
+            <StaticImage
+              src="../assets/images/web/d_render.jpg"
+              alt=""
+              placeholder="blurred"
+            />
+          </Box>
         </Container>
       </main>
       <Footer />

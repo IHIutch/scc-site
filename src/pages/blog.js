@@ -159,7 +159,7 @@ export const pageQuery = graphql`
               gatsbyImageData(
                 width: 400
                 placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
+                formats: [AUTO, WEBP]
               )
             }
           }
