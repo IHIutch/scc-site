@@ -35,7 +35,7 @@ const SEO = ({ post }) => {
   return (
     <Helmet
       title={title}
-      titleTemplate={!post.isHome && defaults.titleTemplate}
+      titleTemplate={!post.isHome ? defaults.titleTemplate : '%s'}
     >
       <link rel="canonical" href={url} />
       <meta name="description" content={description} />
