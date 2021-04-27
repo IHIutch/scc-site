@@ -6,10 +6,6 @@ import Navbar from '../components/global/Navbar'
 import bgImage from '../images/delaware_full1.webp'
 import Footer from '../components/global/Footer'
 import { StaticImage } from 'gatsby-plugin-image'
-import aRender from '../assets/images/web/a_render.jpg'
-import bRender from '../assets/images/web/b_render.jpg'
-import cRender from '../assets/images/web/c_render.jpg'
-import dRender from '../assets/images/web/d_render.jpg'
 
 export default function Home() {
   return (
@@ -48,20 +44,25 @@ export default function Home() {
                   colSpan={{ base: '12', lg: '10', xl: '8' }}
                 >
                   <Box borderBottomWidth="1px" borderColor="white">
-                    <Heading size="3xl" mb="8" color="white" lineHeight="1.125">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    <Heading
+                      fontSize={{ base: '6xl', lg: '5xl' }}
+                      mb="8"
+                      color="white"
+                      lineHeight="1.125"
+                    >
+                      A Once-In-A-Lifetime Opportunity: Remove Our Urban Highway
+                      System
                     </Heading>
                   </Box>
                   <Box mt="6">
                     <Text
                       color="white"
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontSize="3xl"
                       fontFamily="crimson"
                       lineHeight="1.25"
                     >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
+                      Our community vision for a revitalized Scajaquada Creek, a
+                      connected Delaware Park, and a restored Humboldt Parkway.
                     </Text>
                   </Box>
                 </GridItem>
