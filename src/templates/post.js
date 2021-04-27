@@ -6,6 +6,7 @@ import Navbar from '../components/global/Navbar'
 import Container from '../components/common/Container'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Footer from '../components/global/Footer'
+import { useInView } from 'react-intersection-observer'
 
 export default function Post({
   data, // this prop will be injected by the GraphQL query below.
@@ -14,14 +15,23 @@ export default function Post({
   const { frontmatter, html } = markdownRemark
   const featuredImg = getImage(frontmatter.featuredImage)
 
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  })
+
   return (
     <>
       <Helmet>
         <title>{frontmatter.title}</title>
       </Helmet>
-      <Navbar />
+      <Navbar isHeroInView={inView} />
       <main>
-        <Flex w="100%" minH={{ base: '90vh', lg: '75vh' }} position="relative">
+        <Flex
+          w="100%"
+          minH={{ base: '90vh', lg: '75vh' }}
+          position="relative"
+          ref={ref}
+        >
           <Box
             position="absolute"
             top="0"

@@ -6,16 +6,22 @@ import Navbar from '../components/global/Navbar'
 import bgImage from '../images/delaware_full1.webp'
 import Footer from '../components/global/Footer'
 import { StaticImage } from 'gatsby-plugin-image'
+import { useInView } from 'react-intersection-observer'
 
 export default function Home() {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  })
+
   return (
     <>
       <Helmet>
         <title>Scajaquada Corridor Coalition</title>
       </Helmet>
-      <Navbar />
+      <Navbar isHeroInView={inView} />
       <main>
         <Flex
+          ref={ref}
           w="100%"
           minH={{ base: '90vh', lg: '75vh' }}
           bg="tealGreen.700"
@@ -45,7 +51,7 @@ export default function Home() {
                 >
                   <Box borderBottomWidth="1px" borderColor="white">
                     <Heading
-                      fontSize={{ base: '6xl', lg: '5xl' }}
+                      fontSize={{ base: '4xl', lg: '5xl' }}
                       mb="8"
                       color="white"
                       lineHeight="1.125"

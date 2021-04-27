@@ -17,19 +17,23 @@ import { graphql } from 'gatsby'
 import GatsbyLink from 'gatsby-link'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Footer from '../components/global/Footer'
+import { useInView } from 'react-intersection-observer'
 
 export default function Blog({ data }) {
   const { allMarkdownRemark } = data
   const { nodes } = allMarkdownRemark
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  })
 
   return (
     <>
       <Helmet>
         <title>Scajaquada Corridor Coalition</title>
       </Helmet>
-      <Navbar />
+      <Navbar isHeroInView={inView} />
       <main>
-        <Box bg="tealGreen.700" pt="32">
+        <Box bg="tealGreen.700" pt="32" ref={ref}>
           <Container>
             <Grid pb="20" templateColumns="repeat(12, 1fr)">
               <GridItem

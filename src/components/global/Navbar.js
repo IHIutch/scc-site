@@ -13,7 +13,7 @@ import Container from '../../components/common/Container'
 import { Link as GatsbyLink } from 'gatsby'
 import { X, Menu } from 'react-feather'
 
-const Navbar = ({ sx }) => {
+const Navbar = ({ sx, isHeroInView }) => {
   const { isOpen, onToggle } = useDisclosure()
 
   const mobileBreakpoint = 'lg'
@@ -48,7 +48,8 @@ const Navbar = ({ sx }) => {
       <Box
         as="nav"
         position="fixed"
-        bg={isOpen ? 'tealGreen.700' : 'transparent'}
+        transition="0.2s ease background-color"
+        bg={!isHeroInView || isOpen ? 'tealGreen.700' : 'transparent'}
         zIndex="1"
         top="0"
         left="0"
