@@ -1,7 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: 'Scajaquada Corridor Coalition',
-    siteUrl: `https://scc-site.vercel.app`,
+    title: 'Parks Not Highways',
+    siteUrl: `https://parksnothighways.com`,
+    titleTemplate: '%s · Parks Not Highways',
+    description:
+      'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
   },
   plugins: [
     'gatsby-plugin-image',

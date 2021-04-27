@@ -1,12 +1,12 @@
 import React from 'react'
 import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
-import { Helmet } from 'react-helmet'
 import Container from '../components/common/Container'
 import Navbar from '../components/global/Navbar'
 import bgImage from '../images/delaware_full1.webp'
 import Footer from '../components/global/Footer'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useInView } from 'react-intersection-observer'
+import SEO from '../components/common/SEO'
 
 export default function Home() {
   const { ref, inView } = useInView({
@@ -15,9 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>Scajaquada Corridor Coalition</title>
-      </Helmet>
+      <SEO post={{ isHome: true }} />
       <Navbar isHeroInView={inView} />
       <main>
         <Flex

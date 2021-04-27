@@ -10,7 +10,6 @@ import {
   LinkOverlay,
   Flex,
 } from '@chakra-ui/react'
-import { Helmet } from 'react-helmet'
 import Container from '../components/common/Container'
 import Navbar from '../components/global/Navbar'
 import { graphql } from 'gatsby'
@@ -18,6 +17,7 @@ import GatsbyLink from 'gatsby-link'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Footer from '../components/global/Footer'
 import { useInView } from 'react-intersection-observer'
+import SEO from '../components/common/SEO'
 
 export default function Blog({ data }) {
   const { allMarkdownRemark } = data
@@ -28,9 +28,7 @@ export default function Blog({ data }) {
 
   return (
     <>
-      <Helmet>
-        <title>Scajaquada Corridor Coalition</title>
-      </Helmet>
+      <SEO post={{ title: 'Blog' }} />
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>

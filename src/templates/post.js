@@ -1,5 +1,4 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
 import { graphql } from 'gatsby'
 import Navbar from '../components/global/Navbar'
@@ -7,6 +6,7 @@ import Container from '../components/common/Container'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Footer from '../components/global/Footer'
 import { useInView } from 'react-intersection-observer'
+import SEO from '../components/common/SEO'
 
 export default function Post({
   data, // this prop will be injected by the GraphQL query below.
@@ -21,9 +21,7 @@ export default function Post({
 
   return (
     <>
-      <Helmet>
-        <title>{frontmatter.title}</title>
-      </Helmet>
+      <SEO post={{ title: frontmatter.title }} />
       <Navbar isHeroInView={inView} />
       <main>
         <Flex
