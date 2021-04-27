@@ -28,7 +28,13 @@ export default function Blog({ data }) {
 
   return (
     <>
-      <SEO post={{ title: 'Blog' }} />
+      <SEO
+        post={{
+          title: 'Blog',
+          description:
+            'Stay up to date on the latest updates of our mission: Creating a better Buffalo through community collaboration and strategic thinking.',
+        }}
+      />
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>
@@ -39,20 +45,25 @@ export default function Blog({ data }) {
                 colSpan={{ base: '12', lg: '10', xl: '8' }}
               >
                 <Box borderBottomWidth="1px" borderColor="white">
-                  <Heading size="3xl" mb="8" color="white" lineHeight="1.125">
+                  <Heading
+                    fontSize={{ base: '4xl', lg: '5xl' }}
+                    mb="8"
+                    color="white"
+                    lineHeight="1.125"
+                  >
                     Blog
                   </Heading>
                 </Box>
                 <Box mt="6">
                   <Text
                     color="white"
-                    fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                    fontSize="3xl"
                     fontFamily="crimson"
                     lineHeight="1.25"
                   >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    Stay up to date on the latest updates of our mission:
+                    Creating a better Buffalo through community collaboration
+                    and strategic thinking.
                   </Text>
                 </Box>
               </GridItem>

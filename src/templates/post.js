@@ -21,7 +21,7 @@ export default function Post({
 
   return (
     <>
-      <SEO post={{ title: frontmatter.title }} />
+      <SEO post={{ title: frontmatter.title, description: frontmatter.lead }} />
       <Navbar isHeroInView={inView} />
       <main>
         <Flex
