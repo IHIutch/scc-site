@@ -1,5 +1,13 @@
 import React from 'react'
-import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+  Link,
+} from '@chakra-ui/react'
 import Container from '../components/common/Container'
 import Navbar from '../components/global/Navbar'
 import bgImage from '../images/delaware_full1.webp'
@@ -7,8 +15,12 @@ import Footer from '../components/global/Footer'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useInView } from 'react-intersection-observer'
 import SEO from '../components/common/SEO'
+import { graphql, Link as GatsbyLink } from 'gatsby'
+import PostCard from '../components/PostCard'
 
-export default function Home() {
+export default function Home({ data }) {
+  const { allMarkdownRemark } = data
+  const { nodes } = allMarkdownRemark
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
@@ -99,13 +111,13 @@ export default function Home() {
               </Box>
             </GridItem>
           </Grid>
-          <Box>
+          <Flex borderWidth="2px" borderColor="tealGreen.700">
             <StaticImage
               src="../assets/images/web/a_render.jpg"
               alt=""
               placeholder="blurred"
             />
-          </Box>
+          </Flex>
           <Grid
             py={{ base: '16', lg: '32' }}
             templateColumns="repeat(12, 1fr)"
@@ -130,13 +142,13 @@ export default function Home() {
               </Box>
             </GridItem>
           </Grid>
-          <Box>
+          <Flex borderWidth="2px" borderColor="tealGreen.700">
             <StaticImage
               src="../assets/images/web/b_render.jpg"
               alt=""
               placeholder="blurred"
             />
-          </Box>
+          </Flex>
           <Grid
             py={{ base: '16', lg: '32' }}
             templateColumns="repeat(12, 1fr)"
@@ -161,13 +173,13 @@ export default function Home() {
               </Box>
             </GridItem>
           </Grid>
-          <Box>
+          <Flex borderWidth="2px" borderColor="tealGreen.700">
             <StaticImage
               src="../assets/images/web/c_render.jpg"
               alt=""
               placeholder="blurred"
             />
-          </Box>
+          </Flex>
           <Grid
             py={{ base: '16', lg: '32' }}
             templateColumns="repeat(12, 1fr)"
@@ -192,12 +204,39 @@ export default function Home() {
               </Box>
             </GridItem>
           </Grid>
-          <Box mb="32">
+          <Flex borderWidth="2px" borderColor="tealGreen.700">
             <StaticImage
               src="../assets/images/web/d_render.jpg"
               alt=""
               placeholder="blurred"
             />
+          </Flex>
+          <Box py="16" mt="16" borderTopWidth="2px" borderColor="tealGreen.700">
+            <Flex alignItems="baseline">
+              <Heading mb="8" color="tealGreen.700">
+                Get the Latest
+              </Heading>
+              <Link
+                as={GatsbyLink}
+                d="flex"
+                textDecoration="underline"
+                fontWeight="semibold"
+                color="tealGreen.700"
+                ml="4"
+                to="/blog"
+              >
+                See All our Posts →
+              </Link>
+            </Flex>
+            <Grid templateColumns="repeat(12, 1fr)" gap="6">
+              {nodes &&
+                nodes.length > 0 &&
+                nodes.map((post) => (
+                  <GridItem key={post.id} colSpan={{ base: '12', lg: '4' }}>
+                    <PostCard post={post} />
+                  </GridItem>
+                ))}
+            </Grid>
           </Box>
         </Container>
       </main>
@@ -205,3 +244,29 @@ export default function Home() {
     </>
   )
 }
+
+export const pageQuery = graphql`
+  query LatestPosts {
+    allMarkdownRemark(limit: 3) {
+      nodes {
+        id
+        excerpt
+        timeToRead
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          slug
+          featuredImage {
+            childImageSharp {
+              gatsbyImageData(
+                width: 400
+                placeholder: BLURRED
+                formats: [AUTO, WEBP]
+              )
+            }
+          }
+        }
+      }
+    }
+  }
+`
