@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Parks Not Highways',
-    siteUrl: `https://parksnothighways.com`,
-    titleTemplate: '%s · Parks Not Highways',
+    title: 'Scajaquada Corridor Coalition',
+    siteUrl: `https://sccoalition.net`,
+    titleTemplate: '%s · Scajaquada Corridor Coalition',
     description:
       'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
     image: 'images/meta-image.jpg',
