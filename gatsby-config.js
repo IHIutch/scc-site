@@ -75,7 +75,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-fathom',
       options: {
-        siteId: 'UPIBJBWW',
+        siteId: 'BFWJFNRB',
       },
     },
   ],
