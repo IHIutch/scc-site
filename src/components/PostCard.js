@@ -51,7 +51,8 @@ export default function PostCard({ post }) {
           </Box>
         </Box>
         <Flex
-          borderTop="2px"
+          borderTopWidth="2px"
+          borderTopColor="tealGreen.700"
           justify="space-between"
           align="center"
           px="4"
