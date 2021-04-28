@@ -2,13 +2,28 @@ import { Button } from '@chakra-ui/button'
 import { FormControl, FormLabel } from '@chakra-ui/form-control'
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
 import { Box, Flex, Grid, GridItem, Link, Stack, Text } from '@chakra-ui/layout'
-import { Link as GatsbyLink } from 'gatsby'
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby'
 import React from 'react'
 import Container from '../common/Container'
-import { Facebook, Instagram } from 'react-feather'
+import { Facebook, Twitter } from 'react-feather'
 import Icon from '@chakra-ui/icon'
 
 export default function Footer() {
+  const {
+    site: {
+      siteMetadata: { twitterUrl, facebookUrl },
+    },
+  } = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          twitterUrl
+          facebookUrl
+        }
+      }
+    }
+  `)
+
   return (
     <Box as="footer" bg="tealGreen.700" py="24">
       <Container>
@@ -116,24 +131,19 @@ export default function Footer() {
                 fontWeight="semibold"
                 textTransform="uppercase"
               >
-                <Flex
-                  as={Link}
-                  href="https://www.facebook.com"
-                  align="center"
-                  isExternal
-                >
+                <Flex as={Link} href={facebookUrl} align="center" isExternal>
                   <Icon boxSize="6" as={Facebook} />
                   <Text ml="2">Facebook</Text>
                 </Flex>
                 <Flex
                   as={Link}
-                  href="https://www.instagram.com"
+                  href={twitterUrl}
                   ml="12"
                   align="center"
                   isExternal
                 >
-                  <Icon boxSize="6" as={Instagram} />
-                  <Text ml="2">Instagram</Text>
+                  <Icon boxSize="6" as={Twitter} />
+                  <Text ml="2">Twitter</Text>
                 </Flex>
               </Flex>
             </Stack>

@@ -1,5 +1,13 @@
 import React from 'react'
-import { Box, Flex, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Link,
+  Text,
+} from '@chakra-ui/react'
 import { graphql } from 'gatsby'
 import Navbar from '../components/global/Navbar'
 import Container from '../components/common/Container'
@@ -8,10 +16,13 @@ import Footer from '../components/global/Footer'
 import { useInView } from 'react-intersection-observer'
 import SEO from '../components/common/SEO'
 
-export default function Post({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+export default function Post({ data }) {
+  const {
+    markdownRemark,
+    site: {
+      siteMetadata: { twitterUrl, facebookUrl },
+    },
+  } = data
   const { frontmatter, html } = markdownRemark
   const featuredImg = getImage(frontmatter.featuredImage)
 
@@ -101,6 +112,35 @@ export default function Post({
                 className="post-content"
                 dangerouslySetInnerHTML={{ __html: html }}
               ></div>
+              <Box
+                borderTopWidth="2px"
+                borderTopColor="tealGreen.800"
+                mt="24"
+                pt="12"
+              >
+                <Text fontFamily="crimson" fontSize="3xl" color="tealGreen.700">
+                  Support the removal of the Scajaquada Expressway by following
+                  us on{' '}
+                  <Link
+                    href={twitterUrl}
+                    fontWeight="bold"
+                    textDecoration="underline"
+                    isExternal
+                  >
+                    Twitter
+                  </Link>{' '}
+                  and{' '}
+                  <Link
+                    href={facebookUrl}
+                    fontWeight="bold"
+                    textDecoration="underline"
+                    isExternal
+                  >
+                    Facebook
+                  </Link>
+                  .
+                </Text>
+              </Box>
             </GridItem>
           </Grid>
         </Container>
@@ -112,6 +152,12 @@ export default function Post({
 
 export const pageQuery = graphql`
   query($slug: String!) {
+    site {
+      siteMetadata {
+        twitterUrl
+        facebookUrl
+      }
+    }
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
