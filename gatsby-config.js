@@ -72,11 +72,5 @@ module.exports = {
         isUsingColorMode: false,
       },
     },
-    {
-      resolve: 'gatsby-plugin-fathom',
-      options: {
-        siteId: 'BFWJFNRB',
-      },
-    },
   ],
 }
