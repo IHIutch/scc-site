@@ -84,7 +84,7 @@ const theme = extendTheme({
           fontFamily: 'crimson',
           color: 'tealGreen.800',
           my: '16',
-          lineHeight: '1.6',
+          lineHeight: '1.4',
         },
         hr: {
           my: '12',
