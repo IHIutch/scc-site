@@ -85,7 +85,7 @@ export default function Blog({ data }) {
 
 export const pageQuery = graphql`
   query AllPosts {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         id
         excerpt

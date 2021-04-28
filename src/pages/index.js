@@ -247,7 +247,10 @@ export default function Home({ data }) {
 
 export const pageQuery = graphql`
   query LatestPosts {
-    allMarkdownRemark(limit: 3) {
+    allMarkdownRemark(
+      limit: 3
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       nodes {
         id
         excerpt
