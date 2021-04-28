@@ -56,7 +56,7 @@ export default function Post({
                   colStart={{ lg: '2', xl: '3' }}
                   colSpan={{ base: '12', lg: '10', xl: '8' }}
                 >
-                  <Box borderBottomWidth="1px" borderColor="white" pb="8">
+                  <Box>
                     <Heading size="3xl" mb="2" color="white" lineHeight="1.125">
                       {frontmatter.title}
                     </Heading>
@@ -77,16 +77,18 @@ export default function Post({
                       {frontmatter.date}
                     </Text>
                   </Box>
-                  <Box mt="6">
-                    <Text
-                      color="white"
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontFamily="crimson"
-                      lineHeight="1.25"
-                    >
-                      {frontmatter.lead}
-                    </Text>
-                  </Box>
+                  {frontmatter.lead && (
+                    <Box borderTopWidth="1px" borderColor="white" pt="8" mt="8">
+                      <Text
+                        color="white"
+                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                        fontFamily="crimson"
+                        lineHeight="1.25"
+                      >
+                        {frontmatter.lead}
+                      </Text>
+                    </Box>
+                  )}
                 </GridItem>
               </Grid>
             </Container>
