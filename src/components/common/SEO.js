@@ -40,7 +40,6 @@ const SEO = ({ post }) => {
       title={title}
       titleTemplate={!post.isHome ? defaults.titleTemplate : '%s'}
     >
-      <link rel="canonical" href={url} />
       <meta name="description" content={description} />
       {image && <meta name="image" content={image} />}
 
@@ -57,6 +56,7 @@ const SEO = ({ post }) => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {image && <meta name="twitter:image" content={image} />}
+
       {process.env.NODE_ENV === 'production' && (
         <script
           src="https://cdn.usefathom.com/script.js"
