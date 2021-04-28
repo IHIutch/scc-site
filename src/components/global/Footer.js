@@ -52,7 +52,7 @@ export default function Footer() {
               <Box>
                 <Link
                   isExternal
-                  href="https://www.paypal.com/donate?token=DkgMRsVnpMUQ42T7CKVdWWG5gKp5064YsAq524gtOlWqUYKoSWGTZEDCdFyESnyCGB-jzCYWvyRQpIxJ"
+                  href="https://www.paypal.com/donate?hosted_button_id=FNKWNMDKXRUZG"
                 >
                   Donate
                 </Link>

@@ -18,7 +18,7 @@ const Navbar = ({ sx, isHeroInView }) => {
 
   const mobileBreakpoint = 'lg'
   const paypalLink =
-    'https://www.paypal.com/donate?token=DkgMRsVnpMUQ42T7CKVdWWG5gKp5064YsAq524gtOlWqUYKoSWGTZEDCdFyESnyCGB-jzCYWvyRQpIxJ'
+    'https://www.paypal.com/donate?hosted_button_id=FNKWNMDKXRUZG'
 
   const navItemsLeft = [
     // {
