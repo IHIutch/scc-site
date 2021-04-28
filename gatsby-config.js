@@ -72,5 +72,6 @@ module.exports = {
         isUsingColorMode: false,
       },
     },
+    'gatsby-plugin-meta-redirect',
   ],
 }
