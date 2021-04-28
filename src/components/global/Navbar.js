@@ -34,7 +34,7 @@ const Navbar = ({ sx, isHeroInView }) => {
   const navItemsRight = [
     {
       name: 'Blog',
-      path: '/blog',
+      path: '/blog/',
     },
     {
       name: 'Subscribe',

@@ -286,7 +286,7 @@ export default function Home({ data }) {
                 fontWeight="semibold"
                 color="tealGreen.700"
                 ml="4"
-                to="/blog"
+                to="/blog/"
               >
                 See All our Posts →
               </Link>
