@@ -60,12 +60,12 @@ export default function Blog({ data }) {
           </Container>
         </Box>
         <Container>
-          <Grid py="6" templateColumns="repeat(12, 1fr)">
+          <Grid py="24" templateColumns="repeat(12, 1fr)">
             <GridItem
               colStart={{ lg: '2', xl: '3' }}
               colSpan={{ base: '12', lg: '10', xl: '8' }}
             >
-              <Grid py="32" templateColumns="repeat(12, 1fr)" gap="6">
+              <Grid templateColumns="repeat(12, 1fr)" gap="6">
                 {nodes &&
                   nodes.length > 0 &&
                   nodes.map((post) => (

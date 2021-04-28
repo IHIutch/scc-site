@@ -22,21 +22,23 @@ export default function PostCard({ post }) {
       onBlur={() => setIsActive(false)}
     >
       <Box borderColor="tealGreen.700" borderWidth="2px">
-        <AspectRatio ratio={16 / 9}>
-          <Box h="100%" w="100%">
-            <Box
-              as={GatsbyImage}
-              h="100%"
-              w="100%"
-              objectFit="cover"
-              style={{ mixBlendMode: 'luminosity' }}
-              image={getImage(post.frontmatter.featuredImage)}
-              alt={''}
-            />
-          </Box>
-        </AspectRatio>
+        {post.frontmatter.featuredImage && (
+          <AspectRatio ratio={16 / 9}>
+            <Box h="100%" w="100%">
+              <Box
+                as={GatsbyImage}
+                h="100%"
+                w="100%"
+                objectFit="cover"
+                style={{ mixBlendMode: 'luminosity' }}
+                image={getImage(post.frontmatter.featuredImage)}
+                alt={''}
+              />
+            </Box>
+          </AspectRatio>
+        )}
         <Box p="4" color="tealGreen.700">
-          <Heading size="lg" mb="2" lineHeight="1">
+          <Heading size="xl" mb="2" lineHeight="1.2">
             <LinkOverlay as={GatsbyLink} to={post.frontmatter.slug}>
               {post.frontmatter.title}
             </LinkOverlay>
