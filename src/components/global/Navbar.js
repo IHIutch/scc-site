@@ -86,7 +86,7 @@ const Navbar = ({ sx, isHeroInView }) => {
                 d={{ base: 'flex', [mobileBreakpoint]: 'none' }}
                 href={paypalLink}
                 isExternal
-                px="8"
+                px="6"
                 color="tealGreen.700"
                 fontSize="lg"
                 fontWeight="bold"
@@ -101,7 +101,7 @@ const Navbar = ({ sx, isHeroInView }) => {
                 color="white"
                 onClick={onToggle}
               >
-                <Icon as={isOpen ? X : Menu} boxSize="8" />
+                <Icon as={isOpen ? X : Menu} boxSize="6" />
               </CloseButton>
             </Flex>
             {navItemsLeft && navItemsLeft.length > 0 && (

@@ -99,14 +99,19 @@ export default function Home({ data }) {
                   lineHeight="2"
                   color="tealGreen.700"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  What is possible for the reimagination of the Scajaquada
+                  Corridor? Many decisions are on the horizon for infrastructure
+                  priorities across the nation and in our region. Defining
+                  moments don’t come around very often, and 2021 may provide the
+                  last, best chance in a generation to reclaim our creek and
+                  community.
+                  <br />
+                  <br />
+                  That's why we've designed and visualized a future our region;
+                  to establish a plan that revitalizes and restores the dignity
+                  of our neighborhoods by promoting connectivity, improving
+                  accessibility to our parks and waterways, and developing a
+                  catalyst of economic development.
                 </Text>
               </Box>
             </GridItem>
@@ -119,25 +124,32 @@ export default function Home({ data }) {
             />
           </Flex>
           <Grid
-            py={{ base: '16', lg: '32' }}
+            pt={{ base: '8', lg: '16' }}
+            pb={{ base: '32', lg: '48' }}
             templateColumns="repeat(12, 1fr)"
             gap="6"
           >
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box>
+                <Heading
+                  as="h2"
+                  mb="4"
+                  color="tealGreen.800"
+                  fontSize={{ base: '4xl', lg: '5xl' }}
+                  lineHeight="1.2"
+                >
+                  A Revitalized Black Rock Harbor
+                </Heading>
                 <Text
                   fontSize={{ base: 'xl', lg: '2xl' }}
                   lineHeight="2"
                   color="tealGreen.700"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  The Scajaquada Expressway cut communities in half and
+                  destroyed economic opportunities. By restoring long-neglected
+                  neighborhoods, such as Black Rock, we can transform our
+                  community into the gateway of Buffalo's most important
+                  waterway.
                 </Text>
               </Box>
             </GridItem>
@@ -150,25 +162,38 @@ export default function Home({ data }) {
             />
           </Flex>
           <Grid
-            py={{ base: '16', lg: '32' }}
+            pt={{ base: '8', lg: '16' }}
+            pb={{ base: '32', lg: '48' }}
             templateColumns="repeat(12, 1fr)"
             gap="6"
           >
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box>
+                <Heading
+                  as="h2"
+                  mb="4"
+                  color="tealGreen.800"
+                  fontSize={{ base: '4xl', lg: '5xl' }}
+                  lineHeight="1.2"
+                >
+                  A Restored Scajaquada Creek Corridor
+                </Heading>
                 <Text
                   fontSize={{ base: 'xl', lg: '2xl' }}
                   lineHeight="2"
                   color="tealGreen.700"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  Scajaquada Creek is one of the most polluted and impaired. For
+                  too long, we’ve lived alongside a creek that is polluted,
+                  buried, hardened, industrialized, and mangled by road
+                  infrastructure that supports minimal vegetation and wildlife,
+                  and is choked by raw sewage every time it rains.
+                  <br />
+                  <br />
+                  Our vision transforms Scajaquada Creek into a waterfront
+                  landmark that our city deserves; providing direct access to
+                  the water, significantly increasing local green-space, and
+                  restoring natural habitats.
                 </Text>
               </Box>
             </GridItem>
@@ -181,25 +206,32 @@ export default function Home({ data }) {
             />
           </Flex>
           <Grid
-            py={{ base: '16', lg: '32' }}
+            pt={{ base: '8', lg: '16' }}
+            pb={{ base: '32', lg: '48' }}
             templateColumns="repeat(12, 1fr)"
             gap="6"
           >
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box>
+                <Heading
+                  as="h2"
+                  mb="4"
+                  color="tealGreen.800"
+                  fontSize={{ base: '4xl', lg: '5xl' }}
+                  lineHeight="1.2"
+                >
+                  A Magnificent Humboldt Parkway
+                </Heading>
                 <Text
                   fontSize={{ base: 'xl', lg: '2xl' }}
                   lineHeight="2"
                   color="tealGreen.700"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  Our vision restores Humboldt Parkway to its historic, lush,
+                  green promenade. Serving as a vibrant community gathering
+                  place by creating liveable neighborhoods around our cultural
+                  institutions like Buffalo Museum of Science, Olmsted-designed
+                  Delaware and MLK Parks, and Canisius College.
                 </Text>
               </Box>
             </GridItem>
@@ -211,6 +243,37 @@ export default function Home({ data }) {
               placeholder="blurred"
             />
           </Flex>
+          <Grid
+            pt={{ base: '8', lg: '16' }}
+            pb={{ base: '16', lg: '32' }}
+            templateColumns="repeat(12, 1fr)"
+            gap="6"
+          >
+            <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
+              <Box>
+                <Heading
+                  as="h2"
+                  mb="4"
+                  color="tealGreen.800"
+                  fontSize={{ base: '4xl', lg: '5xl' }}
+                  lineHeight="1.2"
+                >
+                  A Reconnected Delaware Park
+                </Heading>
+                <Text
+                  fontSize={{ base: 'xl', lg: '2xl' }}
+                  lineHeight="2"
+                  color="tealGreen.700"
+                >
+                  The Scajaquada Expressway erased significant portions of
+                  Delaware Park, slashing apart the Meadow and the Lake. Our
+                  vision reconnects the park, restores the historic stone bridge
+                  arched over Delaware Avenue, and celebrate the cornerstone of
+                  Buffalo's cultural institutions.
+                </Text>
+              </Box>
+            </GridItem>
+          </Grid>
           <Box py="16" mt="16" borderTopWidth="2px" borderColor="tealGreen.700">
             <Flex alignItems="baseline">
               <Heading mb="8" color="tealGreen.700">
