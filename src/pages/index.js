@@ -107,7 +107,7 @@ export default function Home({ data }) {
                   community.
                   <br />
                   <br />
-                  That's why we've designed and visualized a future our region;
+                  That's why we've designed and visualized a future for our region;
                   to establish a plan that revitalizes and restores the dignity
                   of our neighborhoods by promoting connectivity, improving
                   accessibility to our parks and waterways, and developing a
