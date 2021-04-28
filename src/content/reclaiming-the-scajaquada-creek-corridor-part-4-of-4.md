@@ -1,0 +1,38 @@
+---
+slug: '/blog/reclaiming-the-scajaquada-creek-corridor-part-4-of-4'
+date: '2021-04-16'
+title: 'Reclaiming the Scajaquada Creek Corridor | Part 4 of 4'
+# meta: 'Part 4 of 4'
+lead: 'Supporting Our Next Legacy Vision.'
+featuredImage: '../images/4-4.png'
+---
+
+## Supporting Our Next Legacy Vision
+
+_Author: Stephanie Crockatt, Executive Director, Buffalo Olmsted Parks Conservancy_
+
+Who would have imagined that 2020’s health pandemic would illuminate Buffalo’s lightbulb overhead as an “ah-ha moment” on why parks and access to healthy outdoor environments are absolutely essential? At the same time, a second humanitarian crisis commanded our focus for accountability, respect and decency for equity and the diversities of life. Was fate already in motion that 2020 would indeed become a year for both hindsight and vision on health and humanity? And what does the future hold as we reimagine our urban living-infrastructure in the wake of such jarring occurrences?
+
+As we wrap up this important article series on the Scajaquada Creek corridor, the Buffalo Olmsted Parks Conservancy shares its perspectives on impact and opportunity. Buffalo’s Olmsted park system is comprised of 24 historic attributes interwoven with neighborhoods and waterways, all designed for connective public access.
+
+> Throughout the crises of 2020 your Olmsted parks saw on average a 40% increase in use, responding to the urgency for open, fresh air spaces.
+
+Roads were quieter and carbon emissions reduced as more people began traveling by foot and bike. Boat activity and access to waterways, trails and nature areas rose in demand. Families and neighbors became reintroduced with at-home care, work, schooling, and porch conversations. These are all factors which should make us contemplate our quality of life.
+
+As Buffalo ponders possibilities, the Conservancy proudly recollects Mr. Olmsted and his famous legacy vision for Buffalo. His design principles of 1868 were grounded in connectivity for public health and socially inclusive interaction; a democracy of space. Somehow, over 150 years ago, he conceived a vision for Buffalo – today. He knew we would need these parks and parkways. He knew that Buffalo would become a city within a park, enhanced with free public space. He knew this first-in-the-nation park system and its linked green properties would serve as the lungs of this great city, with mental and physical healing landscapes for hundreds of thousands of citizens.
+
+Buffalo’s leadership invested in Olmsted’s legacy vision, and that investment has seen epic returns as this park system’s quality of life value continues to exceed expectations. It also inspired more green connections with over 140 additional city parks and neighborhood spaces developed over time. Yet 62 years ago, society failed Olmsted’s principle of connectivity by following a flawed transportation mindset that carving expressways through the city equaled quality of life. Buffalo’s residential highways may have been conceived as modern solutions or progress, but insufficient planning and callous decisions have made them a blighted scar. Never so clearly have we seen, felt, and heard the inequity and harm done to our neighborhoods and parks, as they remain fractured and damaged.
+
+For those new to Buffalo, no one built Delaware Park next to the Scajaquada-198 expressway, and no one designed historic eastside neighborhoods on the edge of a concrete cliff overlooking a sea of asphalt. The parks and neighborhoods were here first. Until 1959, Delaware Park offered a meandering park road as access, not a highway, and Humboldt Parkway connected Delaware Park to MLK Jr. Park with gorgeous, tranquil greenspace and trees. While these Olmsted original parks connected by a parkway and circle (Agassiz) were torn apart decades ago, such tragic losses could be remedied today and recognized as visionary achievements of renewal.
+
+Supporting a renewed legacy vision for living infrastructure in Buffalo is worth it. Buffalo, despite losses, is fortunate to boast one of the only Olmsted systems in the nation that is relatively still intact. Our Olmsted parks have received national and international awards and acclaim. Delaware Park is listed as one of the Great Spaces in America by the American Planning Association. The impressive collection of cultural and educational jewels along the Scajaquada Creek corridor include over six major attractions and three universities. There are over 700 events held in Delaware Park annually, from youth sports leagues and family outings to Shakespeare in the Park performances. MLK Jr. Park holds many annual cultural festivals, like Juneteenth, and showcases a 5-acre historic water feature re-envisioned as a splash pad. Does this level of activity and achievement deserve an expressway cutting through its park fabric? Don’t our neighbors and park spaces deserve to be connected as they were intended?
+
+Coincidentally, in 2020 while Mr. Olmsted was turning 198 years old, the Scajaquada-198 and the greater health of this community sat in limbo. To recall, in early 2018 a community-embraced decision was made to discontinue plans for NYSDOT’s expressway improvements as the presented alternatives did not engage the public or address civic concerns or residual negative impacts. In late 2019, the project was reassigned by the Governor to the Greater Buffalo Niagara Regional Transportation Council (GBNRTC).
+
+Over the last 18 months conversations have continued with local advocates and agencies, and as this series of articles has identified the GBNRTC is about to bring our community together for broader dialogue. Stakeholders like the Conservancy, Waterkeeper, Restore Our Community Coalition (ROCC), GoBike, and others on the Scajaquada Corridor Coalition (SCC), have been engaged in visioning exercises and the SCC partners have taken initiative by bringing graphic ideas to life; ideas to serve as pictorial conversation starters in portraying possibilities for the corridor and our community.
+
+While those conversations are being revived, there are two significant and timely opportunities to strategically contemplate. First, political willpower is gaining attention and momentum from local to federal levels, with the acknowledgement of mistakes and a call for serious investment in a corrective and better future. As leadership continues to raise this dialogue higher for action and infrastructure funding, it is our obligation to keep Buffalo’s Scajaquada Creek corridor and its connections front and center. Second, and rather auspicious, is the national commemoration of Mr. Olmsted’s 200th birthday in 2022. All of Olmsted’s historic legacy spaces will be on display, especially here in Buffalo. This nationwide celebration of Olmsted and his achievements is another once-in-a-generation alignment opportunity to highlight the renewal efforts of our great city.
+
+> This nationwide celebration of Olmsted and his achievements is another once-in-a-generation alignment opportunity to highlight the renewal efforts of our great city.
+
+Restoring and safely reconnecting our parks, trails and waterways with our neighborhoods and cultural-educational assets could be an example of principle and progress for the world. Right now, we have a serious chance – with true attainable resources – to bring Buffalo together and heal the damage and divides, while achieving smarter, healthier alternatives for access and prosperity. Please join us in support of the Scajaquada Creek corridor, as we need every Buffalonian to channel their inner-Olmsted in collectively contemplating our 2021 vision for the significance of Buffalo and the proud future of our children’s children.
