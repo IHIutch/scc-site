@@ -12,8 +12,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     fromPath: '/creating-space-and-place-through-community-reconnection',
     toPath: '/',
     isPermanent: true,
-    redirectInBrowser: true,
-    force: true,
   })
 
   const blogPostTemplate = require.resolve(`./src/templates/post.js`)
