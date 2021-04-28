@@ -51,7 +51,7 @@ const theme = extendTheme({
           color: 'tealGreen.800',
           mt: '12',
           mb: '4',
-          lineHeight: '1',
+          lineHeight: '1.2',
         },
         h3: {
           fontSize: '4xl',
@@ -60,7 +60,7 @@ const theme = extendTheme({
           color: 'tealGreen.800',
           mt: '12',
           mb: '4',
-          lineHeight: '1',
+          lineHeight: '1.2',
         },
         p: {
           fontSize: {
