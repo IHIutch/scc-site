@@ -5,7 +5,15 @@
  */
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
+  createRedirect({
+    // Redirect mailchimp link
+    fromPath: '/creating-space-and-place-through-community-reconnection',
+    toPath: '/',
+    isPermanent: true,
+  })
+
   const blogPostTemplate = require.resolve(`./src/templates/post.js`)
   const result = await graphql(`
     {
