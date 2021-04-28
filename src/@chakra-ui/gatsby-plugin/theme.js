@@ -34,7 +34,7 @@ const theme = extendTheme({
         // bg: "#f4fbfa",
         bg: 'blue.50',
       },
-      '.post-content': {
+      '.post-content >': {
         h1: {
           fontSize: '6xl',
           fontWeight: 'bold',
@@ -60,6 +60,7 @@ const theme = extendTheme({
           color: 'tealGreen.800',
           mt: '12',
           mb: '4',
+          lineHeight: '1',
         },
         p: {
           fontSize: {

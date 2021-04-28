@@ -19,8 +19,8 @@ import { graphql, Link as GatsbyLink } from 'gatsby'
 import PostCard from '../components/PostCard'
 
 export default function Home({ data }) {
-  const { allMarkdownRemark } = data
-  const { nodes } = allMarkdownRemark
+  const { allMdx } = data
+  const { nodes } = allMdx
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
@@ -310,10 +310,7 @@ export default function Home({ data }) {
 
 export const pageQuery = graphql`
   query LatestPosts {
-    allMarkdownRemark(
-      limit: 3
-      sort: { fields: frontmatter___date, order: DESC }
-    ) {
+    allMdx(limit: 3, sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         id
         excerpt

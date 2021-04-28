@@ -9,8 +9,8 @@ import SEO from '../components/common/SEO'
 import PostCard from '../components/PostCard'
 
 export default function Blog({ data }) {
-  const { allMarkdownRemark } = data
-  const { nodes } = allMarkdownRemark
+  const { allMdx } = data
+  const { nodes } = allMdx
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
@@ -85,7 +85,7 @@ export default function Blog({ data }) {
 
 export const pageQuery = graphql`
   query AllPosts {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
         id
         excerpt

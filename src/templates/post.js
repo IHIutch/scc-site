@@ -15,15 +15,16 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Footer from '../components/global/Footer'
 import { useInView } from 'react-intersection-observer'
 import SEO from '../components/common/SEO'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 export default function Post({ data }) {
   const {
-    markdownRemark,
+    mdx,
     site: {
       siteMetadata: { twitterUrl, facebookUrl },
     },
   } = data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, body } = mdx
   const featuredImg = getImage(frontmatter.featuredImage)
 
   const { ref, inView } = useInView({
@@ -108,10 +109,9 @@ export default function Post({ data }) {
         <Container>
           <Grid py="32" templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
-              <div
-                className="post-content"
-                dangerouslySetInnerHTML={{ __html: html }}
-              ></div>
+              <Box className="post-content">
+                <MDXRenderer>{body}</MDXRenderer>
+              </Box>
               <Box
                 borderTopWidth="2px"
                 borderTopColor="tealGreen.800"
@@ -158,8 +158,8 @@ export const pageQuery = graphql`
         facebookUrl
       }
     }
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         slug
