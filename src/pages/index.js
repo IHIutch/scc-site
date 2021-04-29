@@ -116,12 +116,26 @@ export default function Home({ data }) {
               </Box>
             </GridItem>
           </Grid>
-          <Flex borderWidth="2px" borderColor="tealGreen.700">
+          <Flex
+            as="figure"
+            direction="column"
+            borderWidth="2px"
+            borderColor="tealGreen.700"
+          >
             <StaticImage
               src="../assets/images/web/a_render.jpg"
-              alt=""
+              alt="Aerial view facing North-West over the Scajaquada Expressway."
               placeholder="blurred"
             />
+            <Box
+              as="figcaption"
+              p="2"
+              color="tealGreen.800"
+              fontSize="sm"
+              fontWeight="medium"
+            >
+              Aerial view facing North-West over the Scajaquada Expressway.
+            </Box>
           </Flex>
           <Grid
             pt={{ base: '8', lg: '16' }}
@@ -154,12 +168,28 @@ export default function Home({ data }) {
               </Box>
             </GridItem>
           </Grid>
-          <Flex borderWidth="2px" borderColor="tealGreen.700">
+          <Flex
+            as="figure"
+            direction="column"
+            borderWidth="2px"
+            borderColor="tealGreen.700"
+          >
             <StaticImage
               src="../assets/images/web/b_render.jpg"
-              alt=""
+              alt="Facing East on the Scajaquada Expressway, between Wegmans on
+              Amherst Street and Buffalo State College."
               placeholder="blurred"
             />
+            <Box
+              as="figcaption"
+              p="2"
+              color="tealGreen.800"
+              fontSize="sm"
+              fontWeight="medium"
+            >
+              Facing East on the Scajaquada Expressway, between Wegmans on
+              Amherst Street and Buffalo State College.
+            </Box>
           </Flex>
           <Grid
             pt={{ base: '8', lg: '16' }}
@@ -198,12 +228,28 @@ export default function Home({ data }) {
               </Box>
             </GridItem>
           </Grid>
-          <Flex borderWidth="2px" borderColor="tealGreen.700">
+          <Flex
+            as="figure"
+            direction="column"
+            borderWidth="2px"
+            borderColor="tealGreen.700"
+          >
             <StaticImage
               src="../assets/images/web/c_render.jpg"
-              alt=""
+              alt="Facing North-West on the Kensington Expressway, between Sisters
+              Hospital and Canisius College."
               placeholder="blurred"
             />
+            <Box
+              as="figcaption"
+              p="2"
+              color="tealGreen.800"
+              fontSize="sm"
+              fontWeight="medium"
+            >
+              Facing North-West on the Kensington Expressway, between Sisters
+              Hospital and Canisius College.
+            </Box>
           </Flex>
           <Grid
             pt={{ base: '8', lg: '16' }}
@@ -236,12 +282,28 @@ export default function Home({ data }) {
               </Box>
             </GridItem>
           </Grid>
-          <Flex borderWidth="2px" borderColor="tealGreen.700">
+          <Flex
+            as="figure"
+            direction="column"
+            borderWidth="2px"
+            borderColor="tealGreen.700"
+          >
             <StaticImage
               src="../assets/images/web/d_render.jpg"
-              alt=""
+              alt="Facing South-West in Delaware Park, from the Point of the Meadow
+              Shelter and Soccer Fields."
               placeholder="blurred"
             />
+            <Box
+              as="figcaption"
+              p="2"
+              color="tealGreen.800"
+              fontSize="sm"
+              fontWeight="medium"
+            >
+              Facing South-West in Delaware Park, from the Point of the Meadow
+              Shelter and Soccer Fields.
+            </Box>
           </Flex>
           <Grid
             pt={{ base: '8', lg: '16' }}
