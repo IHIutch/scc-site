@@ -61,7 +61,7 @@ export default function Post({ data }) {
               alt={''}
             />
           </Box>
-          <Box mt="auto" w="100%" mb="12" position="relative">
+          <Box mt="auto" pt="5" w="100%" mb="12" position="relative">
             <Container>
               <Grid py="6" templateColumns="repeat(12, 1fr)" gap="6">
                 <GridItem
@@ -69,7 +69,12 @@ export default function Post({ data }) {
                   colSpan={{ base: '12', lg: '10', xl: '8' }}
                 >
                   <Box>
-                    <Heading size="3xl" mb="2" color="white" lineHeight="1.125">
+                    <Heading
+                      fontSize={{ base: '4xl', lg: '5xl' }}
+                      mb="2"
+                      color="white"
+                      lineHeight="1.125"
+                    >
                       {frontmatter.title}
                     </Heading>
                     <Text
