@@ -77,6 +77,10 @@ const theme = extendTheme({
           fontWeight: 'bold',
           textDecoration: 'underline',
         },
+        'p > a': {
+          fontWeight: 'bold',
+          textDecoration: 'underline',
+        },
         'blockquote > p': {
           textAlign: 'center',
           fontSize: '4xl',
