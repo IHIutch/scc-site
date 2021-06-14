@@ -29,7 +29,7 @@ export default function Home({ data }) {
     threshold: 0.5,
   })
 
-  const handleGoal = useGoal('PTVMWQ4D')
+  const handleGoal = useGoal('MPNI77L3')
 
   const handleOutboundLink = (e, location) => {
     e.preventDefault()
