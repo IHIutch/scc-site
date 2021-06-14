@@ -20,6 +20,7 @@ import { useInView } from 'react-intersection-observer'
 import SEO from '../components/common/SEO'
 import { graphql, Link as GatsbyLink } from 'gatsby'
 import PostCard from '../components/PostCard'
+import { useGoal } from 'gatsby-plugin-fathom'
 
 export default function Home({ data }) {
   const { allMdx } = data
@@ -27,6 +28,8 @@ export default function Home({ data }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
+
+  const handleGoal = useGoal('PTVMWQ4D')
 
   return (
     <>
@@ -149,6 +152,7 @@ export default function Home({ data }) {
                       <LinkOverlay
                         as={Button}
                         href="https://www.gbnrtc.org/regioncentral-events"
+                        onClick={handleGoal}
                         isExternal
                         colorScheme="tealGreen"
                       >
