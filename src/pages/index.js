@@ -7,6 +7,9 @@ import {
   Heading,
   Text,
   Link,
+  Button,
+  LinkOverlay,
+  LinkBox,
 } from '@chakra-ui/react'
 import Container from '../components/common/Container'
 import Navbar from '../components/global/Navbar'
@@ -92,6 +95,70 @@ export default function Home({ data }) {
             templateColumns="repeat(12, 1fr)"
             gap="6"
           >
+            <GridItem colStart={{ lg: '2' }} colSpan={{ base: '12', lg: '9' }}>
+              <Box mb="24">
+                <Heading
+                  as="h2"
+                  mb="4"
+                  color="tealGreen.800"
+                  fontSize={{ base: '4xl', lg: '5xl' }}
+                  lineHeight="1.2"
+                >
+                  Upcoming Event
+                </Heading>
+                <Grid
+                  borderWidth="2px"
+                  borderColor="tealGreen.700"
+                  templateColumns={{ lg: 'repeat(6, 1fr)' }}
+                >
+                  <GridItem colSpan={{ lg: '2' }} p="6" bg="black">
+                    <Flex boxSize="100%" align="center" justify="center">
+                      <StaticImage
+                        style={{
+                          maxHeight: '256px',
+                        }}
+                        layout="constrained"
+                        objectFit="contain"
+                        src="../images/RegionCentral_VerticalLogoColor_Footer.png"
+                        alt="Region Central Logo"
+                        placeholder="blurred"
+                      />
+                    </Flex>
+                  </GridItem>
+                  <GridItem
+                    colSpan={{ lg: '4' }}
+                    p="8"
+                    d="flex"
+                    alignItems="center"
+                  >
+                    <LinkBox as="article" color="tealGreen.700">
+                      <Box mb="4">
+                        <Heading as="h1" mb="1" color="tealGreen.800">
+                          Public Outreach Meeting
+                        </Heading>
+                        <Text as="time" fontWeight="semibold">
+                          June 17, 2021 06:00 PM (ET)
+                        </Text>
+                      </Box>
+                      <Text fontSize={{ base: 'lg', lg: 'xl' }} mb="4">
+                        This webinar will provide an overview of the Region
+                        Central planning effort and will offer participants the
+                        opportunity to give input on the building blocks for a
+                        community-wide vision.
+                      </Text>
+                      <LinkOverlay
+                        as={Button}
+                        href="https://www.gbnrtc.org/regioncentral-events"
+                        isExternal
+                        colorScheme="tealGreen"
+                      >
+                        Register Here
+                      </LinkOverlay>
+                    </LinkBox>
+                  </GridItem>
+                </Grid>
+              </Box>
+            </GridItem>
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box>
                 <Text
