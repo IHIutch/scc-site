@@ -31,6 +31,12 @@ export default function Home({ data }) {
 
   const handleGoal = useGoal('PTVMWQ4D')
 
+  const handleOutboundLink = (e, location) => {
+    e.preventDefault()
+    handleGoal()
+    window.location.href = location
+  }
+
   return (
     <>
       <SEO post={{ isHome: true }} />
@@ -152,7 +158,12 @@ export default function Home({ data }) {
                       <LinkOverlay
                         as={Button}
                         href="https://www.gbnrtc.org/regioncentral-events"
-                        onClick={handleGoal}
+                        onClick={(e) =>
+                          handleOutboundLink(
+                            e,
+                            'https://www.gbnrtc.org/regioncentral-events'
+                          )
+                        }
                         isExternal
                         colorScheme="tealGreen"
                       >
