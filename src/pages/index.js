@@ -29,7 +29,7 @@ export default function Home({ data }) {
     threshold: 0.5,
   })
 
-  const handleGoal = useGoal('MPNI77L3')
+  const handleGoal = useGoal('YEF49EOH')
 
   const handleOutboundLink = (e, location) => {
     e.preventDefault()
@@ -113,7 +113,7 @@ export default function Home({ data }) {
                   fontSize={{ base: '4xl', lg: '5xl' }}
                   lineHeight="1.2"
                 >
-                  Upcoming Event
+                  Sign This Important Petition
                 </Heading>
                 <Grid
                   borderWidth="2px"
@@ -128,8 +128,8 @@ export default function Home({ data }) {
                         }}
                         layout="constrained"
                         objectFit="contain"
-                        src="../images/RegionCentral_VerticalLogoColor_Footer.png"
-                        alt="Region Central Logo"
+                        src="../images/change_org.png"
+                        alt="Change Dot Org Logo"
                         placeholder="blurred"
                       />
                     </Flex>
@@ -143,31 +143,33 @@ export default function Home({ data }) {
                     <LinkBox as="article" color="tealGreen.700">
                       <Box mb="4">
                         <Heading as="h1" mb="1" color="tealGreen.800">
-                          Public Outreach Meeting
+                          Support a Federal Highways to Boulevards Program
                         </Heading>
-                        <Text as="time" fontWeight="semibold">
+                        {/* <Text fontWeight="semibold">
                           June 17, 2021 06:00 PM (ET)
-                        </Text>
+                        </Text> */}
                       </Box>
                       <Text fontSize={{ base: 'lg', lg: 'xl' }} mb="4">
-                        This webinar will provide an overview of the Region
-                        Central planning effort and will offer participants the
-                        opportunity to give input on the building blocks for a
-                        community-wide vision.
+                        As happened in Buffalo under the framework of "urban
+                        renewal", highways were built through cities across
+                        America, displacing hundreds of thousands of people and
+                        creating an unhealthy preference for driving at the
+                        expense of the communities in their paths. Support the
+                        Highways to Boulevards Program by signing this petition!
                       </Text>
                       <LinkOverlay
                         as={Button}
-                        href="https://www.gbnrtc.org/regioncentral-events"
+                        href="https://www.change.org/p/support-a-federal-highways-to-boulevards-program"
                         onClick={(e) =>
                           handleOutboundLink(
                             e,
-                            'https://www.gbnrtc.org/regioncentral-events'
+                            'https://www.change.org/p/support-a-federal-highways-to-boulevards-program'
                           )
                         }
                         isExternal
                         colorScheme="tealGreen"
                       >
-                        Register Here
+                        I Will Show My Support
                       </LinkOverlay>
                     </LinkBox>
                   </GridItem>
