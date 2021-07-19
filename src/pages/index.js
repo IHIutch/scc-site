@@ -31,12 +31,6 @@ export default function Home({ data }) {
 
   const handleGoal = useGoal('YEF49EOH')
 
-  const handleOutboundLink = (e, location) => {
-    e.preventDefault()
-    handleGoal()
-    window.location.href = location
-  }
-
   return (
     <>
       <SEO post={{ isHome: true }} />
@@ -158,18 +152,13 @@ export default function Home({ data }) {
                         Highways to Boulevards Program by signing this petition!
                       </Text>
                       <LinkOverlay
-                        as={Button}
                         href="https://www.change.org/p/support-a-federal-highways-to-boulevards-program"
-                        onClick={(e) =>
-                          handleOutboundLink(
-                            e,
-                            'https://www.change.org/p/support-a-federal-highways-to-boulevards-program'
-                          )
-                        }
+                        onClick={handleGoal}
                         isExternal
-                        colorScheme="tealGreen"
                       >
-                        I Will Show My Support
+                        <Button colorScheme="tealGreen">
+                          I Will Show My Support
+                        </Button>
                       </LinkOverlay>
                     </LinkBox>
                   </GridItem>
