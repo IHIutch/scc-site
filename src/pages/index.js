@@ -7,9 +7,7 @@ import {
   Heading,
   Text,
   Link,
-  Button,
-  LinkOverlay,
-  LinkBox,
+  Stack,
 } from '@chakra-ui/react'
 import Container from '../components/common/Container'
 import Navbar from '../components/global/Navbar'
@@ -29,7 +27,8 @@ export default function Home({ data }) {
     threshold: 0.5,
   })
 
-  const handleGoal = useGoal('YEF49EOH')
+  const handleWestSideGoal = useGoal('RNWZWVFB')
+  const handleBuffaloZooGoal = useGoal('WOJO4QYD')
 
   return (
     <>
@@ -100,15 +99,6 @@ export default function Home({ data }) {
           >
             <GridItem colStart={{ lg: '2' }} colSpan={{ base: '12', lg: '9' }}>
               <Box mb="24">
-                <Heading
-                  as="h2"
-                  mb="4"
-                  color="tealGreen.800"
-                  fontSize={{ base: '4xl', lg: '5xl' }}
-                  lineHeight="1.2"
-                >
-                  Sign This Important Petition
-                </Heading>
                 <Grid
                   borderWidth="2px"
                   borderColor="tealGreen.700"
@@ -122,8 +112,8 @@ export default function Home({ data }) {
                         }}
                         layout="constrained"
                         objectFit="contain"
-                        src="../images/change_org.png"
-                        alt="Change Dot Org Logo"
+                        src="../images/RegionCentral_VerticalLogoColor_Footer.png"
+                        alt="Region Central Logo"
                         placeholder="blurred"
                       />
                     </Flex>
@@ -134,33 +124,105 @@ export default function Home({ data }) {
                     d="flex"
                     alignItems="center"
                   >
-                    <LinkBox as="article" color="tealGreen.700">
+                    <Box as="article">
                       <Box mb="4">
                         <Heading as="h1" mb="1" color="tealGreen.800">
-                          Support a Federal Highways to Boulevards Program
+                          Upcoming Pop-up Events
                         </Heading>
-                        {/* <Text fontWeight="semibold">
-                          June 17, 2021 06:00 PM (ET)
-                        </Text> */}
                       </Box>
-                      <Text fontSize={{ base: 'lg', lg: 'xl' }} mb="4">
-                        As happened in Buffalo under the framework of "urban
-                        renewal", highways were built through cities across
-                        America, displacing hundreds of thousands of people and
-                        creating an unhealthy preference for driving at the
-                        expense of the communities in their paths. Support the
-                        Highways to Boulevards Program by signing this petition!
-                      </Text>
-                      <LinkOverlay
-                        href="https://www.change.org/p/support-a-federal-highways-to-boulevards-program"
-                        onClick={handleGoal}
-                        isExternal
+                      <Text
+                        fontSize={{ base: 'lg', lg: 'xl' }}
+                        mb="4"
+                        color="tealGreen.700"
                       >
-                        <Button colorScheme="tealGreen">
-                          I Will Show My Support
-                        </Button>
-                      </LinkOverlay>
-                    </LinkBox>
+                        Please join us for our pop-up events throughout August
+                        to learn more about Region Central and provide your
+                        input on the process. The planning team will use your
+                        input to help create the plan.
+                      </Text>
+                      <Stack as="dl" spacing="6">
+                        <Box>
+                          <Text as="dt" fontSize="xl" fontWeight="semibold">
+                            Pine Grill Reunion @ MLK, Jr. Park
+                          </Text>
+                          <Text as="dd" fontSize="lg" color="tealGreen.700">
+                            Sunday, August 8 from 4-7 PM
+                          </Text>
+                        </Box>
+                        <Box>
+                          <Text as="dt" fontSize="xl" fontWeight="semibold">
+                            SkyRide Buffalo @ Outer Harbor Lakeside Bike Park
+                          </Text>
+                          <Text as="dd" fontSize="lg" color="tealGreen.700">
+                            Sunday, August 15 from 8-10 AM
+                          </Text>
+                        </Box>
+                        <Box>
+                          <Text as="dt" fontSize="xl" fontWeight="semibold">
+                            Westside Bazaar
+                          </Text>
+                          <Flex flexWrap="wrap">
+                            <Text
+                              as="dd"
+                              fontSize="lg"
+                              color="tealGreen.700"
+                              mr="4"
+                            >
+                              Thursday, August 26 from 4-7 PM
+                            </Text>
+                            <Text
+                              as="span"
+                              color="tealGreen.800"
+                              fontSize="lg"
+                              fontWeight="semibold"
+                            >
+                              (
+                              <Link
+                                onClick={handleWestSideGoal}
+                                textDecoration="underline"
+                                href="https://g.page/WestSideBazaar"
+                                isExternal
+                              >
+                                Get Directions
+                              </Link>
+                              )
+                            </Text>
+                          </Flex>
+                        </Box>
+                        <Box>
+                          <Text as="dt" fontSize="xl" fontWeight="semibold">
+                            Buffalo Zoo
+                          </Text>
+                          <Flex flexWrap="wrap">
+                            <Text
+                              as="dd"
+                              fontSize="lg"
+                              color="tealGreen.700"
+                              mr="4"
+                            >
+                              Sunday, August 29 from 12-3 PM
+                            </Text>
+                            <Text
+                              as="span"
+                              color="tealGreen.800"
+                              fontSize="lg"
+                              fontWeight="semibold"
+                            >
+                              (
+                              <Link
+                                onClick={handleBuffaloZooGoal}
+                                textDecoration="underline"
+                                href="https://goo.gl/maps/H9PX311vk1b1TZzn9"
+                                isExternal
+                              >
+                                Get Directions
+                              </Link>
+                              )
+                            </Text>
+                          </Flex>
+                        </Box>
+                      </Stack>
+                    </Box>
                   </GridItem>
                 </Grid>
               </Box>
