@@ -7,8 +7,11 @@ import React from 'react'
 import Container from '../common/Container'
 import { Facebook, Twitter } from 'react-feather'
 import Icon from '@chakra-ui/icon'
+import { useGoal } from 'gatsby-plugin-fathom'
 
 export default function Footer() {
+  const handleDonateClick = useGoal('VLTP3IJR')
+
   const {
     site: {
       siteMetadata: { twitterUrl, facebookUrl },
@@ -51,6 +54,7 @@ export default function Footer() {
               </Box>
               <Box>
                 <Link
+                  onClick={handleDonateClick}
                   isExternal
                   href="https://www.paypal.com/donate?hosted_button_id=FNKWNMDKXRUZG"
                 >

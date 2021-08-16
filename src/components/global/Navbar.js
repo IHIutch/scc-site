@@ -12,9 +12,12 @@ import {
 import Container from '../../components/common/Container'
 import { Link as GatsbyLink } from 'gatsby'
 import { X, Menu } from 'react-feather'
+import { useGoal } from 'gatsby-plugin-fathom'
 
 const Navbar = ({ sx, isHeroInView }) => {
   const { isOpen, onToggle } = useDisclosure()
+
+  const handleDonateClick = useGoal('VLTP3IJR')
 
   const mobileBreakpoint = 'lg'
   const paypalLink =
@@ -84,6 +87,7 @@ const Navbar = ({ sx, isHeroInView }) => {
             <Flex align="center" ml="auto">
               <Button
                 d={{ base: 'flex', [mobileBreakpoint]: 'none' }}
+                onClick={handleDonateClick}
                 href={paypalLink}
                 isExternal
                 px="6"
@@ -170,6 +174,7 @@ const Navbar = ({ sx, isHeroInView }) => {
             <Button
               d={{ base: 'none', [mobileBreakpoint]: 'flex' }}
               ml="4"
+              onClick={handleDonateClick}
               href={paypalLink}
               isExternal
               px="8"
