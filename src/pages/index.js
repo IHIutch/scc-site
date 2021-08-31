@@ -29,6 +29,7 @@ export default function Home({ data }) {
 
   const handleWestSideGoal = useGoal('RNWZWVFB')
   const handleBuffaloZooGoal = useGoal('WOJO4QYD')
+  const handleBlackRockGoal = useGoal('ODH3SOMC')
 
   return (
     <>
@@ -213,6 +214,38 @@ export default function Home({ data }) {
                                 onClick={handleBuffaloZooGoal}
                                 textDecoration="underline"
                                 href="https://goo.gl/maps/H9PX311vk1b1TZzn9"
+                                isExternal
+                              >
+                                Get Directions
+                              </Link>
+                              )
+                            </Text>
+                          </Flex>
+                        </Box>
+                        <Box>
+                          <Text as="dt" fontSize="xl" fontWeight="semibold">
+                            Black Rock @ Artisan Kitchens & Baths
+                          </Text>
+                          <Flex flexWrap="wrap">
+                            <Text
+                              as="dd"
+                              fontSize="lg"
+                              color="tealGreen.700"
+                              mr="4"
+                            >
+                              Tuesday, August 31 from 6-8 PM
+                            </Text>
+                            <Text
+                              as="span"
+                              color="tealGreen.800"
+                              fontSize="lg"
+                              fontWeight="semibold"
+                            >
+                              (
+                              <Link
+                                onClick={handleBlackRockGoal}
+                                textDecoration="underline"
+                                href="https://goo.gl/maps/6gQe1xzJLiMfrTTu6"
                                 isExternal
                               >
                                 Get Directions
