@@ -17,7 +17,10 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: 'https://scc-cms.herokuapp.com',
+        apiURL:
+          process.env.NODE_ENV === 'production'
+            ? 'https://scc-cms.herokuapp.com'
+            : 'http://localhost:1337',
         collectionTypes: ['post', 'event'],
       },
     },
