@@ -15,6 +15,13 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-mdx',
     {
+      resolve: 'gatsby-source-strapi',
+      options: {
+        apiURL: 'https://scc-cms.herokuapp.com',
+        collectionTypes: ['post', 'event'],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Gatsby API',

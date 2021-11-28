@@ -1,19 +1,41 @@
 import React from 'react'
-import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
-import Container from '../components/common/Container'
-import Navbar from '../components/global/Navbar'
 import { graphql } from 'gatsby'
-import Footer from '../components/global/Footer'
 import { useInView } from 'react-intersection-observer'
-import SEO from '../components/common/SEO'
-import PostCard from '../components/PostCard'
+import SEO from '../../components/common/SEO'
+import Navbar from '../../components/global/Navbar'
+import {
+  Box,
+  Container,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+} from '@chakra-ui/layout'
+import Footer from '../../components/global/Footer'
+import PostCard from '../../components/PostCard'
+
+export const pageQuery = graphql`
+  query {
+    allStrapiPost(sort: { fields: published_at, order: DESC }) {
+      nodes {
+        title
+        slug
+        id
+        published_at(fromNow: true)
+        # content
+      }
+    }
+  }
+`
 
 export default function Blog({ data }) {
-  const { allMdx } = data
-  const { nodes } = allMdx
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
+
+  const {
+    allStrapiPost: { nodes: posts },
+  } = data
 
   return (
     <>
@@ -27,7 +49,7 @@ export default function Blog({ data }) {
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>
-          <Container>
+          <Container maxW="container.xl">
             <Grid pb="20" templateColumns="repeat(12, 1fr)">
               <GridItem
                 colStart={{ lg: '2', xl: '3' }}
@@ -59,16 +81,15 @@ export default function Blog({ data }) {
             </Grid>
           </Container>
         </Box>
-        <Container>
+        <Container maxW="container.xl">
           <Grid py="24" templateColumns="repeat(12, 1fr)">
             <GridItem
               colStart={{ lg: '2', xl: '3' }}
               colSpan={{ base: '12', lg: '10', xl: '8' }}
             >
               <Grid templateColumns="repeat(12, 1fr)" gap="6">
-                {nodes &&
-                  nodes.length > 0 &&
-                  nodes.map((post) => (
+                {posts &&
+                  posts?.map((post) => (
                     <GridItem key={post.id} colSpan={{ base: '12', md: '6' }}>
                       <PostCard post={post} />
                     </GridItem>
@@ -82,29 +103,3 @@ export default function Blog({ data }) {
     </>
   )
 }
-
-export const pageQuery = graphql`
-  query AllPosts {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
-      nodes {
-        id
-        excerpt
-        timeToRead
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          slug
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(
-                width: 400
-                placeholder: BLURRED
-                formats: [AUTO, WEBP]
-              )
-            }
-          }
-        }
-      }
-    }
-  }
-`

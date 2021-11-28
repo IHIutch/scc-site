@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 const SEO = ({ post }) => {
-  const data = useStaticQuery(graphql`
+  const { site } = useStaticQuery(graphql`
     {
       site {
         siteMetadata {
@@ -17,7 +17,7 @@ const SEO = ({ post }) => {
     }
   `)
 
-  const defaults = data.site.siteMetadata
+  const defaults = site.siteMetadata
 
   if (defaults.siteUrl === '' && typeof window !== 'undefined') {
     defaults.siteUrl = window.location.origin
@@ -28,17 +28,17 @@ const SEO = ({ post }) => {
     return null
   }
 
-  const title = post.title || defaults.title
-  const description = post.description || defaults.description
-  const url = new URL(post.path || '', defaults.siteUrl)
-  const image = post.image
+  const title = post?.title || defaults.title
+  const description = post?.description || defaults.description
+  const url = new URL(post?.path || '', defaults.siteUrl)
+  const image = post?.image
     ? new URL(post.image, defaults.siteUrl)
     : new URL(defaults.image, defaults.siteUrl)
 
   return (
     <Helmet
       title={title}
-      titleTemplate={!post.isHome ? defaults.titleTemplate : '%s'}
+      titleTemplate={!post?.isHome ? defaults.titleTemplate : '%s'}
     >
       <meta name="description" content={description} />
       {image && <meta name="image" content={image} />}
@@ -50,7 +50,7 @@ const SEO = ({ post }) => {
       {image && <meta property="og:image" content={image} />}
 
       <meta name="twitter:card" content="summary_large_image" />
-      {post.author && (
+      {post?.author && (
         <meta name="twitter:creator" content={post.author.twitter} />
       )}
       <meta name="twitter:title" content={title} />
