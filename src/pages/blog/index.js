@@ -23,6 +23,9 @@ export const pageQuery = graphql`
         id
         published_at(fromNow: true)
         # content
+        featured_image {
+          url
+        }
       }
     }
   }

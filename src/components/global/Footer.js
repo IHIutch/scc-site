@@ -1,10 +1,18 @@
 import { Button } from '@chakra-ui/button'
 import { FormControl, FormLabel } from '@chakra-ui/form-control'
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
-import { Box, Flex, Grid, GridItem, Link, Stack, Text } from '@chakra-ui/layout'
+import {
+  Box,
+  Container,
+  Flex,
+  Grid,
+  GridItem,
+  Link,
+  Stack,
+  Text,
+} from '@chakra-ui/layout'
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby'
 import React from 'react'
-import Container from '../common/Container'
 import { Facebook, Twitter } from 'react-feather'
 import Icon from '@chakra-ui/icon'
 import { useGoal } from 'gatsby-plugin-fathom'
@@ -29,7 +37,7 @@ export default function Footer() {
 
   return (
     <Box as="footer" bg="tealGreen.700" py="24">
-      <Container>
+      <Container maxW="container.xl">
         <Grid templateColumns="repeat(12, 1fr)" gap="6">
           <GridItem
             d={{ base: 'none', lg: 'block' }}

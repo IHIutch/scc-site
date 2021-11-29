@@ -8,8 +8,8 @@ import {
   Icon,
   Button,
   Text,
+  Container,
 } from '@chakra-ui/react'
-import Container from '../../components/common/Container'
 import { Link as GatsbyLink } from 'gatsby'
 import { X, Menu } from 'react-feather'
 import { useGoal } from 'gatsby-plugin-fathom'
@@ -60,7 +60,7 @@ const Navbar = ({ sx, isHeroInView }) => {
         fontFamily="crimson"
         sx={sx}
       >
-        <Container>
+        <Container maxW="container.xl">
           <Flex wrap="wrap" align="center">
             <Box>
               <Link

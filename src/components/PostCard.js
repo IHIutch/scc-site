@@ -8,11 +8,13 @@ import {
   Text,
   Box,
 } from '@chakra-ui/layout'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link as GatsbyLink } from 'gatsby'
+import { Image } from '@chakra-ui/image'
 
 export default function PostCard({ post }) {
   const [isActive, setIsActive] = useState(false)
+
+  console.log({ post })
 
   return (
     <LinkBox
@@ -22,24 +24,24 @@ export default function PostCard({ post }) {
       onBlur={() => setIsActive(false)}
     >
       <Box borderColor="tealGreen.700" borderWidth="2px">
-        {post?.featuredImage && (
+        {post?.featured_image?.url && (
           <AspectRatio ratio={16 / 9}>
-            <Box h="100%" w="100%">
-              <Box
-                as={GatsbyImage}
-                h="100%"
-                w="100%"
-                objectFit="cover"
-                style={{ mixBlendMode: 'luminosity' }}
-                image={getImage(post.frontmatter.featuredImage)}
-                alt={''}
-              />
-            </Box>
+            {/* <Box h="100%" w="100%"> */}
+            <Image
+              // as={GatsbyImage}
+              h="100%"
+              w="100%"
+              objectFit="cover"
+              style={{ mixBlendMode: 'luminosity' }}
+              src={post.featured_image.url}
+              alt={''}
+            />
+            {/* </Box> */}
           </AspectRatio>
         )}
         <Box p="4" color="tealGreen.700">
           <Heading size="xl" mb="2" lineHeight="1.2">
-            <LinkOverlay as={GatsbyLink} to={post.slug}>
+            <LinkOverlay as={GatsbyLink} to={`/blog/${post.slug}`}>
               {post.title}
             </LinkOverlay>
           </Heading>

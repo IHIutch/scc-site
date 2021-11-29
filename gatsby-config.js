@@ -13,7 +13,6 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-source-strapi',
       options: {
@@ -22,20 +21,6 @@ module.exports = {
             ? 'https://scc-cms.herokuapp.com'
             : 'http://localhost:1337',
         collectionTypes: ['post', 'event'],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Gatsby API',
-        short_name: 'Gatsby',
-        start_url: '/',
-        icon: 'src/images/icon.png',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
@@ -47,6 +32,15 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Gatsby API',
+        short_name: 'Gatsby',
+        start_url: '/',
+        icon: 'src/images/icon.png',
       },
     },
     'gatsby-plugin-sharp',
@@ -66,14 +60,6 @@ module.exports = {
         path: './src/pages/',
       },
       __key: 'pages',
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'content',
-        path: './src/content/',
-      },
-      __key: 'content',
     },
     {
       resolve: '@chakra-ui/gatsby-plugin',

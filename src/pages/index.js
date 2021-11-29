@@ -8,24 +8,44 @@ import {
   Text,
   Link,
   Stack,
+  Container,
 } from '@chakra-ui/react'
-import Container from '../components/common/Container'
 import Navbar from '../components/global/Navbar'
 import bgImage from '../images/delaware_full1.webp'
 import Footer from '../components/global/Footer'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useInView } from 'react-intersection-observer'
 import SEO from '../components/common/SEO'
-import { graphql, Link as GatsbyLink } from 'gatsby'
 import PostCard from '../components/PostCard'
 import { useGoal } from 'gatsby-plugin-fathom'
+import { graphql } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
+
+export const pageQuery = graphql`
+  query {
+    allStrapiPost(sort: { fields: published_at, order: DESC }) {
+      nodes {
+        title
+        slug
+        id
+        published_at(fromNow: true)
+        # content
+        featured_image {
+          url
+        }
+      }
+    }
+  }
+`
 
 export default function Home({ data }) {
-  const { allMdx } = data
-  const { nodes } = allMdx
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
+
+  const {
+    allStrapiPost: { nodes: posts },
+  } = data
 
   const handleWestSideGoal = useGoal('RNWZWVFB')
   const handleBuffaloZooGoal = useGoal('WOJO4QYD')
@@ -59,7 +79,7 @@ export default function Home({ data }) {
           }}
         >
           <Box mt="auto" w="100%" mb="12" position="relative">
-            <Container>
+            <Container maxW="container.xl">
               <Grid py="6" templateColumns="repeat(12, 1fr)" gap="6">
                 <GridItem
                   colStart={{ lg: '2', xl: '3' }}
@@ -92,7 +112,7 @@ export default function Home({ data }) {
             </Container>
           </Box>
         </Flex>
-        <Container>
+        <Container maxW="container.xl">
           <Grid
             py={{ base: '16', lg: '32' }}
             templateColumns="repeat(12, 1fr)"
@@ -522,10 +542,9 @@ export default function Home({ data }) {
               </Link>
             </Flex>
             <Grid templateColumns="repeat(12, 1fr)" gap="6">
-              {nodes &&
-                nodes.length > 0 &&
-                nodes.map((post) => (
-                  <GridItem key={post.id} colSpan={{ base: '12', lg: '4' }}>
+              {posts &&
+                posts?.map((post) => (
+                  <GridItem key={post.id} colSpan={{ base: '12', md: '6' }}>
                     <PostCard post={post} />
                   </GridItem>
                 ))}
@@ -537,29 +556,3 @@ export default function Home({ data }) {
     </>
   )
 }
-
-export const pageQuery = graphql`
-  query LatestPosts {
-    allMdx(limit: 3, sort: { fields: frontmatter___date, order: DESC }) {
-      nodes {
-        id
-        excerpt
-        timeToRead
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          slug
-          featuredImage {
-            childImageSharp {
-              gatsbyImageData(
-                width: 400
-                placeholder: BLURRED
-                formats: [AUTO, WEBP]
-              )
-            }
-          }
-        }
-      }
-    }
-  }
-`

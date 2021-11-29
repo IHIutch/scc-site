@@ -12,10 +12,10 @@ import {
   Link,
   Text,
 } from '@chakra-ui/layout'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import SEO from '../../components/common/SEO'
 import Footer from '../../components/global/Footer'
 import ReactMarkdown from 'react-markdown'
+import { Image } from '@chakra-ui/image'
 
 export const query = graphql`
   query($id: String) {
@@ -25,6 +25,9 @@ export const query = graphql`
       published_at(formatString: "MMMM DD, YYYY")
       # lead
       content
+      featured_image {
+        url
+      }
     }
     site {
       siteMetadata {
@@ -66,16 +69,18 @@ export default function Post({ data }) {
             left="0"
             bg="tealGreen.700"
           >
-            <Box
-              as={GatsbyImage}
-              w="100%"
-              h="100%"
-              objectFit="cover"
-              opacity="20%"
-              style={{ mixBlendMode: 'luminosity' }}
-              // image={featuredImg}
-              alt={''}
-            />
+            {post?.featured_image?.url && (
+              <Image
+                // as={GatsbyImage}
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                opacity="20%"
+                style={{ mixBlendMode: 'luminosity' }}
+                src={post?.featured_image?.url}
+                alt={''}
+              />
+            )}
           </Box>
           <Box mt="auto" pt="5" w="100%" mb="12" position="relative">
             <Container maxW="container.xl">
