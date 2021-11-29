@@ -21,7 +21,7 @@ export const pageQuery = graphql`
         title
         slug
         id
-        published_at(fromNow: true)
+        published_at(formatString: "MMMM DD, YYYY")
         # content
         featured_image {
           url

@@ -11,6 +11,8 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
     {
@@ -21,17 +23,17 @@ module.exports = {
             ? 'https://scc-cms.herokuapp.com'
             : 'http://localhost:1337',
         collectionTypes: ['post', 'event'],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-images',
-          },
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: {
-              target: '_blank',
-            },
-          },
-        ],
+        // gatsbyRemarkPlugins: [
+        //   {
+        //     resolve: 'gatsby-remark-images',
+        //   },
+        //   {
+        //     resolve: 'gatsby-remark-external-links',
+        //     options: {
+        //       target: '_blank',
+        //     },
+        //   },
+        // ],
       },
     },
     {
@@ -43,8 +45,6 @@ module.exports = {
         icon: 'src/images/icon.png',
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

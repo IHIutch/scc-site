@@ -23,12 +23,12 @@ import { Link as GatsbyLink } from 'gatsby'
 
 export const pageQuery = graphql`
   query {
-    allStrapiPost(sort: { fields: published_at, order: DESC }) {
+    allStrapiPost(sort: { fields: published_at, order: DESC }, limit: 3) {
       nodes {
         title
         slug
         id
-        published_at(fromNow: true)
+        published_at(formatString: "MMMM DD, YYYY")
         # content
         featured_image {
           url
@@ -544,7 +544,7 @@ export default function Home({ data }) {
             <Grid templateColumns="repeat(12, 1fr)" gap="6">
               {posts &&
                 posts?.map((post) => (
-                  <GridItem key={post.id} colSpan={{ base: '12', md: '6' }}>
+                  <GridItem key={post.id} colSpan={{ base: '12', md: '4' }}>
                     <PostCard post={post} />
                   </GridItem>
                 ))}
