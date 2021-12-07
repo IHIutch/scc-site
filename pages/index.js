@@ -17,6 +17,12 @@ import React from 'react'
 import { useInView } from 'react-intersection-observer'
 import NextLink from 'next/link'
 import NextImage from 'next/image'
+import bgImage from '@/images/delaware_full1.webp'
+import { trackGoal } from 'fathom-client'
+
+const handleWestSideGoal = trackGoal('RNWZWVFB')
+const handleBuffaloZooGoal = trackGoal('WOJO4QYD')
+const handleBlackRockGoal = trackGoal('ODH3SOMC')
 
 export default function Home({ posts }) {
   const { ref, inView } = useInView({
@@ -263,11 +269,11 @@ export default function Home({ posts }) {
                   community.
                   <br />
                   <br />
-                  That's why we've designed and visualized a future for our
-                  region; to establish a plan that revitalizes and restores the
-                  dignity of our neighborhoods by promoting connectivity,
-                  improving accessibility to our parks and waterways, and
-                  developing a catalyst of economic development.
+                  That&apos;s why we&apos;ve designed and visualized a future
+                  for our region; to establish a plan that revitalizes and
+                  restores the dignity of our neighborhoods by promoting
+                  connectivity, improving accessibility to our parks and
+                  waterways, and developing a catalyst of economic development.
                 </Text>
               </Box>
             </GridItem>
@@ -318,7 +324,7 @@ export default function Home({ posts }) {
                   The Scajaquada Expressway cut communities in half and
                   destroyed economic opportunities. By restoring long-neglected
                   neighborhoods, such as Black Rock, we can transform our
-                  community into the gateway of Buffalo's most important
+                  community into the gateway of Buffalo&apos;s most important
                   waterway.
                 </Text>
               </Box>
@@ -370,7 +376,7 @@ export default function Home({ posts }) {
                   color="tealGreen.700"
                 >
                   Scajaquada Creek is one of the most polluted and impaired. For
-                  too long, we’ve lived alongside a creek that is polluted,
+                  too long, we&apos;ve lived alongside a creek that is polluted,
                   buried, hardened, industrialized, and mangled by road
                   infrastructure that supports minimal vegetation and wildlife,
                   and is choked by raw sewage every time it rains.
@@ -486,7 +492,7 @@ export default function Home({ posts }) {
                   Delaware Park, slashing apart the Meadow and the Lake. Our
                   vision reconnects the park, restores the historic stone bridge
                   arched over Delaware Avenue, and celebrate the cornerstone of
-                  Buffalo's cultural institutions.
+                  Buffalo&apos;s cultural institutions.
                 </Text>
               </Box>
             </GridItem>
