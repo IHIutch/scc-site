@@ -8,8 +8,7 @@ import {
   Text,
   Box,
 } from '@chakra-ui/layout'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import { Link as GatsbyLink } from 'gatsby'
+import { Image } from '@chakra-ui/image'
 
 export default function PostCard({ post }) {
   const [isActive, setIsActive] = useState(false)
@@ -25,13 +24,11 @@ export default function PostCard({ post }) {
         {post.frontmatter.featuredImage && (
           <AspectRatio ratio={16 / 9}>
             <Box h="100%" w="100%">
-              <Box
-                as={GatsbyImage}
-                h="100%"
-                w="100%"
+              <Image
+                boxSize="100%"
                 objectFit="cover"
                 style={{ mixBlendMode: 'luminosity' }}
-                image={getImage(post.frontmatter.featuredImage)}
+                // image={getImage(post.frontmatter.featuredImage)}
                 alt={''}
               />
             </Box>
@@ -39,7 +36,7 @@ export default function PostCard({ post }) {
         )}
         <Box p="4" color="tealGreen.700">
           <Heading size="xl" mb="2" lineHeight="1.2">
-            <LinkOverlay as={GatsbyLink} to={post.frontmatter.slug}>
+            <LinkOverlay to={post.frontmatter.slug}>
               {post.frontmatter.title}
             </LinkOverlay>
           </Heading>

@@ -10,14 +10,14 @@ import {
   Text,
 } from '@chakra-ui/react'
 import Container from '../../components/common/Container'
-import { Link as GatsbyLink } from 'gatsby'
 import { X, Menu } from 'react-feather'
-import { useGoal } from 'gatsby-plugin-fathom'
+import { trackGoal } from 'fathom-client'
+import NextLink from 'next/link'
 
 export default function Navbar({ sx, isHeroInView }) {
   const { isOpen, onToggle } = useDisclosure()
 
-  const handleDonateClick = useGoal('VLTP3IJR')
+  const handleDonateClick = trackGoal('VLTP3IJR')
 
   const mobileBreakpoint = 'lg'
   const paypalLink =
@@ -64,7 +64,6 @@ export default function Navbar({ sx, isHeroInView }) {
           <Flex wrap="wrap" align="center">
             <Box>
               <Link
-                as={GatsbyLink}
                 d="flex"
                 alignItems="center"
                 px="4"
@@ -121,7 +120,6 @@ export default function Navbar({ sx, isHeroInView }) {
               >
                 {navItemsLeft.map((link, idx) => (
                   <Link
-                    as={GatsbyLink}
                     key={idx}
                     to={link.path || '/'}
                     h="16"
@@ -155,7 +153,7 @@ export default function Navbar({ sx, isHeroInView }) {
             >
               {navItemsRight.map((link, idx) => (
                 <Link
-                  as={link.isExternal ? '' : GatsbyLink}
+                  // as={link.isExternal ? '' : GatsbyLink}
                   key={idx}
                   to={link.isExternal ? null : link.path || '/'}
                   href={link.isExternal ? link.path || '/' : null}

@@ -1,31 +1,15 @@
+import React from 'react'
 import { Button } from '@chakra-ui/button'
 import { FormControl, FormLabel } from '@chakra-ui/form-control'
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
 import { Box, Flex, Grid, GridItem, Link, Stack, Text } from '@chakra-ui/layout'
-import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby'
-import React from 'react'
 import Container from '../common/Container'
 import { Facebook, Twitter } from 'react-feather'
 import Icon from '@chakra-ui/icon'
-import { useGoal } from 'gatsby-plugin-fathom'
+import { trackGoal } from 'fathom-client'
 
 export default function Footer() {
-  const handleDonateClick = useGoal('VLTP3IJR')
-
-  const {
-    site: {
-      siteMetadata: { twitterUrl, facebookUrl },
-    },
-  } = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          twitterUrl
-          facebookUrl
-        }
-      }
-    }
-  `)
+  const handleDonateClick = trackGoal('VLTP3IJR')
 
   return (
     <Box as="footer" bg="tealGreen.700" py="24">
@@ -43,14 +27,10 @@ export default function Footer() {
               fontSize="2xl"
             >
               <Box>
-                <Link as={GatsbyLink} to="/">
-                  Home
-                </Link>
+                <Link to="/">Home</Link>
               </Box>
               <Box>
-                <Link as={GatsbyLink} to="/blog">
-                  Blog
-                </Link>
+                <Link to="/blog">Blog</Link>
               </Box>
               <Box>
                 <Link
@@ -135,13 +115,18 @@ export default function Footer() {
                 fontWeight="semibold"
                 textTransform="uppercase"
               >
-                <Flex as={Link} href={facebookUrl} align="center" isExternal>
+                <Flex
+                  as={Link}
+                  href={process.env.siteMeta.facebookUrl}
+                  align="center"
+                  isExternal
+                >
                   <Icon boxSize="6" as={Facebook} />
                   <Text ml="2">Facebook</Text>
                 </Flex>
                 <Flex
                   as={Link}
-                  href={twitterUrl}
+                  href={process.env.siteMeta.twitterUrl}
                   ml="12"
                   align="center"
                   isExternal
