@@ -17,7 +17,7 @@ import React from 'react'
 import { useInView } from 'react-intersection-observer'
 import NextLink from 'next/link'
 import NextImage from 'next/image'
-import bgImage from '@/images/delaware_full1.webp'
+import bgImage from '@/assets/images/delaware_full1.webp'
 import { trackGoal } from 'fathom-client'
 
 const handleWestSideGoal = trackGoal('RNWZWVFB')
@@ -108,7 +108,7 @@ export default function Home({ posts }) {
                           maxHeight: '256px',
                         }}
                         objectFit="contain"
-                        src="../images/RegionCentral_VerticalLogoColor_Footer.png"
+                        src="@/assets/images/RegionCentral_VerticalLogoColor_Footer.png"
                         alt="Region Central Logo"
                       />
                     </Flex>
