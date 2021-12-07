@@ -22,7 +22,7 @@ export default function BlogArchive({ posts }) {
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>
-          <Container>
+          <Container maxW="container.xl">
             <Grid pb="20" templateColumns="repeat(12, 1fr)">
               <GridItem
                 colStart={{ lg: '2', xl: '3' }}
@@ -54,7 +54,7 @@ export default function BlogArchive({ posts }) {
             </Grid>
           </Container>
         </Box>
-        <Container>
+        <Container maxW="container.xl">
           <Grid py="24" templateColumns="repeat(12, 1fr)">
             <GridItem
               colStart={{ lg: '2', xl: '3' }}

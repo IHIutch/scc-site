@@ -55,7 +55,7 @@ export default function Home({ posts }) {
           }}
         >
           <Box mt="auto" w="100%" mb="12" position="relative">
-            <Container>
+            <Container maxW="container.xl">
               <Grid py="6" templateColumns="repeat(12, 1fr)" gap="6">
                 <GridItem
                   colStart={{ lg: '2', xl: '3' }}
@@ -88,7 +88,7 @@ export default function Home({ posts }) {
             </Container>
           </Box>
         </Flex>
-        <Container>
+        <Container maxW="container.xl">
           <Grid
             py={{ base: '16', lg: '32' }}
             templateColumns="repeat(12, 1fr)"

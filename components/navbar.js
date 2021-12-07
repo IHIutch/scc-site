@@ -1,17 +1,11 @@
 import React from 'react'
-import {
-  Box,
-  Flex,
-  Link,
-  useDisclosure,
-  CloseButton,
-  Icon,
-  Button,
-  Text,
-} from '@chakra-ui/react'
-import Container from '../../components/common/Container'
 import { X, Menu } from 'react-feather'
 import { trackGoal } from 'fathom-client'
+import { useDisclosure } from '@chakra-ui/hooks'
+import { Box, Container, Flex, Link, Text } from '@chakra-ui/layout'
+import { Button } from '@chakra-ui/button'
+import { CloseButton } from '@chakra-ui/close-button'
+import Icon from '@chakra-ui/icon'
 import NextLink from 'next/link'
 
 export default function Navbar({ sx, isHeroInView }) {
@@ -60,7 +54,7 @@ export default function Navbar({ sx, isHeroInView }) {
         fontFamily="crimson"
         sx={sx}
       >
-        <Container>
+        <Container maxW="container.xl">
           <Flex wrap="wrap" align="center">
             <Box>
               <Link
