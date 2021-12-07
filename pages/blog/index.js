@@ -1,6 +1,7 @@
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import PostCard from '@/components/postCard'
+import { getPosts } from '@/utils/axios/posts'
 import {
   Box,
   Container,

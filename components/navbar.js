@@ -11,7 +11,7 @@ import NextLink from 'next/link'
 export default function Navbar({ sx, isHeroInView }) {
   const { isOpen, onToggle } = useDisclosure()
 
-  const handleDonateClick = trackGoal('VLTP3IJR')
+  // const handleDonateClick = trackGoal('VLTP3IJR')
 
   const mobileBreakpoint = 'lg'
   const paypalLink =
@@ -80,7 +80,7 @@ export default function Navbar({ sx, isHeroInView }) {
             <Flex align="center" ml="auto">
               <Button
                 d={{ base: 'flex', [mobileBreakpoint]: 'none' }}
-                onClick={handleDonateClick}
+                // onClick={handleDonateClick}
                 href={paypalLink}
                 isExternal
                 px="6"
@@ -166,7 +166,7 @@ export default function Navbar({ sx, isHeroInView }) {
             <Button
               d={{ base: 'none', [mobileBreakpoint]: 'flex' }}
               ml="4"
-              onClick={handleDonateClick}
+              // onClick={handleDonateClick}
               href={paypalLink}
               isExternal
               px="8"

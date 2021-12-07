@@ -20,9 +20,9 @@ import NextImage from 'next/image'
 import bgImage from '@/assets/images/delaware_full1.webp'
 import { trackGoal } from 'fathom-client'
 
-const handleWestSideGoal = trackGoal('RNWZWVFB')
-const handleBuffaloZooGoal = trackGoal('WOJO4QYD')
-const handleBlackRockGoal = trackGoal('ODH3SOMC')
+// const handleWestSideGoal = trackGoal('RNWZWVFB')
+// const handleBuffaloZooGoal = trackGoal('WOJO4QYD')
+// const handleBlackRockGoal = trackGoal('ODH3SOMC')
 
 export default function Home({ posts }) {
   const { ref, inView } = useInView({
@@ -173,7 +173,7 @@ export default function Home({ posts }) {
                             >
                               (
                               <Link
-                                onClick={handleWestSideGoal}
+                                // onClick={handleWestSideGoal}
                                 textDecoration="underline"
                                 href="https://g.page/WestSideBazaar"
                                 isExternal
@@ -205,7 +205,7 @@ export default function Home({ posts }) {
                             >
                               (
                               <Link
-                                onClick={handleBuffaloZooGoal}
+                                // onClick={handleBuffaloZooGoal}
                                 textDecoration="underline"
                                 href="https://goo.gl/maps/H9PX311vk1b1TZzn9"
                                 isExternal
@@ -237,7 +237,7 @@ export default function Home({ posts }) {
                             >
                               (
                               <Link
-                                onClick={handleBlackRockGoal}
+                                // onClick={handleBlackRockGoal}
                                 textDecoration="underline"
                                 href="https://goo.gl/maps/6gQe1xzJLiMfrTTu6"
                                 isExternal

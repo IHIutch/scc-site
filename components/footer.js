@@ -17,7 +17,7 @@ import Icon from '@chakra-ui/icon'
 import { trackGoal } from 'fathom-client'
 
 export default function Footer() {
-  const handleDonateClick = trackGoal('VLTP3IJR')
+  // const handleDonateClick = trackGoal('VLTP3IJR')
 
   return (
     <Box as="footer" bg="tealGreen.700" py="24">
@@ -42,7 +42,7 @@ export default function Footer() {
               </Box>
               <Box>
                 <Link
-                  onClick={handleDonateClick}
+                  // onClick={handleDonateClick}
                   isExternal
                   href="https://www.paypal.com/donate?hosted_button_id=FNKWNMDKXRUZG"
                 >
