@@ -1,14 +1,4 @@
 import React from 'react'
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Text,
-  Link,
-  Stack,
-} from '@chakra-ui/react'
 import Container from '../components/common/Container'
 import Navbar from '../components/global/Navbar'
 import bgImage from '../images/delaware_full1.webp'
@@ -19,6 +9,18 @@ import SEO from '../components/common/SEO'
 import { graphql, Link as GatsbyLink } from 'gatsby'
 import PostCard from '../components/PostCard'
 import { useGoal } from 'gatsby-plugin-fathom'
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Link,
+  LinkBox,
+  LinkOverlay,
+  Text,
+} from '@chakra-ui/layout'
+import { Button } from '@chakra-ui/button'
 
 export default function Home({ data }) {
   const { allMdx } = data
@@ -27,9 +29,7 @@ export default function Home({ data }) {
     threshold: 0.5,
   })
 
-  const handleWestSideGoal = useGoal('RNWZWVFB')
-  const handleBuffaloZooGoal = useGoal('WOJO4QYD')
-  const handleBlackRockGoal = useGoal('ODH3SOMC')
+  const handleRegionCentralClick = useGoal('MPNI77L3')
 
   return (
     <>
@@ -100,6 +100,15 @@ export default function Home({ data }) {
           >
             <GridItem colStart={{ lg: '2' }} colSpan={{ base: '12', lg: '9' }}>
               <Box mb="24">
+                <Heading
+                  as="h2"
+                  mb="4"
+                  color="tealGreen.800"
+                  fontSize={{ base: '4xl', lg: '5xl' }}
+                  lineHeight="1.2"
+                >
+                  Upcoming Event
+                </Heading>
                 <Grid
                   borderWidth="2px"
                   borderColor="tealGreen.700"
@@ -125,137 +134,37 @@ export default function Home({ data }) {
                     d="flex"
                     alignItems="center"
                   >
-                    <Box as="article">
+                    <LinkBox as="article" color="tealGreen.700">
                       <Box mb="4">
                         <Heading as="h1" mb="1" color="tealGreen.800">
-                          Upcoming Pop-up Events
+                          Public Outreach Meeting
                         </Heading>
+                        <Text as="time" fontWeight="semibold">
+                          December 9, 2021 06:00 PM (ET)
+                        </Text>
                       </Box>
-                      <Text
-                        fontSize={{ base: 'lg', lg: 'xl' }}
-                        mb="4"
-                        color="tealGreen.700"
-                      >
-                        Please join us for our pop-up events throughout August
-                        to learn more about Region Central and provide your
-                        input on the process. The planning team will use your
-                        input to help create the plan.
+                      <Text fontSize={{ base: 'lg', lg: 'xl' }} mb="4">
+                        The purpose of the meeting is to get your feedback on
+                        the planning framework within which the mobility options
+                        in Region Central will be developed and evaluated.
+                        <br />
+                        <br />
+                        The material presented will represent opportunities and
+                        outcomes to enhance economic opportunity, equity,
+                        livability and sustainability in Region Central that
+                        will help inform the mobility plan recommendations in
+                        the corridor.
                       </Text>
-                      <Stack as="dl" spacing="6">
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            Pine Grill Reunion @ MLK, Jr. Park
-                          </Text>
-                          <Text as="dd" fontSize="lg" color="tealGreen.700">
-                            Sunday, August 8 from 4-7 PM
-                          </Text>
-                        </Box>
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            SkyRide Buffalo @ Outer Harbor Lakeside Bike Park
-                          </Text>
-                          <Text as="dd" fontSize="lg" color="tealGreen.700">
-                            Sunday, August 15 from 8-10 AM
-                          </Text>
-                        </Box>
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            Westside Bazaar
-                          </Text>
-                          <Flex flexWrap="wrap">
-                            <Text
-                              as="dd"
-                              fontSize="lg"
-                              color="tealGreen.700"
-                              mr="4"
-                            >
-                              Thursday, August 26 from 4-7 PM
-                            </Text>
-                            <Text
-                              as="span"
-                              color="tealGreen.800"
-                              fontSize="lg"
-                              fontWeight="semibold"
-                            >
-                              (
-                              <Link
-                                onClick={handleWestSideGoal}
-                                textDecoration="underline"
-                                href="https://g.page/WestSideBazaar"
-                                isExternal
-                              >
-                                Get Directions
-                              </Link>
-                              )
-                            </Text>
-                          </Flex>
-                        </Box>
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            Buffalo Zoo
-                          </Text>
-                          <Flex flexWrap="wrap">
-                            <Text
-                              as="dd"
-                              fontSize="lg"
-                              color="tealGreen.700"
-                              mr="4"
-                            >
-                              Sunday, August 29 from 12-3 PM
-                            </Text>
-                            <Text
-                              as="span"
-                              color="tealGreen.800"
-                              fontSize="lg"
-                              fontWeight="semibold"
-                            >
-                              (
-                              <Link
-                                onClick={handleBuffaloZooGoal}
-                                textDecoration="underline"
-                                href="https://goo.gl/maps/H9PX311vk1b1TZzn9"
-                                isExternal
-                              >
-                                Get Directions
-                              </Link>
-                              )
-                            </Text>
-                          </Flex>
-                        </Box>
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            Black Rock @ Artisan Kitchens & Baths
-                          </Text>
-                          <Flex flexWrap="wrap">
-                            <Text
-                              as="dd"
-                              fontSize="lg"
-                              color="tealGreen.700"
-                              mr="4"
-                            >
-                              Tuesday, August 31 from 6-8 PM
-                            </Text>
-                            <Text
-                              as="span"
-                              color="tealGreen.800"
-                              fontSize="lg"
-                              fontWeight="semibold"
-                            >
-                              (
-                              <Link
-                                onClick={handleBlackRockGoal}
-                                textDecoration="underline"
-                                href="https://goo.gl/maps/6gQe1xzJLiMfrTTu6"
-                                isExternal
-                              >
-                                Get Directions
-                              </Link>
-                              )
-                            </Text>
-                          </Flex>
-                        </Box>
-                      </Stack>
-                    </Box>
+                      <LinkOverlay
+                        href="https://us02web.zoom.us/meeting/register/tZUof-2orTstGtVbht7fOaVyxcv8lZgpCFK9"
+                        onClick={handleRegionCentralClick}
+                        isExternal
+                      >
+                        <Button colorScheme="tealGreen" as={Text}>
+                          Register Here
+                        </Button>
+                      </LinkOverlay>
+                    </LinkBox>
                   </GridItem>
                 </Grid>
               </Box>
