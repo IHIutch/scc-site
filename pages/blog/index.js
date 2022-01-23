@@ -81,7 +81,9 @@ export default function BlogArchive({ posts }) {
 
 export async function getStaticProps() {
   const { data } = await getPosts()
-  const posts = data.sort((a, b) => b.id - a.id).map((post) => post.attributes)
+  const posts = data
+    .map((post) => post.attributes)
+    .sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt))
 
   return {
     props: {

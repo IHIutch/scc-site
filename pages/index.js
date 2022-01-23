@@ -392,9 +392,9 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const { data } = await getPosts()
   const posts = data
-    .sort((a, b) => b.id - a.id)
-    .slice(0, 3)
     .map((post) => post.attributes)
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .slice(0, 3)
 
   return {
     props: {
