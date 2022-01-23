@@ -83,7 +83,7 @@ export async function getStaticProps() {
   const { data } = await getPosts()
   const posts = data
     .map((post) => post.attributes)
-    .sort((a, b) => new Date(a.publishedAt) - new Date(b.publishedAt))
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
 
   return {
     props: {
