@@ -117,9 +117,9 @@ export default function Home({ posts }) {
                   What is possible for the reimagination of the Scajaquada
                   Corridor? Many decisions are on the horizon for infrastructure
                   priorities across the nation and in our region. Defining
-                  moments don’t come around very often, and 2021 may provide the
-                  last, best chance in a generation to reclaim our creek and
-                  community.
+                  moments don&apos;t come around very often, and 2021 may
+                  provide the last, best chance in a generation to reclaim our
+                  creek and community.
                   <br />
                   <br />
                   That&apos;s why we&apos;ve designed and visualized a future
