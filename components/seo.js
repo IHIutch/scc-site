@@ -3,10 +3,11 @@ import Head from 'next/head'
 export const SEO = ({ post }) => {
   const title = post?.title || process.env.SITE_META.title
   const description = post?.description || process.env.SITE_META.description
-  const url = new URL(post?.path || '', process.env.SITE_META.siteUrl)
-  const image = post?.image
-    ? new URL(post?.image, process.env.SITE_META.siteUrl)
-    : new URL(process.env.SITE_META.image, process.env.SITE_META.siteUrl)
+  const url = post?.slug
+    ? process.env.SITE_META.siteUrl + post.slug
+    : process.env.SITE_META.siteUrl
+  const image =
+    post?.featuredImage?.data?.attributes?.url || process.env.SITE_META.image
 
   return (
     <Head>

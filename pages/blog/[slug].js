@@ -29,7 +29,13 @@ export default function BlogPost({ post }) {
 
   return (
     <>
-      <SEO post={{ title: post.title, description: post.lead }} />
+      <SEO
+        post={{
+          title: post.title,
+          description: post?.lead,
+          slug: `/blog/${post.slug}`,
+        }}
+      />
       <Navbar isHeroInView={inView} />
       <main>
         <Flex
