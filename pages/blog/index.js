@@ -78,9 +78,12 @@ export default function BlogArchive({ posts }) {
 }
 
 export async function getStaticProps() {
+  const { data } = await getPosts()
+  const posts = data.map((post) => post.attributes)
+
   return {
     props: {
-      posts: [],
+      posts,
     },
   }
 }

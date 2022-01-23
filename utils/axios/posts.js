@@ -8,7 +8,7 @@ export const getPosts = async (params = null) => {
       params,
     })
     .catch((res) => {
-      throw new Error(res.data.error)
+      throw new Error(res.data.error.message)
     })
   return data
 }
@@ -17,7 +17,7 @@ export const getPost = async (id) => {
   const { data } = await axios
     .get(`${NEXT_PUBLIC_STRAPI_API_URL}/posts/${id}`)
     .catch((res) => {
-      throw new Error(res.data.error)
+      throw new Error(res.data.error.message)
     })
   return data
 }

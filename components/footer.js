@@ -15,6 +15,8 @@ import {
 import { Facebook, Twitter } from 'react-feather'
 import Icon from '@chakra-ui/icon'
 import { trackGoal } from 'fathom-client'
+import { siteMeta } from '@/utils/constants'
+import NextLink from 'next/link'
 
 export default function Footer() {
   // const handleDonateClick = trackGoal('VLTP3IJR')
@@ -35,19 +37,27 @@ export default function Footer() {
               fontSize="2xl"
             >
               <Box>
-                <Link to="/">Home</Link>
+                <NextLink href="/" passHref>
+                  <Link>Home</Link>
+                </NextLink>
               </Box>
               <Box>
-                <Link to="/blog">Blog</Link>
+                <NextLink href="/blog" passHref>
+                  <Link>Blog</Link>
+                </NextLink>
               </Box>
               <Box>
-                <Link
-                  // onClick={handleDonateClick}
-                  isExternal
+                <NextLink
                   href="https://www.paypal.com/donate?hosted_button_id=FNKWNMDKXRUZG"
+                  passHref
                 >
-                  Donate
-                </Link>
+                  <Link
+                    // onClick={handleDonateClick}
+                    isExternal
+                  >
+                    Donate
+                  </Link>
+                </NextLink>
               </Box>
             </Stack>
           </GridItem>
@@ -123,25 +133,22 @@ export default function Footer() {
                 fontWeight="semibold"
                 textTransform="uppercase"
               >
-                <Flex
-                  as={Link}
-                  href={process.env.siteMeta.facebookUrl}
-                  align="center"
-                  isExternal
-                >
-                  <Icon boxSize="6" as={Facebook} />
-                  <Text ml="2">Facebook</Text>
-                </Flex>
-                <Flex
-                  as={Link}
-                  href={process.env.siteMeta.twitterUrl}
-                  ml="12"
-                  align="center"
-                  isExternal
-                >
-                  <Icon boxSize="6" as={Twitter} />
-                  <Text ml="2">Twitter</Text>
-                </Flex>
+                <NextLink href={siteMeta.facebookUrl} passHref>
+                  <Link isExternal>
+                    <Flex align="center">
+                      <Icon boxSize="6" as={Facebook} />
+                      <Text ml="2">Facebook</Text>
+                    </Flex>
+                  </Link>
+                </NextLink>
+                <NextLink href={siteMeta.twitterUrl} passHref>
+                  <Link isExternal>
+                    <Flex ml="12" align="center">
+                      <Icon boxSize="6" as={Twitter} />
+                      <Text ml="2">Twitter</Text>
+                    </Flex>
+                  </Link>
+                </NextLink>
               </Flex>
             </Stack>
           </GridItem>

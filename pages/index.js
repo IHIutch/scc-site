@@ -10,7 +10,6 @@ import {
   GridItem,
   Heading,
   Link,
-  Stack,
   Text,
 } from '@chakra-ui/layout'
 import React from 'react'
@@ -93,166 +92,6 @@ export default function Home({ posts }) {
             templateColumns="repeat(12, 1fr)"
             gap="6"
           >
-            <GridItem colStart={{ lg: '2' }} colSpan={{ base: '12', lg: '9' }}>
-              <Box mb="24">
-                <Grid
-                  borderWidth="2px"
-                  borderColor="tealGreen.700"
-                  templateColumns={{ lg: 'repeat(6, 1fr)' }}
-                >
-                  <GridItem colSpan={{ lg: '2' }} p="6" bg="black">
-                    <Flex boxSize="100%" align="center" justify="center">
-                      <Image
-                        style={{
-                          maxHeight: '256px',
-                        }}
-                        objectFit="contain"
-                        src="/assets/images/RegionCentral_VerticalLogoColor_Footer.png"
-                        alt="Region Central Logo"
-                      />
-                    </Flex>
-                  </GridItem>
-                  <GridItem
-                    colSpan={{ lg: '4' }}
-                    p="8"
-                    d="flex"
-                    alignItems="center"
-                  >
-                    <Box as="article">
-                      <Box mb="4">
-                        <Heading as="h1" mb="1" color="tealGreen.800">
-                          Upcoming Pop-up Events
-                        </Heading>
-                      </Box>
-                      <Text
-                        fontSize={{ base: 'lg', lg: 'xl' }}
-                        mb="4"
-                        color="tealGreen.700"
-                      >
-                        Please join us for our pop-up events throughout August
-                        to learn more about Region Central and provide your
-                        input on the process. The planning team will use your
-                        input to help create the plan.
-                      </Text>
-                      <Stack as="dl" spacing="6">
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            Pine Grill Reunion @ MLK, Jr. Park
-                          </Text>
-                          <Text as="dd" fontSize="lg" color="tealGreen.700">
-                            Sunday, August 8 from 4-7 PM
-                          </Text>
-                        </Box>
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            SkyRide Buffalo @ Outer Harbor Lakeside Bike Park
-                          </Text>
-                          <Text as="dd" fontSize="lg" color="tealGreen.700">
-                            Sunday, August 15 from 8-10 AM
-                          </Text>
-                        </Box>
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            Westside Bazaar
-                          </Text>
-                          <Flex flexWrap="wrap">
-                            <Text
-                              as="dd"
-                              fontSize="lg"
-                              color="tealGreen.700"
-                              mr="4"
-                            >
-                              Thursday, August 26 from 4-7 PM
-                            </Text>
-                            <Text
-                              as="span"
-                              color="tealGreen.800"
-                              fontSize="lg"
-                              fontWeight="semibold"
-                            >
-                              (
-                              <Link
-                                // onClick={handleWestSideGoal}
-                                textDecoration="underline"
-                                href="https://g.page/WestSideBazaar"
-                                isExternal
-                              >
-                                Get Directions
-                              </Link>
-                              )
-                            </Text>
-                          </Flex>
-                        </Box>
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            Buffalo Zoo
-                          </Text>
-                          <Flex flexWrap="wrap">
-                            <Text
-                              as="dd"
-                              fontSize="lg"
-                              color="tealGreen.700"
-                              mr="4"
-                            >
-                              Sunday, August 29 from 12-3 PM
-                            </Text>
-                            <Text
-                              as="span"
-                              color="tealGreen.800"
-                              fontSize="lg"
-                              fontWeight="semibold"
-                            >
-                              (
-                              <Link
-                                // onClick={handleBuffaloZooGoal}
-                                textDecoration="underline"
-                                href="https://goo.gl/maps/H9PX311vk1b1TZzn9"
-                                isExternal
-                              >
-                                Get Directions
-                              </Link>
-                              )
-                            </Text>
-                          </Flex>
-                        </Box>
-                        <Box>
-                          <Text as="dt" fontSize="xl" fontWeight="semibold">
-                            Black Rock @ Artisan Kitchens & Baths
-                          </Text>
-                          <Flex flexWrap="wrap">
-                            <Text
-                              as="dd"
-                              fontSize="lg"
-                              color="tealGreen.700"
-                              mr="4"
-                            >
-                              Tuesday, August 31 from 6-8 PM
-                            </Text>
-                            <Text
-                              as="span"
-                              color="tealGreen.800"
-                              fontSize="lg"
-                              fontWeight="semibold"
-                            >
-                              (
-                              <Link
-                                // onClick={handleBlackRockGoal}
-                                textDecoration="underline"
-                                href="https://goo.gl/maps/6gQe1xzJLiMfrTTu6"
-                                isExternal
-                              >
-                                Get Directions
-                              </Link>
-                              )
-                            </Text>
-                          </Flex>
-                        </Box>
-                      </Stack>
-                    </Box>
-                  </GridItem>
-                </Grid>
-              </Box>
-            </GridItem>
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box>
                 <Text
@@ -501,16 +340,17 @@ export default function Home({ posts }) {
               <Heading mb="8" color="tealGreen.700">
                 Get the Latest
               </Heading>
-              <Link
-                d="flex"
-                textDecoration="underline"
-                fontWeight="semibold"
-                color="tealGreen.700"
-                ml="4"
-                to="/blog/"
-              >
-                See All our Posts →
-              </Link>
+              <NextLink href="/blog" passHref>
+                <Link
+                  d="flex"
+                  textDecoration="underline"
+                  fontWeight="semibold"
+                  color="tealGreen.700"
+                  ml="4"
+                >
+                  See All our Posts →
+                </Link>
+              </NextLink>
             </Flex>
             <Grid templateColumns="repeat(12, 1fr)" gap="6">
               {posts.map((post) => (

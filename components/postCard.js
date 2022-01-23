@@ -9,6 +9,8 @@ import {
   Box,
 } from '@chakra-ui/layout'
 import { Image } from '@chakra-ui/image'
+import NextLink from 'next/link'
+import dayjs from 'dayjs'
 
 export default function PostCard({ post }) {
   const [isActive, setIsActive] = useState(false)
@@ -21,31 +23,39 @@ export default function PostCard({ post }) {
       onBlur={() => setIsActive(false)}
     >
       <Box borderColor="tealGreen.700" borderWidth="2px">
-        {post.frontmatter.featuredImage && (
+        {/* {post.featuredImage && (
           <AspectRatio ratio={16 / 9}>
             <Box h="100%" w="100%">
               <Image
                 boxSize="100%"
                 objectFit="cover"
                 style={{ mixBlendMode: 'luminosity' }}
-                // image={getImage(post.frontmatter.featuredImage)}
+                // image={getImage(post.featuredImage)}
                 alt={''}
               />
             </Box>
           </AspectRatio>
-        )}
+        )} */}
         <Box p="4" color="tealGreen.700">
           <Heading size="xl" mb="2" lineHeight="1.2">
-            <LinkOverlay to={post.frontmatter.slug}>
-              {post.frontmatter.title}
-            </LinkOverlay>
+            <NextLink
+              href={{
+                pathname: '/blog/[slug]',
+                query: { slug: post.slug },
+              }}
+              passHref
+            >
+              <LinkOverlay>{post.title}</LinkOverlay>
+            </NextLink>
           </Heading>
-          <Box>
-            <Text fontWeight="semibold" mb="2">
-              {post.frontmatter.date}
-            </Text>
-            <Text fontSize="lg">{post.excerpt}</Text>
-          </Box>
+          {post.createdAt && (
+            <Box>
+              <Text fontWeight="semibold" mb="2">
+                {dayjs(post.createdAt).format('MMMM D, YYYY')}
+              </Text>
+              {/* <Text fontSize="lg">{post.excerpt}</Text> */}
+            </Box>
+          )}
         </Box>
         <Flex
           borderTopWidth="2px"
@@ -64,9 +74,9 @@ export default function PostCard({ post }) {
           <Text fontFamily="crimson" fontSize="xl" fontWeight="bold">
             Keep Reading →
           </Text>
-          <Text fontWeight="semibold" fontSize="sm">
+          {/* <Text fontWeight="semibold" fontSize="sm">
             (Read Time: {post.timeToRead} min)
-          </Text>
+          </Text> */}
         </Flex>
       </Box>
     </LinkBox>

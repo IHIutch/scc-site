@@ -1,1 +1,10 @@
-{"data":{"site":{"siteMetadata":{"twitterUrl":"https://twitter.com/RightSize198","facebookUrl":"https://www.facebook.com/sccbuffalo/"}}}}
+{
+  "data": {
+    "site": {
+      "siteMeta": {
+        "twitterUrl": "https://twitter.com/RightSize198",
+        "facebookUrl": "https://www.facebook.com/sccbuffalo/"
+      }
+    }
+  }
+}
