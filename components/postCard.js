@@ -11,6 +11,7 @@ import {
 import { Image } from '@chakra-ui/image'
 import NextLink from 'next/link'
 import dayjs from 'dayjs'
+import NextImage from 'next/image'
 
 export default function PostCard({ post }) {
   const [isActive, setIsActive] = useState(false)
@@ -23,19 +24,19 @@ export default function PostCard({ post }) {
       onBlur={() => setIsActive(false)}
     >
       <Box borderColor="tealGreen.700" borderWidth="2px">
-        {/* {post.featuredImage && (
+        {post?.featuredImage?.data && (
           <AspectRatio ratio={16 / 9}>
-            <Box h="100%" w="100%">
+            <Box h="100%" w="100%" style={{ mixBlendMode: 'luminosity' }}>
               <Image
-                boxSize="100%"
+                as={NextImage}
+                layout="fill"
                 objectFit="cover"
-                style={{ mixBlendMode: 'luminosity' }}
-                // image={getImage(post.featuredImage)}
-                alt={''}
+                src={post?.featuredImage?.data?.attributes?.url}
+                alt={post.title}
               />
             </Box>
           </AspectRatio>
-        )} */}
+        )}
         <Box p="4" color="tealGreen.700">
           <Heading size="xl" mb="2" lineHeight="1.2">
             <NextLink

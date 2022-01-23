@@ -62,8 +62,8 @@ export default function BlogArchive({ posts }) {
               colSpan={{ base: '12', lg: '10', xl: '8' }}
             >
               <Grid templateColumns="repeat(12, 1fr)" gap="6">
-                {posts.map((post) => (
-                  <GridItem key={post.id} colSpan={{ base: '12', md: '6' }}>
+                {posts.map((post, idx) => (
+                  <GridItem key={idx} colSpan={{ base: '12', md: '6' }}>
                     <PostCard post={post} />
                   </GridItem>
                 ))}
@@ -79,7 +79,7 @@ export default function BlogArchive({ posts }) {
 
 export async function getStaticProps() {
   const { data } = await getPosts()
-  const posts = data.map((post) => post.attributes)
+  const posts = data.sort((a, b) => b.id - a.id).map((post) => post.attributes)
 
   return {
     props: {

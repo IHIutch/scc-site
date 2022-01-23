@@ -1,22 +1,12 @@
-import { siteMeta } from '@/utils/constants'
 import Head from 'next/head'
 
 export const SEO = ({ post }) => {
-  if (siteMeta.siteUrl === '' && typeof window !== 'undefined') {
-    siteMeta.siteUrl = window.location.origin
-  }
-
-  if (siteMeta.siteUrl === '') {
-    console.error('Please set a siteUrl in your site metadata!')
-    return null
-  }
-
-  const title = post.title || siteMeta.title
-  const description = post.description || siteMeta.description
-  const url = new URL(post.path || '', siteMeta.siteUrl)
+  const title = post.title || process.env.SITE_META.title
+  const description = post.description || process.env.SITE_META.description
+  const url = new URL(post.path || '', process.env.SITE_META.siteUrl)
   const image = post.image
-    ? new URL(post.image, siteMeta.siteUrl)
-    : new URL(siteMeta.image, siteMeta.siteUrl)
+    ? new URL(post.image, process.env.SITE_META.siteUrl)
+    : new URL(process.env.SITE_META.image, process.env.SITE_META.siteUrl)
 
   return (
     <Head>

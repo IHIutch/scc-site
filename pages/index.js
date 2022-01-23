@@ -17,6 +17,12 @@ import { useInView } from 'react-intersection-observer'
 import NextLink from 'next/link'
 import NextImage from 'next/image'
 import { trackGoal } from 'fathom-client'
+import { getPosts } from '@/utils/axios/posts'
+import delaware_full1 from '@/public/assets/images/delaware_full1.webp'
+import a_render from '@/public/assets/images/web/a_render.jpg'
+import b_render from '@/public/assets/images/web/b_render.jpg'
+import c_render from '@/public/assets/images/web/c_render.jpg'
+import d_render from '@/public/assets/images/web/d_render.jpg'
 
 // const handleWestSideGoal = trackGoal('RNWZWVFB')
 // const handleBuffaloZooGoal = trackGoal('WOJO4QYD')
@@ -31,28 +37,37 @@ export default function Home({ posts }) {
       <Navbar isHeroInView={inView} />
       <main>
         <Flex
-          ref={ref}
           w="100%"
           minH={{ base: '90vh', lg: '75vh' }}
-          bg="tealGreen.700"
           position="relative"
-          _before={{
-            content: "''",
-            position: 'absolute',
-            top: '0px',
-            right: '0px',
-            bottom: '0px',
-            left: '0px',
-            bg: 'tealGreen.700',
-            backgroundBlendMode: 'luminosity',
-            backgroundImage: `/assets/images/delaware_full1.webp`,
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            opacity: '20%',
-          }}
+          ref={ref}
         >
-          <Box mt="auto" w="100%" mb="12" position="relative">
+          <Box
+            position="absolute"
+            top="0"
+            right="0"
+            bottom="0"
+            left="0"
+            bg="tealGreen.700"
+          >
+            <Box
+              style={{ mixBlendMode: 'luminosity' }}
+              opacity="20%"
+              w="100%"
+              h="100%"
+            >
+              <Image
+                as={NextImage}
+                priority={true}
+                placeholder="blur"
+                layout="fill"
+                objectFit="cover"
+                src={delaware_full1}
+                alt="A beautiful view of Hoyt Lake"
+              />
+            </Box>
+          </Box>
+          <Box mt="auto" pt="5" w="100%" mb="12" position="relative">
             <Container maxW="container.xl">
               <Grid py="6" templateColumns="repeat(12, 1fr)" gap="6">
                 <GridItem
@@ -123,9 +138,10 @@ export default function Home({ posts }) {
             borderColor="tealGreen.700"
           >
             <Image
-              src="/assets/images/web/a_render.jpg"
+              as={NextImage}
+              src={a_render}
               alt="Aerial view facing North-West over the Scajaquada Expressway."
-              placeholder="blurred"
+              placeholder="blur"
             />
             <Box
               as="figcaption"
@@ -175,10 +191,11 @@ export default function Home({ posts }) {
             borderColor="tealGreen.700"
           >
             <Image
-              src="/assets/images/web/b_render.jpg"
+              as={NextImage}
+              src={b_render}
               alt="Facing East on the Scajaquada Expressway, between Wegmans on
               Amherst Street and Buffalo State College."
-              placeholder="blurred"
+              placeholder="blur"
             />
             <Box
               as="figcaption"
@@ -235,9 +252,11 @@ export default function Home({ posts }) {
             borderColor="tealGreen.700"
           >
             <Image
-              src="/assets/images/web/c_render.jpg"
+              as={NextImage}
+              src={c_render}
               alt="Facing North-West on the Kensington Expressway, between Sisters
               Hospital and Canisius College."
+              placeholder="blur"
             />
             <Box
               as="figcaption"
@@ -288,10 +307,11 @@ export default function Home({ posts }) {
             borderColor="tealGreen.700"
           >
             <Image
-              src="/assets/images/web/d_render.jpg"
+              as={NextImage}
+              src={d_render}
               alt="Facing South-West in Delaware Park, from the Point of the Meadow
               Shelter and Soccer Fields."
-              placeholder="blurred"
+              placeholder="blur"
             />
             <Box
               as="figcaption"
@@ -348,13 +368,13 @@ export default function Home({ posts }) {
                   color="tealGreen.700"
                   ml="4"
                 >
-                  See All our Posts →
+                  See All Posts →
                 </Link>
               </NextLink>
             </Flex>
             <Grid templateColumns="repeat(12, 1fr)" gap="6">
-              {posts.map((post) => (
-                <GridItem key={post.id} colSpan={{ base: '12', lg: '4' }}>
+              {posts.map((post, idx) => (
+                <GridItem key={idx} colSpan={{ base: '12', lg: '4' }}>
                   <PostCard post={post} />
                 </GridItem>
               ))}
@@ -368,9 +388,15 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
+  const { data } = await getPosts()
+  const posts = data
+    .sort((a, b) => b.id - a.id)
+    .slice(0, 3)
+    .map((post) => post.attributes)
+
   return {
     props: {
-      posts: [],
+      posts,
     },
   }
 }

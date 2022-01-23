@@ -15,7 +15,6 @@ import {
 import { Facebook, Twitter } from 'react-feather'
 import Icon from '@chakra-ui/icon'
 import { trackGoal } from 'fathom-client'
-import { siteMeta } from '@/utils/constants'
 import NextLink from 'next/link'
 
 export default function Footer() {
@@ -133,7 +132,7 @@ export default function Footer() {
                 fontWeight="semibold"
                 textTransform="uppercase"
               >
-                <NextLink href={siteMeta.facebookUrl} passHref>
+                <NextLink href={process.env.SITE_META.facebookUrl} passHref>
                   <Link isExternal>
                     <Flex align="center">
                       <Icon boxSize="6" as={Facebook} />
@@ -141,7 +140,7 @@ export default function Footer() {
                     </Flex>
                   </Link>
                 </NextLink>
-                <NextLink href={siteMeta.twitterUrl} passHref>
+                <NextLink href={process.env.SITE_META.twitterUrl} passHref>
                   <Link isExternal>
                     <Flex ml="12" align="center">
                       <Icon boxSize="6" as={Twitter} />

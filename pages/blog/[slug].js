@@ -9,12 +9,14 @@ import {
   Grid,
   GridItem,
   Heading,
+  Image,
   Link,
   Text,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 import NextLink from 'next/link'
-import { siteMeta } from '@/utils/constants'
+import NextImage from 'next/image'
+
 import { SEO } from '@/components/seo'
 import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -44,16 +46,23 @@ export default function BlogPost({ post }) {
             left="0"
             bg="tealGreen.700"
           >
-            {/* <Box
-              as={GatsbyImage}
-              w="100%"
-              h="100%"
-              objectFit="cover"
-              opacity="20%"
-              style={{ mixBlendMode: 'luminosity' }}
-              image={featuredImg}
-              alt={''}
-            /> */}
+            {post?.featuredImage?.data && (
+              <Box
+                style={{ mixBlendMode: 'luminosity' }}
+                opacity="20%"
+                w="100%"
+                h="100%"
+              >
+                <Image
+                  as={NextImage}
+                  priority={true}
+                  layout="fill"
+                  objectFit="cover"
+                  src={post?.featuredImage?.data?.attributes?.url}
+                  alt={post.title}
+                />
+              </Box>
+            )}
           </Box>
           <Box mt="auto" pt="5" w="100%" mb="12" position="relative">
             <Container maxW="container.xl">
@@ -113,9 +122,13 @@ export default function BlogPost({ post }) {
           <Grid py="32" templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box className="post-content">
-                {/* <MDXRenderer>{post.content}</MDXRenderer> */}
-                <MDXRemote {...post.content} />
-                {/* <Box>{post.content}</Box> */}
+                <MDXRemote
+                  {...post.content}
+                  components={{
+                    // eslint-disable-next-line jsx-a11y/alt-text
+                    img: (props) => <Image width="100%" {...props} />,
+                  }}
+                />
               </Box>
               <Box
                 borderTopWidth="2px"
@@ -126,9 +139,9 @@ export default function BlogPost({ post }) {
                 <Text fontFamily="crimson" fontSize="3xl" color="tealGreen.700">
                   Support the removal of the Scajaquada Expressway by following
                   us on{' '}
-                  <NextLink href={siteMeta.twitterUrl} passHref>
+                  <NextLink href={process.env.SITE_META.twitterUrl} passHref>
                     <Link
-                      href={siteMeta.twitterUrl}
+                      href={process.env.SITE_META.twitterUrl}
                       fontWeight="bold"
                       textDecoration="underline"
                       isExternal
@@ -137,9 +150,9 @@ export default function BlogPost({ post }) {
                     </Link>
                   </NextLink>{' '}
                   and{' '}
-                  <NextLink href={siteMeta.facebookUrl} passHref>
+                  <NextLink href={process.env.SITE_META.facebookUrl} passHref>
                     <Link
-                      href={siteMeta.facebookUrl}
+                      href={process.env.SITE_META.facebookUrl}
                       fontWeight="bold"
                       textDecoration="underline"
                       isExternal

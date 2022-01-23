@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   env: {
-    siteMeta: {
+    SITE_META: {
       title: 'Scajaquada Corridor Coalition',
       siteUrl: `https://sccoalition.net`,
       titleTemplate: ' · Scajaquada Corridor Coalition',
@@ -11,5 +11,8 @@ module.exports = {
       twitterUrl: 'https://twitter.com/RightSize198',
       facebookUrl: 'https://www.facebook.com/sccbuffalo/',
     },
+  },
+  images: {
+    domains: ['bvozupfdsubbojpqsspf.supabase.co'],
   },
 }
