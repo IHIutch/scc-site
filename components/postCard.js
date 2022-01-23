@@ -49,10 +49,10 @@ export default function PostCard({ post }) {
               <LinkOverlay>{post.title}</LinkOverlay>
             </NextLink>
           </Heading>
-          {post.createdAt && (
+          {post.publishedAt && (
             <Box>
               <Text fontWeight="semibold" mb="2">
-                {dayjs(post.createdAt).format('MMMM D, YYYY')}
+                {dayjs(post.publishedAt).format('MMMM D, YYYY')}
               </Text>
               {/* <Text fontSize="lg">{post.excerpt}</Text> */}
             </Box>

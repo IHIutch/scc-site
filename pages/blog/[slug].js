@@ -94,9 +94,9 @@ export default function BlogPost({ post }) {
                           </Text>
                         </>
                       )}
-                      {post.createdAt && (
+                      {post.publishedAt && (
                         <Text>
-                          {dayjs(post.createdAt).format('MMMM D, YYYY')}
+                          {dayjs(post.publishedAt).format('MMMM D, YYYY')}
                         </Text>
                       )}
                     </Text>
