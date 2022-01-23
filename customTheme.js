@@ -60,6 +60,33 @@ const customTheme = {
           mb: '4',
           lineHeight: '1.2',
         },
+        h4: {
+          fontSize: '3xl',
+          fontWeight: 'bold',
+          fontFamily: 'crimson',
+          color: 'tealGreen.800',
+          mt: '12',
+          mb: '4',
+          lineHeight: '1.2',
+        },
+        h5: {
+          fontSize: '2xl',
+          fontWeight: 'bold',
+          fontFamily: 'crimson',
+          color: 'tealGreen.800',
+          mt: '12',
+          mb: '4',
+          lineHeight: '1.2',
+        },
+        h6: {
+          fontSize: 'xl',
+          fontWeight: 'bold',
+          fontFamily: 'crimson',
+          color: 'tealGreen.800',
+          mt: '12',
+          mb: '4',
+          lineHeight: '1.2',
+        },
         p: {
           fontSize: {
             base: 'xl',
