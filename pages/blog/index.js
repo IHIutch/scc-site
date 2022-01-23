@@ -1,6 +1,7 @@
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import PostCard from '@/components/postCard'
+import { SEO } from '@/components/seo'
 import { getPosts } from '@/utils/axios/posts'
 import {
   Box,
@@ -20,6 +21,7 @@ export default function BlogArchive({ posts }) {
 
   return (
     <>
+      <SEO post={{ title: 'Blog' }} />
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>

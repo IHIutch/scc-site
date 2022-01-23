@@ -1,11 +1,11 @@
 import Head from 'next/head'
 
 export const SEO = ({ post }) => {
-  const title = post.title || process.env.SITE_META.title
-  const description = post.description || process.env.SITE_META.description
-  const url = new URL(post.path || '', process.env.SITE_META.siteUrl)
-  const image = post.image
-    ? new URL(post.image, process.env.SITE_META.siteUrl)
+  const title = post?.title || process.env.SITE_META.title
+  const description = post?.description || process.env.SITE_META.description
+  const url = new URL(post?.path || '', process.env.SITE_META.siteUrl)
+  const image = post?.image
+    ? new URL(post?.image, process.env.SITE_META.siteUrl)
     : new URL(process.env.SITE_META.image, process.env.SITE_META.siteUrl)
 
   return (
@@ -21,8 +21,8 @@ export const SEO = ({ post }) => {
       {image && <meta property="og:image" content={image} />}
 
       <meta name="twitter:card" content="summary_large_image" />
-      {post.author && (
-        <meta name="twitter:creator" content={post.author.twitter} />
+      {post?.author && (
+        <meta name="twitter:creator" content={post?.author.twitter} />
       )}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
