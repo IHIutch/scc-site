@@ -23,6 +23,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { data } = await getEvents()
   const foundPost = data.find((post) => post.attributes.slug === params.slug)
+
+  if (!foundPost) {
+    return {
+      notFound: true,
+    }
+  }
+
   const {
     data: { attributes: post },
   } = await getEvent(foundPost.id)
@@ -31,5 +38,6 @@ export async function getStaticProps({ params }) {
     props: {
       post,
     },
+    revalidate: 60 * 60 * 24,
   }
 }

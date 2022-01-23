@@ -9,5 +9,6 @@ export async function getStaticProps() {
     props: {
       posts: [],
     },
+    revalidate: 60 * 60 * 24,
   }
 }
