@@ -7,7 +7,8 @@ export const SEO = ({ post }) => {
     ? process.env.SITE_META.siteUrl + post.slug
     : process.env.SITE_META.siteUrl
   const image =
-    post?.featuredImage?.data?.attributes?.url || process.env.SITE_META.image
+    post?.featuredImage?.data?.attributes?.url ||
+    process.env.SITE_META.siteUrl + process.env.SITE_META.image
 
   return (
     <Head>

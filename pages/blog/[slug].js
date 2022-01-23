@@ -31,6 +31,7 @@ export default function BlogPost({ post }) {
     <>
       <SEO
         post={{
+          ...post,
           title: post.title,
           description: post?.lead,
           slug: `/blog/${post.slug}`,
