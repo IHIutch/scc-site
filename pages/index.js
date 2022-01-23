@@ -17,7 +17,6 @@ import React from 'react'
 import { useInView } from 'react-intersection-observer'
 import NextLink from 'next/link'
 import NextImage from 'next/image'
-import bgImage from '@/assets/images/delaware_full1.webp'
 import { trackGoal } from 'fathom-client'
 
 // const handleWestSideGoal = trackGoal('RNWZWVFB')
@@ -47,7 +46,7 @@ export default function Home({ posts }) {
             left: '0px',
             bg: 'tealGreen.700',
             backgroundBlendMode: 'luminosity',
-            backgroundImage: `url(${bgImage})`,
+            backgroundImage: `/assets/images/delaware_full1.webp`,
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
@@ -108,7 +107,7 @@ export default function Home({ posts }) {
                           maxHeight: '256px',
                         }}
                         objectFit="contain"
-                        src="@/assets/images/RegionCentral_VerticalLogoColor_Footer.png"
+                        src="/assets/images/RegionCentral_VerticalLogoColor_Footer.png"
                         alt="Region Central Logo"
                       />
                     </Flex>
@@ -285,7 +284,7 @@ export default function Home({ posts }) {
             borderColor="tealGreen.700"
           >
             <Image
-              src="@/assets/images/web/a_render.jpg"
+              src="/assets/images/web/a_render.jpg"
               alt="Aerial view facing North-West over the Scajaquada Expressway."
               placeholder="blurred"
             />
@@ -337,7 +336,7 @@ export default function Home({ posts }) {
             borderColor="tealGreen.700"
           >
             <Image
-              src="@/assets/images/web/b_render.jpg"
+              src="/assets/images/web/b_render.jpg"
               alt="Facing East on the Scajaquada Expressway, between Wegmans on
               Amherst Street and Buffalo State College."
               placeholder="blurred"
@@ -397,7 +396,7 @@ export default function Home({ posts }) {
             borderColor="tealGreen.700"
           >
             <Image
-              src="@/assets/images/web/c_render.jpg"
+              src="/assets/images/web/c_render.jpg"
               alt="Facing North-West on the Kensington Expressway, between Sisters
               Hospital and Canisius College."
             />
@@ -450,7 +449,7 @@ export default function Home({ posts }) {
             borderColor="tealGreen.700"
           >
             <Image
-              src="@/assets/images/web/d_render.jpg"
+              src="/assets/images/web/d_render.jpg"
               alt="Facing South-West in Delaware Park, from the Point of the Meadow
               Shelter and Soccer Fields."
               placeholder="blurred"
