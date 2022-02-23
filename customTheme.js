@@ -32,7 +32,7 @@ const customTheme = {
         // bg: "#f4fbfa",
         bg: 'blue.50',
       },
-      '.post-content >': {
+      '.post-content': {
         h1: {
           fontSize: '6xl',
           fontWeight: 'bold',
@@ -102,10 +102,6 @@ const customTheme = {
           fontWeight: 'bold',
           textDecoration: 'underline',
         },
-        'p > a': {
-          fontWeight: 'bold',
-          textDecoration: 'underline',
-        },
         'blockquote > p': {
           textAlign: 'center',
           fontSize: '4xl',
@@ -120,7 +116,7 @@ const customTheme = {
           borderTopColor: 'tealGreen.800',
           borderTopWidth: '2px',
         },
-        ul: {
+        'ul, ol': {
           mt: '6',
           mb: '12',
           pl: '8',
@@ -131,7 +127,7 @@ const customTheme = {
           lineHeight: '1.6',
           color: 'tealGreen.800',
         },
-        '* + ul li': {
+        '* + ul li, * + ol li': {
           mt: '4',
         },
       },

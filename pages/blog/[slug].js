@@ -32,9 +32,9 @@ export default function BlogPost({ post }) {
       <SEO
         post={{
           ...post,
-          title: post.title,
-          description: post?.lead,
-          slug: `/blog/${post.slug}`,
+          title: post?.title || '',
+          description: post?.lead || '',
+          slug: `/blog/${post?.slug || ''}`,
         }}
       />
       <Navbar isHeroInView={inView} />
@@ -85,7 +85,7 @@ export default function BlogPost({ post }) {
                       color="white"
                       lineHeight="1.125"
                     >
-                      {post.title}
+                      {post?.title}
                     </Heading>
                     <Text
                       as="span"
@@ -93,7 +93,7 @@ export default function BlogPost({ post }) {
                       fontSize="xl"
                       fontFamily="crimson"
                     >
-                      {post.meta && (
+                      {post?.meta && (
                         <>
                           <Text as="span">{post.meta}</Text>
                           <Text as="span" mx="3">
@@ -101,14 +101,14 @@ export default function BlogPost({ post }) {
                           </Text>
                         </>
                       )}
-                      {post.publishedAt && (
+                      {post?.publishedAt && (
                         <Text>
                           {dayjs(post.publishedAt).format('MMMM D, YYYY')}
                         </Text>
                       )}
                     </Text>
                   </Box>
-                  {post.lead && (
+                  {post?.lead && (
                     <Box borderTopWidth="1px" borderColor="white" pt="8" mt="8">
                       <Text
                         color="white"
@@ -130,7 +130,7 @@ export default function BlogPost({ post }) {
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box className="post-content">
                 <MDXRemote
-                  {...post.content}
+                  {...(post?.content || '')}
                   components={{
                     // eslint-disable-next-line jsx-a11y/alt-text
                     img: (props) => <Image width="100%" {...props} />,
@@ -217,3 +217,22 @@ export async function getStaticProps({ params }) {
     revalidate: 60 * 60 * 24,
   }
 }
+
+// export async function getServerProps({ params }) {
+//   const { data } = await getPosts()
+//   const foundPost = data.find((post) => post.attributes.slug === params.slug)
+//   if (!foundPost) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+//   const {
+//     data: { attributes: post },
+//   } = await getPost(foundPost.id)
+//   post.content = await serialize(post.content)
+//   return {
+//     props: {
+//       post,
+//     },
+//   }
+// }
