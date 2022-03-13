@@ -194,8 +194,11 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
-  const { data } = await getPosts()
+export async function getStaticProps({ params, preview = false }) {
+  console.log({ preview })
+  const { data } = await getPosts({
+    publicationState: preview ? 'preview' : 'live',
+  })
   const foundPost = data.find((post) => post.attributes.slug === params.slug)
 
   if (!foundPost) {
@@ -213,6 +216,7 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       post,
+      preview,
     },
     revalidate: 60 * 60 * 24,
   }
