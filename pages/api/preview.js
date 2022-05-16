@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
-  if (secret !== process.env.STRAPI_PREVIEW_SECRET || !slug) {
+  if (secret !== process.env.SECRET_TOKEN) {
     return res.status(401).json({ message: 'Invalid token' })
   }
 
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
   // If the slug doesn't exist prevent preview mode from being enabled
   if (!foundPost) {
-    return res.status(401).json({ message: 'Invalid slug' })
+    return res.status(400).json({ message: 'Invalid slug' })
   }
 
   // Enable Preview Mode by setting the cookies
