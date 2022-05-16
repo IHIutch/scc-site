@@ -11,7 +11,7 @@ export const getPosts = async (params = null) => {
       },
     })
     .catch((res) => {
-      throw new Error(res.data.error.message)
+      throw new Error('API Error: ' + res?.data?.error?.message)
     })
   return data
 }
@@ -24,7 +24,7 @@ export const getPost = async (id) => {
       },
     })
     .catch((res) => {
-      throw new Error(res.data.error.message)
+      throw new Error('API Error: ' + res?.data?.error?.message)
     })
   return data
 }

@@ -3,6 +3,8 @@ import { getPost, getPosts } from '@/utils/axios/posts'
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import {
+  Alert,
+  AlertIcon,
   Box,
   Container,
   Flex,
@@ -22,7 +24,7 @@ import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 
-export default function BlogPost({ post }) {
+export default function BlogPost({ post, preview }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
@@ -37,6 +39,24 @@ export default function BlogPost({ post }) {
           slug: `/blog/${post?.slug || ''}`,
         }}
       />
+      {preview && (
+        <Box position="fixed" top="0" left="0" right="0" zIndex="2">
+          <Alert status="info">
+            <AlertIcon />
+            <Text>
+              This page is a preview.{' '}
+              <Link
+                href="/api/exit-preview"
+                fontWeight="semibold"
+                textDecoration="underline"
+              >
+                Click here
+              </Link>{' '}
+              to exit preview mode.
+            </Text>
+          </Alert>
+        </Box>
+      )}
       <Navbar isHeroInView={inView} />
       <main>
         <Flex
