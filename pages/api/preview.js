@@ -5,9 +5,9 @@ export default async function handler(req, res) {
 
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
-  // if (secret !== process.env.SECRET_TOKEN) {
-  //   return res.status(401).json({ message: 'Invalid token' })
-  // }
+  if (secret !== process.env.SECRET_TOKEN) {
+    return res.status(401).json({ message: 'Invalid token' })
+  }
 
   const { data } = await getPosts({
     publicationState: 'preview',

@@ -215,7 +215,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  console.log({ preview })
   const { data } = await getPosts({
     publicationState: preview ? 'preview' : 'live',
   })
