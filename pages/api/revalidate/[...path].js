@@ -14,6 +14,17 @@ const handler = async (req, res) => {
     case 'GET':
       try {
         await res.unstable_revalidate('/' + path.join('/'))
+
+        // Update blog archive page if a blog is updated
+        if (path.includes('blog')) {
+          await res.unstable_revalidate('/blog')
+        }
+
+        // Update event archive page if an event is updated
+        if (path.includes('events')) {
+          await res.unstable_revalidate('/events')
+        }
+
         return res.json({ revalidated: true })
       } catch (error) {
         return res

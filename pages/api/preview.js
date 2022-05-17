@@ -26,11 +26,3 @@ export default async function handler(req, res) {
   // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
   res.redirect(`/blog/${foundPost.attributes.slug}`)
 }
-
-export async function getStaticProps(context) {
-  // If context.preview is true, append "/preview" to the API endpoint
-  // to request draft data instead of published data. This will vary
-  // based on which headless CMS you're using.
-  const res = await fetch(`https://.../${context.preview ? 'preview' : ''}`)
-  // ...
-}

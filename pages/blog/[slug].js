@@ -237,25 +237,6 @@ export async function getStaticProps({ params, preview = false }) {
       post,
       preview,
     },
-    revalidate: 60 * 60 * 24,
+    revalidate: false,
   }
 }
-
-// export async function getServerProps({ params }) {
-//   const { data } = await getPosts()
-//   const foundPost = data.find((post) => post.attributes.slug === params.slug)
-//   if (!foundPost) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-//   const {
-//     data: { attributes: post },
-//   } = await getPost(foundPost.id)
-//   post.content = await serialize(post.content)
-//   return {
-//     props: {
-//       post,
-//     },
-//   }
-// }
