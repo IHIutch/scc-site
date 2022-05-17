@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
-  if (secret !== process.env.SECRET_TOKEN) {
+  if (secret !== process.env.STRAPI_PREVIEW_SECRET) {
     return res.status(401).json({ message: 'Invalid token' })
   }
 

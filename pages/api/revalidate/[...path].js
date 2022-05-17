@@ -5,7 +5,7 @@ const handler = async (req, res) => {
   } = req
 
   // Check for secret to confirm this is a valid request
-  if (secret !== process.env.SECRET_TOKEN) {
+  if (secret !== process.env.STRAPI_PREVIEW_SECRET) {
     return res.status(401).json({ error: 'Invalid token' })
   }
 
