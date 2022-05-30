@@ -181,6 +181,21 @@ export default function BlogPost({ post, posts, preview }) {
                 py="12"
               >
                 <Text fontFamily="crimson" fontSize="3xl" color="tealGreen.700">
+                  Share this post on &nbsp;
+                    <Link
+                      target="_blank"
+                      href={"http://twitter.com/intent/tweet?text=Check%20out%20this%20by%20%40RightSize198%3A%0Dhttps%3A%2F%2Fsccoalition%2Enet%2Fblog%2F"+post?.slug}
+                      fontWeight="bold"
+                      textDecoration="underline"
+                      isExternal>Twitter</Link> or&nbsp;
+                    <Link
+                      target="_blank"
+                      href={"https://www.facebook.com/sharer/sharer.php?u=https://sccoalition.net/blog/"+post?.slug}
+                      fontWeight="bold"
+                      textDecoration="underline"
+                      isExternal>Facebook</Link>.
+                </Text>
+                <Text fontFamily="crimson" fontSize="3xl" color="tealGreen.700">
                   Support the removal of the Scajaquada Expressway by following
                   us on{' '}
                   <NextLink href={process.env.SITE_META.twitterUrl} passHref>
