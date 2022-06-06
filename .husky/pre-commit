@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env sh
 PATH="/usr/local/bin:$PATH"
-. "$(dirname "$0")/_/husky.sh"
+. "$(dirname -- "$0")/_/husky.sh"
 
 yarn lint-staged
