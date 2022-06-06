@@ -124,37 +124,19 @@ export default function BlogPost({ post, posts, preview }) {
                         </Text>
                       )}
                     </Text>
-<<<<<<< HEAD
                     <Text fontSize="xl" color="white" fontFamily="crimson">
                       Share this post on:&nbsp;&nbsp;
-                      <Box
-                        as="span"
-                        style={{ position: 'relative', top: '5px' }}
+                      <FacebookShareButton
+                        url={'https://sccoalition.net/blog/' + post?.slug}
                       >
-                        <FacebookShareButton
-                          url={'https://sccoalition.net/blog/' + post?.slug}
-                        >
-                          <FacebookIcon size={22} round />
-                        </FacebookShareButton>
-                        &nbsp;&nbsp;
-                        <TwitterShareButton
-                          url={'https://sccoalition.net/blog/' + post?.slug}
-                        >
-                          <TwitterIcon size={22} round />
-                        </TwitterShareButton>
-                      </Box>
+                        <FacebookIcon size={24} />
+                      </FacebookShareButton>
+                      <TwitterShareButton
+                        url={'https://sccoalition.net/blog/' + post?.slug}
+                      >
+                        <TwitterIcon size={24} />
+                      </TwitterShareButton>
                     </Text>
-=======
-                <Text fontSize="xl" color="white" fontFamily="crimson">
-                  Share this post on:&nbsp;&nbsp;
-                <FacebookShareButton url={"https://sccoalition.net/blog/"+post?.slug}>
-                  <FacebookIcon size={24} />
-                </FacebookShareButton>
-                <TwitterShareButton url={"https://sccoalition.net/blog/"+post?.slug}>
-                  <TwitterIcon size={24} />
-                </TwitterShareButton>
-                </Text>
->>>>>>> 7972f50 (Using buttons in header instead of links at end; using a node-y solution.)
                   </Box>
                   {post?.lead && (
                     <Box borderTopWidth="1px" borderColor="white" pt="8" mt="8">
