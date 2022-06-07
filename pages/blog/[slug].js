@@ -24,6 +24,12 @@ import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import PostCard from '@/components/postCard'
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from 'next-share'
 
 export default function BlogPost({ post, posts, preview }) {
   const { ref, inView } = useInView({
@@ -117,6 +123,25 @@ export default function BlogPost({ post, posts, preview }) {
                           {dayjs(post.publishedAt).format('MMMM D, YYYY')}
                         </Text>
                       )}
+                    </Text>
+                    <Text fontSize="xl" color="white" fontFamily="crimson">
+                      Share this post on:&nbsp;&nbsp;
+                      <Box
+                        as="span"
+                        style={{ position: 'relative', top: '5px' }}
+                      >
+                        <FacebookShareButton
+                          url={'https://sccoalition.net/blog/' + post?.slug}
+                        >
+                          <FacebookIcon size={22} round />
+                        </FacebookShareButton>
+                        &nbsp;&nbsp;
+                        <TwitterShareButton
+                          url={'https://sccoalition.net/blog/' + post?.slug}
+                        >
+                          <TwitterIcon size={22} round />
+                        </TwitterShareButton>
+                      </Box>
                     </Text>
                   </Box>
                   {post?.lead && (
