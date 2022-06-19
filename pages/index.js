@@ -24,12 +24,14 @@ import b_render from '@/public/assets/images/web/b_render.jpg'
 import c_render from '@/public/assets/images/web/c_render.jpg'
 import d_render from '@/public/assets/images/web/d_render.jpg'
 import { SEO } from '@/components/seo'
+import { getEvents } from '@/utils/axios/events'
+import EventCard from '@/components/eventCard'
 
 // const handleWestSideGoal = trackGoal('RNWZWVFB')
 // const handleBuffaloZooGoal = trackGoal('WOJO4QYD')
 // const handleBlackRockGoal = trackGoal('ODH3SOMC')
 
-export default function Home({ posts }) {
+export default function Home({ posts, upcomingEvents }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
@@ -104,11 +106,7 @@ export default function Home({ posts }) {
           </Box>
         </Flex>
         <Container maxW="container.xl">
-          <Grid
-            py={{ base: '16', lg: '32' }}
-            templateColumns="repeat(12, 1fr)"
-            gap="6"
-          >
+          <Grid py="16" templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box>
                 <Text
@@ -122,8 +120,58 @@ export default function Home({ posts }) {
                   moments don&apos;t come around very often, and 2021 may
                   provide the last, best chance in a generation to reclaim our
                   creek and community.
-                  <br />
-                  <br />
+                </Text>
+              </Box>
+            </GridItem>
+          </Grid>
+          {upcomingEvents.length > 0 ? (
+            <Flex>
+              <Box
+                py="16"
+                my="16"
+                borderTopWidth="2px"
+                borderBottomWidth="2px"
+                borderColor="tealGreen.700"
+              >
+                <Flex alignItems="baseline">
+                  <Heading mb="8" color="tealGreen.700">
+                    Upcoming Events
+                  </Heading>
+                  <NextLink href="/events" passHref>
+                    <Link
+                      d="flex"
+                      textDecoration="underline"
+                      fontWeight="semibold"
+                      color="tealGreen.700"
+                      ml="4"
+                    >
+                      See All Events →
+                    </Link>
+                  </NextLink>
+                </Flex>
+                <Grid templateColumns="repeat(12, 1fr)" gap="6">
+                  {upcomingEvents.map((events, idx) => (
+                    <GridItem key={idx} colSpan={{ base: '12', lg: '4' }}>
+                      <EventCard post={events} />
+                    </GridItem>
+                  ))}
+                </Grid>
+              </Box>
+            </Flex>
+          ) : null}
+          <Grid
+            pt={{ base: '8', lg: '16' }}
+            pb={{ base: '32', lg: '48' }}
+            templateColumns="repeat(12, 1fr)"
+            gap="6"
+          >
+            <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
+              <Box>
+                <Text
+                  fontSize={{ base: 'xl', lg: '2xl' }}
+                  lineHeight="2"
+                  color="tealGreen.700"
+                >
                   That&apos;s why we&apos;ve designed and visualized a future
                   for our region; to establish a plan that revitalizes and
                   restores the dignity of our neighborhoods by promoting
@@ -390,15 +438,29 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await getPosts()
-  const posts = data
-    .map((post) => post.attributes)
+  const { data: postsData } = await getPosts()
+  const posts = postsData
+    .map((post) => ({
+      ...post.attributes,
+    }))
     .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .slice(0, 3)
+
+  const { data: eventsData } = await getEvents({
+    publicationState: 'preview',
+  })
+  const upcomingEvents = eventsData
+    .map((event) => ({
+      ...event.attributes,
+    }))
+    .filter((event) => new Date(event.startingAt) > new Date())
+    .sort((a, b) => new Date(b.startingAt) - new Date(a.startingAt))
     .slice(0, 3)
 
   return {
     props: {
       posts,
+      upcomingEvents,
     },
     revalidate: 60 * 60 * 24,
   }

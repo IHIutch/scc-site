@@ -7,13 +7,16 @@ import {
   LinkOverlay,
   Text,
   Box,
-} from '@chakra-ui/layout'
+  HStack,
+  Icon,
+} from '@chakra-ui/react'
 import { Image } from '@chakra-ui/image'
 import NextLink from 'next/link'
 import dayjs from 'dayjs'
 import NextImage from 'next/image'
+import { Calendar } from 'react-feather'
 
-export default function PostCard({ post }) {
+export default function EventCard({ post }) {
   const [isActive, setIsActive] = useState(false)
 
   return (
@@ -39,7 +42,7 @@ export default function PostCard({ post }) {
         )}
         <Box p="4" color="tealGreen.700">
           <Heading
-            size="xl"
+            size="lg"
             mb="2"
             lineHeight="1.2"
             sx={{
@@ -51,7 +54,7 @@ export default function PostCard({ post }) {
           >
             <NextLink
               href={{
-                pathname: '/blog/[slug]',
+                pathname: '/events/[slug]',
                 query: { slug: post.slug },
               }}
               passHref
@@ -59,13 +62,13 @@ export default function PostCard({ post }) {
               <LinkOverlay>{post.title}</LinkOverlay>
             </NextLink>
           </Heading>
-          {post.publishedAt && (
-            <Box>
+          {post.startingAt && (
+            <HStack alignItems="center">
+              <Icon boxSize="5" as={Calendar} />
               <Text fontWeight="semibold" mb="2">
-                {dayjs(post.publishedAt).format('MMMM D, YYYY')}
+                {dayjs(post.startingAt).format('dddd, MMMM D h:mma')}
               </Text>
-              {/* <Text fontSize="lg">{post.excerpt}</Text> */}
-            </Box>
+            </HStack>
           )}
         </Box>
         <Flex
@@ -83,11 +86,8 @@ export default function PostCard({ post }) {
           }
         >
           <Text fontFamily="crimson" fontSize="xl" fontWeight="bold">
-            Keep Reading →
+            View Event Details →
           </Text>
-          {/* <Text fontWeight="semibold" fontSize="sm">
-            (Read Time: {post.timeToRead} min)
-          </Text> */}
         </Flex>
       </Box>
     </LinkBox>

@@ -32,12 +32,10 @@ export default function BlogPost({ post, preview }) {
   return (
     <>
       <SEO
-        post={{
-          ...post,
-          title: post?.title || '',
-          description: post?.lead || '',
-          slug: `/blog/${post?.slug || ''}`,
-        }}
+        title={post?.title}
+        description={post?.lead}
+        slug={`/blog/${post?.slug}`}
+        image={post?.featuredImage?.data?.attributes?.url}
       />
       {preview && (
         <Box position="fixed" top="0" left="0" right="0" zIndex="2">
@@ -113,14 +111,6 @@ export default function BlogPost({ post, preview }) {
                       fontSize="xl"
                       fontFamily="crimson"
                     >
-                      {post?.meta && (
-                        <>
-                          <Text as="span">{post.meta}</Text>
-                          <Text as="span" mx="3">
-                            |
-                          </Text>
-                        </>
-                      )}
                       {post?.publishedAt && (
                         <Text>
                           {dayjs(post.publishedAt).format('MMMM D, YYYY')}
