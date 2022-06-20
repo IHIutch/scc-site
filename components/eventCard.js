@@ -46,11 +46,11 @@ export default function EventCard({ post }) {
             size="lg"
             mb="2"
             lineHeight="1.2"
+            display="-webkit-box"
+            overflow="hidden"
             sx={{
-              display: '-webkit-box',
-              '-webkit-line-clamp': '3',
-              '-webkit-box-orient': 'vertical',
-              overflow: 'hidden',
+              WebkitLineClamp: '3',
+              WebkitBoxOrient: 'vertical',
             }}
           >
             <NextLink
