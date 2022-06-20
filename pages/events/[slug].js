@@ -14,7 +14,6 @@ import {
   Heading,
   HStack,
   Icon,
-  IconButton,
   Image,
   Link,
   Stack,
@@ -28,19 +27,9 @@ import { SEO } from '@/components/seo'
 import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
-import {
-  Calendar,
-  ExternalLink,
-  Facebook,
-  MapPin,
-  Twitter,
-} from 'react-feather'
+import { Calendar, ExternalLink, MapPin } from 'react-feather'
 import b_render from '@/public/assets/images/b_render.jpg'
 import EventCard from '@/components/eventCard'
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-} from '@/components/shareButtons'
 import { useRouter } from 'next/router'
 import ShareContainer from '@/components/shareContainer'
 

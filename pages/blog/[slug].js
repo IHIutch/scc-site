@@ -11,11 +11,8 @@ import {
   Grid,
   GridItem,
   Heading,
-  Icon,
-  IconButton,
   Image,
   Link,
-  Stack,
   Text,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
@@ -28,11 +25,6 @@ import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import PostCard from '@/components/postCard'
 import { useRouter } from 'next/router'
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-} from '@/components/shareButtons'
-import { Facebook, Twitter } from 'react-feather'
 import ShareContainer from '@/components/shareContainer'
 
 export default function BlogPost({ post, posts, preview }) {

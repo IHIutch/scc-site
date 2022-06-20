@@ -16,7 +16,6 @@ import React from 'react'
 import { useInView } from 'react-intersection-observer'
 import NextLink from 'next/link'
 import NextImage from 'next/image'
-import { trackGoal } from 'fathom-client'
 import { getPosts } from '@/utils/axios/posts'
 import delaware_full1 from '@/public/assets/images/delaware_full1.webp'
 import a_render from '@/public/assets/images/web/a_render.jpg'
@@ -26,10 +25,6 @@ import d_render from '@/public/assets/images/web/d_render.jpg'
 import { SEO } from '@/components/seo'
 import { getEvents } from '@/utils/axios/events'
 import EventCard from '@/components/eventCard'
-
-// const handleWestSideGoal = trackGoal('RNWZWVFB')
-// const handleBuffaloZooGoal = trackGoal('WOJO4QYD')
-// const handleBlackRockGoal = trackGoal('ODH3SOMC')
 
 export default function Home({ posts, upcomingEvents }) {
   const { ref, inView } = useInView({
