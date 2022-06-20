@@ -10,8 +10,7 @@ export default async function handler(req, res) {
     return res.status(401).json({ message: 'Invalid token' })
   }
 
-  let foundPost,
-    allPosts = null
+  let allPosts = null
 
   if (postTypePath === 'blog') {
     const { data } = await getPosts({
@@ -24,10 +23,10 @@ export default async function handler(req, res) {
     })
     allPosts = data
   } else {
-    return res.status(400).json({ message: 'Invalid type' })
+    return res.status(400).json({ message: 'Invalid postTypePath' })
   }
 
-  foundPost = allPosts.find((post) => post.attributes.slug === slug)
+  const foundPost = allPosts.find((post) => post.attributes.slug === slug)
 
   // If the slug doesn't exist prevent preview mode from being enabled
   if (!foundPost) {
