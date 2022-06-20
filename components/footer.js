@@ -46,6 +46,11 @@ export default function Footer() {
                 </NextLink>
               </Box>
               <Box>
+                <NextLink href="/event" passHref>
+                  <Link>Events</Link>
+                </NextLink>
+              </Box>
+              <Box>
                 <NextLink
                   href="https://www.paypal.com/donate?hosted_button_id=FNKWNMDKXRUZG"
                   passHref
