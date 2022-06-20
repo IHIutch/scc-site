@@ -20,7 +20,6 @@
     "micromark-extension-mdx-jsx": "^1.0.2",
     "next": "^12.1.6",
     "next-mdx-remote": "^3.0.8",
-    "next-share": "^0.14.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-feather": "^2.0.9",
@@ -68,6 +67,9 @@
     ]
   },
   "lint-staged": {
-    "*.{js,jsx}": ["yarn lint --fix", "eslint --cache --fix"]
+    "*.{js,jsx}": [
+      "yarn lint --fix",
+      "eslint --cache --fix"
+    ]
   }
 }

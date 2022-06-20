@@ -2483,9 +2483,9 @@ fastq@^1.6.0:
     reusify "^1.0.4"
 
 fathom-client@^3.2.0:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/fathom-client/-/fathom-client-3.4.1.tgz#b50fcb0381b846d3dcf5af0f81ea60a8e5675bcf"
-  integrity sha512-iQFKx9B9RDeGLzgNqsaXWg3Fvu7yfq1Z8GjpAG3DP8IoGoPRWOOktpM7DUKiUzoE3d37hdvDQvkqUHfNzVwimg==
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/fathom-client/-/fathom-client-3.5.0.tgz#47bf3e67fa789ec415fe6efdc0ec02b9187b4b0d"
+  integrity sha512-BiRDS9Q9a8Zma0H717FWC5cvf545K/CsxBpxKT22TcSl1EbRhhlHWIJgrdeiQUfdorBK2ppy09TwMOhRsbos/A==
 
 file-entry-cache@^6.0.1:
   version "6.0.1"
@@ -3717,11 +3717,6 @@ next-mdx-remote@^3.0.8:
     "@mdx-js/react" "^1.6.22"
     esbuild "^0.12.9"
     pkg-dir "^5.0.0"
-
-next-share@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/next-share/-/next-share-0.14.0.tgz#5d2c1b324b11b457463490e9e42bc9b963b5516e"
-  integrity sha512-G2QZ09nKjgxHyfOfu+fgulPU8StDFH5alozzFfmEOJ6SELHDNZIywLYMbBw0KfuYH17f1Dt+N49AJ5b9PL7Sow==
 
 next@^12.1.6:
   version "12.1.6"

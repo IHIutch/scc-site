@@ -14,6 +14,7 @@ import {
   Heading,
   HStack,
   Icon,
+  IconButton,
   Image,
   Link,
   Stack,
@@ -27,14 +28,28 @@ import { SEO } from '@/components/seo'
 import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
-import { Calendar, ExternalLink, MapPin } from 'react-feather'
+import {
+  Calendar,
+  ExternalLink,
+  Facebook,
+  MapPin,
+  Twitter,
+} from 'react-feather'
 import b_render from '@/public/assets/images/b_render.jpg'
 import EventCard from '@/components/eventCard'
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+} from '@/components/shareButtons'
+import { useRouter } from 'next/router'
+import ShareContainer from '@/components/shareContainer'
 
 export default function EventsPost({ event, upcomingEvents, preview }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
+
+  const { asPath } = useRouter()
 
   return (
     <>
@@ -187,9 +202,15 @@ export default function EventsPost({ event, upcomingEvents, preview }) {
             </Container>
           </Box>
         </Flex>
-        <Container maxW="container.xl" py="32">
+        <Container maxW="container.xl" pt="16" pb="32">
           <Grid templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
+              <ShareContainer
+                label="Share this event"
+                url={process.env.SITE_META.siteUrl + asPath}
+                title={event.title}
+                mb="8"
+              />
               <Box className="post-content">
                 <MDXRemote
                   {...(event?.content || '')}
@@ -287,7 +308,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params, preview = true }) {
+export async function getStaticProps({ params, preview = false }) {
   const { data } = await getEvents({
     publicationState: preview ? 'preview' : 'live',
   })

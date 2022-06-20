@@ -11,8 +11,11 @@ import {
   Grid,
   GridItem,
   Heading,
+  Icon,
+  IconButton,
   Image,
   Link,
+  Stack,
   Text,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
@@ -24,17 +27,20 @@ import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import PostCard from '@/components/postCard'
+import { useRouter } from 'next/router'
 import {
   FacebookShareButton,
-  FacebookIcon,
   TwitterShareButton,
-  TwitterIcon,
-} from 'next-share'
+} from '@/components/shareButtons'
+import { Facebook, Twitter } from 'react-feather'
+import ShareContainer from '@/components/shareContainer'
 
 export default function BlogPost({ post, posts, preview }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
+
+  const { asPath } = useRouter()
 
   return (
     <>
@@ -112,31 +118,11 @@ export default function BlogPost({ post, posts, preview }) {
                     >
                       {post?.title}
                     </Heading>
-                    <Text
-                      as="span"
-                      color="white"
-                      fontSize="xl"
-                      fontFamily="crimson"
-                    >
-                      {post?.publishedAt && (
-                        <Text>
-                          {dayjs(post.publishedAt).format('MMMM D, YYYY')}
-                        </Text>
-                      )}
-                    </Text>
-                    <Text fontSize="xl" color="white" fontFamily="crimson">
-                      Share this post on:&nbsp;&nbsp;
-                      <FacebookShareButton
-                        url={'https://sccoalition.net/blog/' + post?.slug}
-                      >
-                        <FacebookIcon size={24} />
-                      </FacebookShareButton>
-                      <TwitterShareButton
-                        url={'https://sccoalition.net/blog/' + post?.slug}
-                      >
-                        <TwitterIcon size={24} />
-                      </TwitterShareButton>
-                    </Text>
+                    {post?.publishedAt && (
+                      <Text color="white" fontSize="xl" fontFamily="crimson">
+                        {dayjs(post.publishedAt).format('MMMM D, YYYY')}
+                      </Text>
+                    )}
                   </Box>
                   {post?.lead && (
                     <Box borderTopWidth="1px" borderColor="white" pt="8" mt="8">
@@ -155,9 +141,15 @@ export default function BlogPost({ post, posts, preview }) {
             </Container>
           </Box>
         </Flex>
-        <Container maxW="container.xl" py="32">
+        <Container maxW="container.xl" pt="16" pb="32">
           <Grid templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
+              <ShareContainer
+                label="Share this post"
+                url={process.env.SITE_META.siteUrl + asPath}
+                title={post.title}
+                mb="8"
+              />
               <Box className="post-content">
                 <MDXRemote
                   {...(post?.content || '')}
