@@ -21,6 +21,10 @@ export default function Navbar({ sx, isHeroInView }) {
       path: '/blog',
     },
     {
+      name: 'Events',
+      path: '/events',
+    },
+    {
       name: 'Subscribe',
       path: 'http://eepurl.com/gnIkIv',
       isExternal: true,
@@ -82,7 +86,7 @@ export default function Navbar({ sx, isHeroInView }) {
               <CloseButton
                 ml="4"
                 size="lg"
-                d={{ base: 'block', [mobileBreakpoint]: 'none' }}
+                d={{ base: 'flex', [mobileBreakpoint]: 'none' }}
                 color="white"
                 onClick={onToggle}
               >

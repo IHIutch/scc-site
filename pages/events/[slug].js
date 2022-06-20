@@ -233,33 +233,34 @@ export default function EventsPost({ event, upcomingEvents, preview }) {
             </GridItem>
           </Grid>
           {upcomingEvents.length > 0 ? (
-            <Flex>
-              <Box py="16" borderColor="tealGreen.700">
-                <Flex alignItems="baseline">
-                  <Heading mb="8" color="tealGreen.700">
-                    Upcoming Events
-                  </Heading>
-                  <NextLink href="/events" passHref>
-                    <Link
-                      d="flex"
-                      textDecoration="underline"
-                      fontWeight="semibold"
-                      color="tealGreen.700"
-                      ml="4"
-                    >
-                      See All Events →
-                    </Link>
-                  </NextLink>
-                </Flex>
-                <Grid templateColumns="repeat(12, 1fr)" gap="6">
-                  {upcomingEvents.map((events, idx) => (
-                    <GridItem key={idx} colSpan={{ base: '12', lg: '4' }}>
-                      <EventCard post={events} />
-                    </GridItem>
-                  ))}
-                </Grid>
-              </Box>
-            </Flex>
+            <Box borderColor="tealGreen.700">
+              <Flex alignItems="baseline">
+                <Heading mb="8" color="tealGreen.700">
+                  Upcoming Events
+                </Heading>
+                <NextLink href="/events" passHref>
+                  <Link
+                    d="flex"
+                    textDecoration="underline"
+                    fontWeight="semibold"
+                    color="tealGreen.700"
+                    ml="4"
+                  >
+                    See All Events →
+                  </Link>
+                </NextLink>
+              </Flex>
+              <Grid templateColumns="repeat(12, 1fr)" gap="6">
+                {upcomingEvents.map((events, idx) => (
+                  <GridItem
+                    key={idx}
+                    colSpan={{ base: '12', md: '6', lg: '4' }}
+                  >
+                    <EventCard post={events} />
+                  </GridItem>
+                ))}
+              </Grid>
+            </Box>
           ) : null}
         </Container>
       </main>

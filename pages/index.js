@@ -125,39 +125,37 @@ export default function Home({ posts, upcomingEvents }) {
             </GridItem>
           </Grid>
           {upcomingEvents.length > 0 ? (
-            <Flex>
-              <Box
-                py="16"
-                my="16"
-                borderTopWidth="2px"
-                borderBottomWidth="2px"
-                borderColor="tealGreen.700"
-              >
-                <Flex alignItems="baseline">
-                  <Heading mb="8" color="tealGreen.700">
-                    Upcoming Events
-                  </Heading>
-                  <NextLink href="/events" passHref>
-                    <Link
-                      d="flex"
-                      textDecoration="underline"
-                      fontWeight="semibold"
-                      color="tealGreen.700"
-                      ml="4"
-                    >
-                      See All Events →
-                    </Link>
-                  </NextLink>
-                </Flex>
-                <Grid templateColumns="repeat(12, 1fr)" gap="6">
-                  {upcomingEvents.map((events, idx) => (
-                    <GridItem key={idx} colSpan={{ base: '12', lg: '4' }}>
-                      <EventCard post={events} />
-                    </GridItem>
-                  ))}
-                </Grid>
-              </Box>
-            </Flex>
+            <Box
+              py="16"
+              my="16"
+              borderTopWidth="2px"
+              borderBottomWidth="2px"
+              borderColor="tealGreen.700"
+            >
+              <Flex alignItems="baseline">
+                <Heading mb="8" color="tealGreen.700">
+                  Upcoming Events
+                </Heading>
+                <NextLink href="/events" passHref>
+                  <Link
+                    d="flex"
+                    textDecoration="underline"
+                    fontWeight="semibold"
+                    color="tealGreen.700"
+                    ml="4"
+                  >
+                    See All Events →
+                  </Link>
+                </NextLink>
+              </Flex>
+              <Grid templateColumns="repeat(12, 1fr)" gap="6">
+                {upcomingEvents.map((events, idx) => (
+                  <GridItem key={idx} colSpan={{ base: '12', lg: '4' }}>
+                    <EventCard post={events} />
+                  </GridItem>
+                ))}
+              </Grid>
+            </Box>
           ) : null}
           <Grid
             pt={{ base: '8', lg: '16' }}
@@ -435,33 +433,4 @@ export default function Home({ posts, upcomingEvents }) {
       <Footer />
     </>
   )
-}
-
-export async function getStaticProps() {
-  const { data: postsData } = await getPosts()
-  const posts = postsData
-    .map((post) => ({
-      ...post.attributes,
-    }))
-    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-    .slice(0, 3)
-
-  const { data: eventsData } = await getEvents({
-    publicationState: 'preview',
-  })
-  const upcomingEvents = eventsData
-    .map((event) => ({
-      ...event.attributes,
-    }))
-    .filter((event) => new Date(event.startingAt) > new Date())
-    .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
-    .slice(0, 3)
-
-  return {
-    props: {
-      posts,
-      upcomingEvents,
-    },
-    revalidate: 60 * 60 * 24,
-  }
 }
