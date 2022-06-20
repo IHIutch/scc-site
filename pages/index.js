@@ -406,7 +406,7 @@ export default function Home({ posts, upcomingEvents }) {
           <Box py="16" mt="16" borderTopWidth="2px" borderColor="tealGreen.700">
             <Flex alignItems="baseline">
               <Heading mb="8" color="tealGreen.700">
-                Get the Latest
+                Our Latest Posts
               </Heading>
               <NextLink href="/blog" passHref>
                 <Link
@@ -433,4 +433,41 @@ export default function Home({ posts, upcomingEvents }) {
       <Footer />
     </>
   )
+}
+
+export async function getStaticProps() {
+  const { data: postsData } = await getPosts()
+  const posts = postsData
+    .map((post) => ({
+      title: post.attributes.title,
+      slug: post.attributes.slug,
+      publishedAt: post.attributes.publishedAt,
+      featuredImage: post.attributes.featuredImage,
+    }))
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .slice(0, 3)
+
+  const { data: eventsData } = await getEvents({
+    publicationState: 'preview',
+  })
+  const upcomingEvents = eventsData
+    .filter((event) => new Date(event.startingAt) > new Date())
+    .map((event) => ({
+      title: event.attributes.title,
+      slug: event.attributes.slug,
+      publishedAt: event.attributes.publishedAt,
+      featuredImage: event.attributes.featuredImage,
+      startingAt: event.attributes.startingAt,
+      location: event.attributes.location,
+    }))
+    .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
+    .slice(0, 3)
+
+  return {
+    props: {
+      posts,
+      upcomingEvents,
+    },
+    revalidate: 60 * 60 * 24,
+  }
 }

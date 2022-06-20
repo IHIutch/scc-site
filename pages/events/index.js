@@ -20,7 +20,7 @@ export default function BlogArchive({ events }) {
     threshold: 0.5,
   })
 
-  const upComingEvents = events.filter((e) => e.isUpcoming)
+  const upcomingEvents = events.filter((e) => e.isUpcoming)
   const pastEvents = events.filter((e) => !e.isUpcoming)
 
   return (
@@ -77,9 +77,9 @@ export default function BlogArchive({ events }) {
               <Heading mb="8" color="tealGreen.700">
                 Upcoming Events
               </Heading>
-              {upComingEvents.length > 0 ? (
+              {upcomingEvents.length > 0 ? (
                 <Grid templateColumns="repeat(12, 1fr)" gap="6">
-                  {upComingEvents.map((event, idx) => (
+                  {upcomingEvents.map((event, idx) => (
                     <GridItem key={idx} colSpan={{ base: '12', md: '6' }}>
                       <EventCard post={event} />
                     </GridItem>

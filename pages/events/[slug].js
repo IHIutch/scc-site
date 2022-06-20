@@ -18,7 +18,6 @@ import {
   Link,
   Stack,
   Text,
-  VStack,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 import NextLink from 'next/link'
@@ -251,12 +250,12 @@ export default function EventsPost({ event, upcomingEvents, preview }) {
                 </NextLink>
               </Flex>
               <Grid templateColumns="repeat(12, 1fr)" gap="6">
-                {upcomingEvents.map((events, idx) => (
+                {upcomingEvents.map((event, idx) => (
                   <GridItem
                     key={idx}
                     colSpan={{ base: '12', md: '6', lg: '4' }}
                   >
-                    <EventCard post={events} />
+                    <EventCard post={event} />
                   </GridItem>
                 ))}
               </Grid>
@@ -299,12 +298,18 @@ export async function getStaticProps({ params, preview = true }) {
   const { data: eventsData } = await getEvents({
     publicationState: 'preview',
   })
+
   const upcomingEvents = eventsData
-    .map((event) => ({
-      ...event.attributes,
-    }))
-    .filter((event) => event.slug !== params.slug)
+    .filter((event) => event.id !== foundEvent.id)
     .filter((event) => new Date(event.startingAt) > new Date())
+    .map((event) => ({
+      title: event.attributes.title,
+      slug: event.attributes.slug,
+      publishedAt: event.attributes.publishedAt,
+      featuredImage: event.attributes.featuredImage,
+      startingAt: event.attributes.startingAt,
+      location: event.attributes.location,
+    }))
     .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
     .slice(0, 3)
 
@@ -318,6 +323,7 @@ export async function getStaticProps({ params, preview = true }) {
     props: {
       event,
       upcomingEvents,
+      preview,
     },
     revalidate: 60 * 60 * 24,
   }

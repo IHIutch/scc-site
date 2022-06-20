@@ -23,8 +23,9 @@ import { SEO } from '@/components/seo'
 import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
+import PostCard from '@/components/postCard'
 
-export default function BlogPost({ post, preview }) {
+export default function BlogPost({ post, posts, preview }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
@@ -135,8 +136,8 @@ export default function BlogPost({ post, preview }) {
             </Container>
           </Box>
         </Flex>
-        <Container maxW="container.xl">
-          <Grid py="32" templateColumns="repeat(12, 1fr)" gap="6">
+        <Container maxW="container.xl" py="32">
+          <Grid templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box className="post-content">
                 <MDXRemote
@@ -149,9 +150,10 @@ export default function BlogPost({ post, preview }) {
               </Box>
               <Box
                 borderTopWidth="2px"
-                borderTopColor="tealGreen.800"
-                mt="24"
-                pt="12"
+                borderBottomWidth="2px"
+                borderColor="tealGreen.800"
+                my="24"
+                py="12"
               >
                 <Text fontFamily="crimson" fontSize="3xl" color="tealGreen.700">
                   Support the removal of the Scajaquada Expressway by following
@@ -182,6 +184,36 @@ export default function BlogPost({ post, preview }) {
               </Box>
             </GridItem>
           </Grid>
+          {posts.length > 0 ? (
+            <Box borderColor="tealGreen.700">
+              <Flex alignItems="baseline">
+                <Heading mb="8" color="tealGreen.700">
+                  Our Latest Posts
+                </Heading>
+                <NextLink href="/blog" passHref>
+                  <Link
+                    d="flex"
+                    textDecoration="underline"
+                    fontWeight="semibold"
+                    color="tealGreen.700"
+                    ml="4"
+                  >
+                    See All Posts →
+                  </Link>
+                </NextLink>
+              </Flex>
+              <Grid templateColumns="repeat(12, 1fr)" gap="6">
+                {posts.map((post, idx) => (
+                  <GridItem
+                    key={idx}
+                    colSpan={{ base: '12', md: '6', lg: '4' }}
+                  >
+                    <PostCard post={post} />
+                  </GridItem>
+                ))}
+              </Grid>
+            </Box>
+          ) : null}
         </Container>
       </main>
       <Footer />
@@ -216,6 +248,21 @@ export async function getStaticProps({ params, preview = false }) {
     }
   }
 
+  const { data: postsData } = await getPosts({
+    publicationState: 'preview',
+  })
+
+  const posts = postsData
+    .filter((post) => post.id !== foundPost.id)
+    .map((post) => ({
+      title: post.attributes.title,
+      slug: post.attributes.slug,
+      publishedAt: post.attributes.publishedAt,
+      featuredImage: post.attributes.featuredImage,
+    }))
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .slice(0, 3)
+
   const {
     data: { attributes: post },
   } = await getPost(foundPost.id)
@@ -225,6 +272,7 @@ export async function getStaticProps({ params, preview = false }) {
   return {
     props: {
       post,
+      posts,
       preview,
     },
     revalidate: false,

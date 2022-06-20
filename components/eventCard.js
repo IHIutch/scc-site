@@ -7,7 +7,6 @@ import {
   LinkOverlay,
   Text,
   Box,
-  HStack,
   Icon,
   Stack,
 } from '@chakra-ui/react'
