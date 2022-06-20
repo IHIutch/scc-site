@@ -143,10 +143,14 @@ export default function EventsPost({ event, upcomingEvents, preview }) {
                               <Text>{event.location.title}</Text>
                             ) : null}
                             <Text>{event.location.streetAddress}</Text>
-                            <Text>
-                              {event.location.city}, {event.location.state}{' '}
-                              {event.location.zipCode}
-                            </Text>
+                            {event.location.city &&
+                              event.location.state &&
+                              event.location.zipCode && (
+                                <Text>
+                                  {event.location.city}, {event.location.state}{' '}
+                                  {event.location.zipCode}
+                                </Text>
+                              )}
                             {event.location.googleMapsUrl ? (
                               <Button
                                 as={Link}

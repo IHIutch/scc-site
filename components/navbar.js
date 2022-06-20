@@ -10,6 +10,7 @@ import { trackGoal } from 'fathom-client'
 
 export default function Navbar({ sx, isHeroInView }) {
   const { isOpen, onToggle } = useDisclosure()
+  // const handleDonateClick = trackGoal('VLTP3IJR')
 
   const mobileBreakpoint = 'lg'
   const paypalLink =
