@@ -296,7 +296,7 @@ export async function getStaticProps({ params, preview = true }) {
   }
 
   const { data: eventsData } = await getEvents({
-    publicationState: 'preview',
+    publicationState: preview ? 'preview' : 'live',
   })
 
   const upcomingEvents = eventsData

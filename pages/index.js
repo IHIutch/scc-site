@@ -435,8 +435,10 @@ export default function Home({ posts, upcomingEvents }) {
   )
 }
 
-export async function getStaticProps() {
-  const { data: postsData } = await getPosts()
+export async function getStaticProps({ preview }) {
+  const { data: postsData } = await getPosts({
+    publicationState: preview ? 'preview' : 'live',
+  })
   const posts = postsData
     .map((post) => ({
       title: post.attributes.title,
@@ -448,7 +450,7 @@ export async function getStaticProps() {
     .slice(0, 3)
 
   const { data: eventsData } = await getEvents({
-    publicationState: 'preview',
+    publicationState: preview ? 'preview' : 'live',
   })
   const upcomingEvents = eventsData
     .filter((event) => new Date(event.startingAt) > new Date())

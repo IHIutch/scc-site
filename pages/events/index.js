@@ -113,9 +113,9 @@ export default function BlogArchive({ events }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview }) {
   const { data } = await getEvents({
-    publicationState: 'preview',
+    publicationState: preview ? 'preview' : 'live',
   })
   const events = data
     .map((event) => ({

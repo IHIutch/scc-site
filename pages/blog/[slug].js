@@ -249,7 +249,7 @@ export async function getStaticProps({ params, preview = false }) {
   }
 
   const { data: postsData } = await getPosts({
-    publicationState: 'preview',
+    publicationState: preview ? 'preview' : 'live',
   })
 
   const posts = postsData
