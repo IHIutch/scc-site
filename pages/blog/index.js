@@ -21,7 +21,7 @@ export default function BlogArchive({ posts }) {
 
   return (
     <>
-      <SEO post={{ title: 'Blog', slug: '/blog' }} />
+      <SEO title="Blog" slug="/blog" />
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>
