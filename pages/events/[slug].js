@@ -6,6 +6,7 @@ import {
   Alert,
   AlertIcon,
   Box,
+  Button,
   Container,
   Flex,
   Grid,
@@ -15,7 +16,9 @@ import {
   Icon,
   Image,
   Link,
+  Stack,
   Text,
+  VStack,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 import NextLink from 'next/link'
@@ -25,10 +28,11 @@ import { SEO } from '@/components/seo'
 import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
-import { Calendar } from 'react-feather'
+import { Calendar, ExternalLink, MapPin } from 'react-feather'
 import b_render from '@/public/assets/images/b_render.jpg'
+import EventCard from '@/components/eventCard'
 
-export default function EventsPost({ event, preview }) {
+export default function EventsPost({ event, upcomingEvents, preview }) {
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
@@ -99,36 +103,69 @@ export default function EventsPost({ event, preview }) {
                   colSpan={{ base: '12', lg: '10', xl: '8' }}
                 >
                   <Box>
-                    <Heading
-                      fontSize={{ base: '4xl', lg: '5xl' }}
-                      mb="2"
-                      color="white"
-                      lineHeight="1.125"
-                    >
-                      {event?.title}
-                    </Heading>
-                    <Text
-                      as="span"
-                      color="white"
-                      fontSize="xl"
-                      fontFamily="crimson"
-                    >
+                    <Stack spacing="4">
+                      <Heading
+                        fontSize={{ base: '4xl', lg: '5xl' }}
+                        mb="2"
+                        color="white"
+                        lineHeight="1.125"
+                      >
+                        {event?.title}
+                      </Heading>
                       {event.startingAt && (
-                        <HStack alignItems="center">
+                        <HStack alignItems="center" color="white">
                           <Icon boxSize="5" as={Calendar} />
-                          <Text fontWeight="semibold" mb="2">
+                          <Text
+                            as="span"
+                            fontSize="xl"
+                            fontFamily="crimson"
+                            fontWeight="semibold"
+                          >
                             {dayjs(event.startingAt).format(
                               'dddd, MMMM D h:mma'
                             )}
+                            {event.endingAt && (
+                              <> - {dayjs(event.endingAt).format('h:mma')}</>
+                            )}
                           </Text>
-                          {event.endingAt && (
-                            <Text fontWeight="semibold" mb="2">
-                              - {dayjs(event.endingAt).format('h:mma')}
-                            </Text>
-                          )}
                         </HStack>
                       )}
-                    </Text>
+                      {event.location && (
+                        <HStack color="white" alignItems="start">
+                          <Icon boxSize="5" as={MapPin} mt="1.5" />
+                          <Box
+                            as="span"
+                            fontSize="xl"
+                            fontFamily="crimson"
+                            fontWeight="semibold"
+                            mb="2"
+                          >
+                            {event.location?.title ? (
+                              <Text>{event.location.title}</Text>
+                            ) : null}
+                            <Text>{event.location.streetAddress}</Text>
+                            <Text>
+                              {event.location.city}, {event.location.state}{' '}
+                              {event.location.zipCode}
+                            </Text>
+                            {event.location.googleMapsUrl ? (
+                              <Button
+                                as={Link}
+                                href={event.location.googleMapsUrl}
+                                isExternal
+                                color="tealGreen.700"
+                                fontSize="lg"
+                                fontWeight="bold"
+                                mt="2"
+                                rightIcon={<Icon as={ExternalLink} />}
+                              >
+                                Get Directions
+                              </Button>
+                            ) : null}
+                          </Box>
+                        </HStack>
+                      )}
+                    </Stack>
                   </Box>
                   {event?.lead && (
                     <Box borderTopWidth="1px" borderColor="white" pt="8" mt="8">
@@ -147,8 +184,8 @@ export default function EventsPost({ event, preview }) {
             </Container>
           </Box>
         </Flex>
-        <Container maxW="container.xl">
-          <Grid py="32" templateColumns="repeat(12, 1fr)" gap="6">
+        <Container maxW="container.xl" py="32">
+          <Grid templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box className="post-content">
                 <MDXRemote
@@ -161,9 +198,10 @@ export default function EventsPost({ event, preview }) {
               </Box>
               <Box
                 borderTopWidth="2px"
-                borderTopColor="tealGreen.800"
-                mt="24"
-                pt="12"
+                borderBottomWidth="2px"
+                borderColor="tealGreen.800"
+                my="24"
+                py="12"
               >
                 <Text fontFamily="crimson" fontSize="3xl" color="tealGreen.700">
                   Support the removal of the Scajaquada Expressway by following
@@ -194,6 +232,35 @@ export default function EventsPost({ event, preview }) {
               </Box>
             </GridItem>
           </Grid>
+          {upcomingEvents.length > 0 ? (
+            <Flex>
+              <Box py="16" borderColor="tealGreen.700">
+                <Flex alignItems="baseline">
+                  <Heading mb="8" color="tealGreen.700">
+                    Upcoming Events
+                  </Heading>
+                  <NextLink href="/events" passHref>
+                    <Link
+                      d="flex"
+                      textDecoration="underline"
+                      fontWeight="semibold"
+                      color="tealGreen.700"
+                      ml="4"
+                    >
+                      See All Events →
+                    </Link>
+                  </NextLink>
+                </Flex>
+                <Grid templateColumns="repeat(12, 1fr)" gap="6">
+                  {upcomingEvents.map((events, idx) => (
+                    <GridItem key={idx} colSpan={{ base: '12', lg: '4' }}>
+                      <EventCard post={events} />
+                    </GridItem>
+                  ))}
+                </Grid>
+              </Box>
+            </Flex>
+          ) : null}
         </Container>
       </main>
       <Footer />
@@ -228,6 +295,18 @@ export async function getStaticProps({ params, preview = true }) {
     }
   }
 
+  const { data: eventsData } = await getEvents({
+    publicationState: 'preview',
+  })
+  const upcomingEvents = eventsData
+    .map((event) => ({
+      ...event.attributes,
+    }))
+    .filter((event) => event.slug !== params.slug)
+    .filter((event) => new Date(event.startingAt) > new Date())
+    .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
+    .slice(0, 3)
+
   const {
     data: { attributes: event },
   } = await getEvent(foundEvent.id)
@@ -237,6 +316,7 @@ export async function getStaticProps({ params, preview = true }) {
   return {
     props: {
       event,
+      upcomingEvents,
     },
     revalidate: 60 * 60 * 24,
   }

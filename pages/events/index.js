@@ -122,9 +122,7 @@ export async function getStaticProps() {
       ...event.attributes,
       isUpcoming: new Date(event.attributes.startingAt) > new Date(),
     }))
-    .sort((a, b) => new Date(b.startingAt) - new Date(a.startingAt))
-
-  console.log({ events })
+    .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
 
   return {
     props: {

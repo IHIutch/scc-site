@@ -9,18 +9,20 @@ import {
   Box,
   HStack,
   Icon,
+  Stack,
 } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/image'
 import NextLink from 'next/link'
 import dayjs from 'dayjs'
 import NextImage from 'next/image'
-import { Calendar } from 'react-feather'
+import { Calendar, MapPin } from 'react-feather'
 
 export default function EventCard({ post }) {
   const [isActive, setIsActive] = useState(false)
 
   return (
     <LinkBox
+      as="article"
       onMouseOver={() => setIsActive(true)}
       onMouseOut={() => setIsActive(false)}
       onFocus={() => setIsActive(true)}
@@ -62,14 +64,24 @@ export default function EventCard({ post }) {
               <LinkOverlay>{post.title}</LinkOverlay>
             </NextLink>
           </Heading>
-          {post.startingAt && (
-            <HStack alignItems="center">
-              <Icon boxSize="5" as={Calendar} />
-              <Text fontWeight="semibold" mb="2">
-                {dayjs(post.startingAt).format('dddd, MMMM D h:mma')}
-              </Text>
-            </HStack>
-          )}
+          <Stack>
+            {post.startingAt && (
+              <Stack direction="row" alignItems="center">
+                <Icon boxSize="5" as={Calendar} />
+                <Text fontWeight="semibold" mb="2">
+                  {dayjs(post.startingAt).format('dddd, MMMM D h:mma')}
+                </Text>
+              </Stack>
+            )}
+            {post.location?.title && (
+              <Stack direction="row" alignItems="center">
+                <Icon boxSize="5" as={MapPin} />
+                <Text fontWeight="semibold" mb="2">
+                  {post.location.title}
+                </Text>
+              </Stack>
+            )}
+          </Stack>
         </Box>
         <Flex
           borderTopWidth="2px"

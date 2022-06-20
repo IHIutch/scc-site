@@ -13,14 +13,6 @@ export const SEO = ({
   //   post?.featuredImage?.data?.attributes?.url ||
   //   process.env.SITE_META.siteUrl + process.env.SITE_META.image
 
-  console.log({
-    title,
-    description,
-    url,
-    image,
-    slug,
-  })
-
   return (
     <Head>
       <title>{title}</title>

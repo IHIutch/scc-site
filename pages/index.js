@@ -454,7 +454,7 @@ export async function getStaticProps() {
       ...event.attributes,
     }))
     .filter((event) => new Date(event.startingAt) > new Date())
-    .sort((a, b) => new Date(b.startingAt) - new Date(a.startingAt))
+    .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
     .slice(0, 3)
 
   return {
