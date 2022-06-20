@@ -2,7 +2,7 @@ import { getEvents } from '@/utils/axios/events'
 import { getPosts } from '@/utils/axios/posts'
 
 export default async function handler(req, res) {
-  const { secret, slug, type } = req.query
+  const { secret, slug, postTypePath } = req.query
 
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
@@ -13,12 +13,12 @@ export default async function handler(req, res) {
   let foundPost,
     allPosts = null
 
-  if (type === 'blog') {
+  if (postTypePath === 'blog') {
     const { data } = await getPosts({
       publicationState: 'preview',
     })
     allPosts = data
-  } else if (type === 'event') {
+  } else if (postTypePath === 'events') {
     const { data } = await getEvents({
       publicationState: 'preview',
     })
@@ -36,8 +36,7 @@ export default async function handler(req, res) {
 
   // Enable Preview Mode by setting the cookies
   res.setPreviewData({})
-
   // Redirect to the path from the fetched post
   // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-  res.redirect(`/${type}/${slug}`)
+  res.redirect(`/${postTypePath}/${slug}`)
 }
