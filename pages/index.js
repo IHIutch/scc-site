@@ -448,7 +448,7 @@ export async function getStaticProps({ preview }) {
     publicationState: preview ? 'preview' : 'live',
   })
   const upcomingEvents = eventsData
-    .filter((event) => new Date(event.startingAt) > new Date())
+    .filter((event) => new Date(event.attributes.startingAt) > new Date())
     .map((event) => ({
       title: event.attributes.title,
       slug: event.attributes.slug,
