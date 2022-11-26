@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:js": "eslint --ext .js,.jsx --ignore-path .gitignore . --fix",
+    "lint:fix": "eslint --ext .js,.jsx --ignore-path .gitignore . --fix",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -67,9 +67,6 @@
     ]
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "yarn lint --fix",
-      "eslint --cache --fix"
-    ]
+    "*.{js,jsx}": "yarn lint:fix"
   }
 }

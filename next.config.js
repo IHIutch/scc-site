@@ -13,13 +13,13 @@ module.exports = {
     },
   },
   images: {
-    domains: ['bvozupfdsubbojpqsspf.supabase.co'],
+    domains: ['res.cloudinary.com'],
   },
   async rewrites() {
     return [
       {
         source: '/sitemap/:path*',
-        destination: 'https://scc-cms.herokuapp.com/sitemap/:path*',
+        destination: 'https://scc-strapi.up.railway.app/sitemap/:path*',
       },
     ]
   },
