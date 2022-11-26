@@ -224,22 +224,7 @@ export default function BlogPost({ post, posts, preview }) {
   )
 }
 
-export async function getStaticPaths() {
-  const { data } = await getPosts()
-
-  const paths = data.map((post) => ({
-    params: {
-      slug: post.attributes.slug,
-    },
-  }))
-
-  return {
-    paths,
-    fallback: 'blocking',
-  }
-}
-
-export async function getStaticProps({ params, preview = false }) {
+export async function getServerSideProps({ params, preview = false }) {
   const { data } = await getPosts({
     publicationState: preview ? 'preview' : 'live',
   })
@@ -278,6 +263,5 @@ export async function getStaticProps({ params, preview = false }) {
       posts,
       preview,
     },
-    revalidate: false,
   }
 }

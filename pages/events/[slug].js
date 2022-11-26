@@ -282,22 +282,7 @@ export default function EventsPost({ event, upcomingEvents, preview }) {
   )
 }
 
-export async function getStaticPaths() {
-  const { data } = await getEvents()
-
-  const paths = data.map((event) => ({
-    params: {
-      slug: event.attributes.slug,
-    },
-  }))
-
-  return {
-    paths,
-    fallback: 'blocking',
-  }
-}
-
-export async function getStaticProps({ params, preview = false }) {
+export async function getServerSideProps({ params, preview = false }) {
   const { data } = await getEvents({
     publicationState: preview ? 'preview' : 'live',
   })
@@ -339,6 +324,5 @@ export async function getStaticProps({ params, preview = false }) {
       upcomingEvents,
       preview,
     },
-    revalidate: 60 * 60 * 24,
   }
 }

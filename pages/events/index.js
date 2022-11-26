@@ -113,7 +113,7 @@ export default function BlogArchive({ events }) {
   )
 }
 
-export async function getStaticProps({ preview }) {
+export async function getServerSideProps({ preview }) {
   const { data } = await getEvents({
     publicationState: preview ? 'preview' : 'live',
   })
@@ -128,6 +128,5 @@ export async function getStaticProps({ preview }) {
     props: {
       events,
     },
-    revalidate: false,
   }
 }

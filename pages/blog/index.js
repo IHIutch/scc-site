@@ -79,7 +79,7 @@ export default function BlogArchive({ posts }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await getPosts()
   const posts = data
     .map((post) => post.attributes)
@@ -89,6 +89,5 @@ export async function getStaticProps() {
     props: {
       posts,
     },
-    revalidate: false,
   }
 }

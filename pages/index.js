@@ -430,7 +430,7 @@ export default function Home({ posts, upcomingEvents }) {
   )
 }
 
-export async function getStaticProps({ preview }) {
+export async function getServerSideProps({ preview }) {
   const { data: postsData } = await getPosts({
     publicationState: preview ? 'preview' : 'live',
   })
@@ -465,6 +465,5 @@ export async function getStaticProps({ preview }) {
       posts,
       upcomingEvents,
     },
-    revalidate: 60 * 60 * 24,
   }
 }
