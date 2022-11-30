@@ -1,6 +1,6 @@
 import axios from 'redaxios'
 
-const { PUBLIC_STRAPI_API_URL } = process.env
+const PUBLIC_STRAPI_API_URL = process.env.PUBLIC_STRAPI_API_URL
 
 export const getPosts = async (params = null) => {
   const { data } = await axios

@@ -1,6 +1,6 @@
 import React from 'react'
 import { getEvent, getEvents } from '@/utils/axios/events'
-import Footer from '@/components/footer'
+
 import Navbar from '@/components/navbar'
 import {
   Alert,
@@ -22,17 +22,16 @@ import {
 import { useInView } from 'react-intersection-observer'
 
 import dayjs from 'dayjs'
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
 import { Calendar, ExternalLink, MapPin } from 'react-feather'
 import b_render from '@/public/assets/images/b_render.jpg'
 import EventCard from '@/components/eventCard'
 import ShareContainer from '@/components/shareContainer'
 import { json } from '@remix-run/node'
 import { useLoaderData, Link as RemixLink } from '@remix-run/react'
+import Markdoc from '@markdoc/markdoc'
 
 export default function EventsPost() {
-  const { event, upcomingEvents, preview, SITE_META } = useLoaderData()
+  const { event, upcomingEvents, preview } = useLoaderData()
 
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -193,18 +192,16 @@ export default function EventsPost() {
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               {/* <ShareContainer
                 label="Share this event"
-                url={SITE_META.siteUrl + asPath}
+                url={window.SITE_META.siteUrl + asPath}
                 title={event.title}
                 mb="8"
               /> */}
               <Box className="post-content">
-                <MDXRemote
-                  {...(event?.content || '')}
-                  components={{
-                    // eslint-disable-next-line jsx-a11y/alt-text
+                {Markdoc.renderers.react(event.content, React, {
+                  components: {
                     img: (props) => <Image width="100%" {...props} />,
-                  }}
-                />
+                  },
+                })}
               </Box>
               <Box
                 borderTopWidth="2px"
@@ -218,7 +215,7 @@ export default function EventsPost() {
                   us on{' '}
                   <Link
                     as={RemixLink}
-                    to={SITE_META.twitterUrl}
+                    to={window.SITE_META.twitterUrl}
                     fontWeight="bold"
                     textDecoration="underline"
                     isExternal
@@ -228,7 +225,7 @@ export default function EventsPost() {
                   and{' '}
                   <Link
                     as={RemixLink}
-                    to={SITE_META.facebookUrl}
+                    to={window.SITE_META.facebookUrl}
                     fontWeight="bold"
                     textDecoration="underline"
                     isExternal
@@ -272,7 +269,6 @@ export default function EventsPost() {
           ) : null}
         </Container>
       </main>
-      <Footer />
     </>
   )
 }
@@ -311,7 +307,8 @@ export const loader = async ({ params, preview = false }) => {
     data: { attributes: event },
   } = await getEvent(foundEvent.id)
 
-  event.content = await serialize(event.content)
+  const ast = Markdoc.parse(event.content)
+  event.content = Markdoc.transform(ast)
 
   return json({
     event,

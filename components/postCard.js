@@ -48,14 +48,7 @@ export default function PostCard({ post }) {
               WebkitBoxOrient: 'vertical',
             }}
           >
-            <Link
-              as={RemixLink}
-              to={{
-                pathname: '/blog/[slug]',
-                query: { slug: post.slug },
-              }}
-              passHref
-            >
+            <Link as={RemixLink} to={'/blog/' + post.slug}>
               <LinkOverlay>{post.title}</LinkOverlay>
             </Link>
           </Heading>

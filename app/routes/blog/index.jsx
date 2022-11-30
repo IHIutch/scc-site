@@ -1,4 +1,3 @@
-import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import PostCard from '@/components/postCard'
 import { getPosts } from '@/utils/axios/posts'
@@ -69,12 +68,11 @@ export default function BlogArchive() {
           </Grid>
         </Container>
       </main>
-      <Footer />
     </>
   )
 }
 
-export const loader = async () => {
+export const loader = async (ctx) => {
   const { data } = await getPosts()
   const posts = data
     .map((post) => post.attributes)

@@ -52,14 +52,7 @@ export default function EventCard({ post }) {
               WebkitBoxOrient: 'vertical',
             }}
           >
-            <Link
-              as={RemixLink}
-              to={{
-                pathname: '/events/[slug]',
-                query: { slug: post.slug },
-              }}
-              passHref
-            >
+            <Link as={RemixLink} to={'/events/' + post.slug}>
               <LinkOverlay>{post.title}</LinkOverlay>
             </Link>
           </Heading>

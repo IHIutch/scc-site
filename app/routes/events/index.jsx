@@ -1,4 +1,3 @@
-import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import EventCard from '@/components/eventCard'
 import { getEvents } from '@/utils/axios/events'
@@ -12,8 +11,8 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
-import { json } from 'stream/consumers'
 import { useLoaderData } from '@remix-run/react'
+import { json } from '@remix-run/node'
 
 export default function BlogArchive() {
   const { events } = useLoaderData()
@@ -110,7 +109,6 @@ export default function BlogArchive() {
           </GridItem>
         </Grid>
       </main>
-      <Footer />
     </>
   )
 }

@@ -9,8 +9,24 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
+import Footer from 'components/footer'
 import { useContext, useEffect } from 'react'
 import { ClientStyleContext, ServerStyleContext } from './content'
+
+export const loader = () => {
+  return json({
+    SITE_META: {
+      title: 'Scajaquada Corridor Coalition',
+      siteUrl: 'https://sccoalition.net',
+      titleTemplate: ' · Scajaquada Corridor Coalition',
+      description:
+        'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
+      image: '/assets/images/meta-image.jpg',
+      twitterUrl: 'https://twitter.com/RightSize198',
+      facebookUrl: 'https://www.facebook.com/sccbuffalo/',
+    },
+  })
+}
 
 export const meta = () => ({
   charset: 'utf-8',
@@ -65,22 +81,8 @@ export default function App() {
     <Document>
       <ChakraProvider>
         <Outlet />
+        <Footer />
       </ChakraProvider>
     </Document>
   )
-}
-
-export const loader = async () => {
-  return json({
-    SITE_META: {
-      title: 'Scajaquada Corridor Coalition',
-      siteUrl: 'https://sccoalition.net',
-      titleTemplate: ' · Scajaquada Corridor Coalition',
-      description:
-        'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
-      image: '/assets/images/meta-image.jpg',
-      twitterUrl: 'https://twitter.com/RightSize198',
-      facebookUrl: 'https://www.facebook.com/sccbuffalo/',
-    },
-  })
 }

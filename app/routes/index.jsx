@@ -1,4 +1,3 @@
-import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import PostCard from '@/components/postCard'
 import {
@@ -421,7 +420,6 @@ export default function Home() {
           </Box>
         </Container>
       </main>
-      <Footer />
     </>
   )
 }
