@@ -7,10 +7,10 @@ import {
   LinkOverlay,
   Text,
   Box,
-} from '@chakra-ui/layout'
-import { Image } from '@chakra-ui/image'
+  Image,
+  Link,
+} from '@chakra-ui/react'
 import dayjs from 'dayjs'
-import { Link } from '@chakra-ui/react'
 import { Link as RemixLink } from '@remix-run/react'
 
 export default function PostCard({ post }) {

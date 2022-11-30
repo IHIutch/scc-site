@@ -1,5 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { withEmotionCache } from '@emotion/react'
+import { json } from '@remix-run/node'
 import {
   Links,
   LiveReload,
@@ -67,4 +68,19 @@ export default function App() {
       </ChakraProvider>
     </Document>
   )
+}
+
+export const loader = async () => {
+  return json({
+    SITE_META: {
+      title: 'Scajaquada Corridor Coalition',
+      siteUrl: 'https://sccoalition.net',
+      titleTemplate: ' · Scajaquada Corridor Coalition',
+      description:
+        'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
+      image: '/assets/images/meta-image.jpg',
+      twitterUrl: 'https://twitter.com/RightSize198',
+      facebookUrl: 'https://www.facebook.com/sccbuffalo/',
+    },
+  })
 }

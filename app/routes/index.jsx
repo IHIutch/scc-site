@@ -1,7 +1,6 @@
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import PostCard from '@/components/postCard'
-import { Image } from '@chakra-ui/image'
 import {
   Box,
   Container,
@@ -11,8 +10,8 @@ import {
   Heading,
   Link,
   Text,
-} from '@chakra-ui/layout'
-import React from 'react'
+  Image,
+} from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 
 import { getPosts } from '@/utils/axios/posts'
@@ -21,7 +20,6 @@ import a_render from '@/public/assets/images/web/a_render.jpg'
 import b_render from '@/public/assets/images/web/b_render.jpg'
 import c_render from '@/public/assets/images/web/c_render.jpg'
 import d_render from '@/public/assets/images/web/d_render.jpg'
-import { SEO } from '@/components/seo'
 import { getEvents } from '@/utils/axios/events'
 import EventCard from '@/components/eventCard'
 import { json } from '@remix-run/node'
@@ -35,7 +33,7 @@ export default function Home() {
   })
   return (
     <>
-      <SEO />
+      {/* <SEO /> */}
       <Navbar isHeroInView={inView} />
       <main>
         <Flex

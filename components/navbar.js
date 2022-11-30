@@ -1,10 +1,15 @@
-import React from 'react'
 import { X, Menu } from 'react-feather'
-import { useDisclosure } from '@chakra-ui/hooks'
-import { Box, Container, Flex, Link, Text } from '@chakra-ui/layout'
-import { Button } from '@chakra-ui/button'
-import { CloseButton } from '@chakra-ui/close-button'
-import Icon from '@chakra-ui/icon'
+import {
+  useDisclosure,
+  Box,
+  Container,
+  Flex,
+  Link,
+  Text,
+  Button,
+  CloseButton,
+  Icon,
+} from '@chakra-ui/react'
 import { trackGoal } from 'fathom-client'
 import { Link as RemixLink } from '@remix-run/react'
 

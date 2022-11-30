@@ -1,7 +1,6 @@
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import EventCard from '@/components/eventCard'
-import { SEO } from '@/components/seo'
 import { getEvents } from '@/utils/axios/events'
 import { useInView } from 'react-intersection-observer'
 import {
@@ -28,7 +27,7 @@ export default function BlogArchive() {
 
   return (
     <>
-      <SEO title="Events" slug="/events" />
+      {/* <SEO title="Events" slug="/events" /> */}
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>

@@ -17,33 +17,29 @@ import {
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 
-import { SEO } from '@/components/seo'
 import dayjs from 'dayjs'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import PostCard from '@/components/postCard'
-import { useRouter } from 'next/router'
 import ShareContainer from '@/components/shareContainer'
 import { json } from '@remix-run/node'
 import { useLoaderData, Link as RemixLink } from '@remix-run/react'
 
 export default function BlogPost() {
-  const { post, posts, preview } = useLoaderData()
+  const { post, posts, preview, SITE_META } = useLoaderData()
 
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
 
-  const { asPath } = useRouter()
-
   return (
     <>
-      <SEO
+      {/* <SEO
         title={post?.title}
         description={post?.lead}
         slug={`/blog/${post?.slug}`}
         image={post?.featuredImage?.data?.attributes?.url}
-      />
+      /> */}
       {preview && (
         <Box position="fixed" top="0" left="0" right="0" zIndex="2">
           <Alert status="info">
@@ -137,12 +133,12 @@ export default function BlogPost() {
         <Container maxW="container.xl" pt="16" pb="32">
           <Grid templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
-              <ShareContainer
+              {/* <ShareContainer
                 label="Share this post"
-                url={process.env.SITE_META.siteUrl + asPath}
+                url={SITE_META.siteUrl + asPath}
                 title={post.title}
                 mb="8"
-              />
+              /> */}
               <Box className="post-content">
                 <MDXRemote
                   {...(post?.content || '')}
@@ -164,7 +160,7 @@ export default function BlogPost() {
                   us on{' '}
                   <Link
                     as={RemixLink}
-                    to={process.env.SITE_META.twitterUrl}
+                    to={SITE_META.twitterUrl}
                     fontWeight="bold"
                     textDecoration="underline"
                     isExternal
@@ -174,7 +170,7 @@ export default function BlogPost() {
                   and{' '}
                   <Link
                     as={RemixLink}
-                    to={process.env.SITE_META.facebookUrl}
+                    to={SITE_META.facebookUrl}
                     fontWeight="bold"
                     textDecoration="underline"
                     isExternal

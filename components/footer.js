@@ -1,7 +1,3 @@
-import React from 'react'
-import { Button } from '@chakra-ui/button'
-import { FormControl, FormLabel } from '@chakra-ui/form-control'
-import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
 import {
   Box,
   Container,
@@ -11,14 +7,21 @@ import {
   Link,
   Stack,
   Text,
-} from '@chakra-ui/layout'
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Icon,
+} from '@chakra-ui/react'
 import { Facebook, Twitter } from 'react-feather'
-import Icon from '@chakra-ui/icon'
 import { trackGoal } from 'fathom-client'
-import { Link as RemixLink } from '@remix-run/react'
+import { useLoaderData, Link as RemixLink } from '@remix-run/react'
 
 export default function Footer() {
   const handleDonateClick = () => trackGoal('VLTP3IJR')
+  const { SITE_META } = useLoaderData()
 
   return (
     <Box as="footer" bg="tealGreen.700" py="24">
@@ -133,21 +136,13 @@ export default function Footer() {
                 fontWeight="semibold"
                 textTransform="uppercase"
               >
-                <Link
-                  as={RemixLink}
-                  to={process.env.SITE_META.facebookUrl}
-                  isExternal
-                >
+                <Link as={RemixLink} to={SITE_META.facebookUrl} isExternal>
                   <Flex align="center">
                     <Icon boxSize="6" as={Facebook} />
                     <Text ml="2">Facebook</Text>
                   </Flex>
                 </Link>
-                <Link
-                  as={RemixLink}
-                  to={process.env.SITE_META.twitterUrl}
-                  isExternal
-                >
+                <Link as={RemixLink} to={SITE_META.twitterUrl} isExternal>
                   <Flex ml="12" align="center">
                     <Icon boxSize="6" as={Twitter} />
                     <Text ml="2">Twitter</Text>

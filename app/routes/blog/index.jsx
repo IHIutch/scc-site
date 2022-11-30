@@ -1,16 +1,8 @@
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import PostCard from '@/components/postCard'
-import { SEO } from '@/components/seo'
 import { getPosts } from '@/utils/axios/posts'
-import {
-  Box,
-  Container,
-  Grid,
-  GridItem,
-  Heading,
-  Text,
-} from '@chakra-ui/layout'
+import { Box, Container, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import { useInView } from 'react-intersection-observer'
@@ -24,7 +16,7 @@ export default function BlogArchive() {
 
   return (
     <>
-      <SEO title="Blog" slug="/blog" />
+      {/* <SEO title="Blog" slug="/blog" /> */}
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>

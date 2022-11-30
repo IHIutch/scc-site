@@ -10,10 +10,9 @@ import {
   Icon,
   Stack,
   Link,
+  Image,
 } from '@chakra-ui/react'
-import { Image } from '@chakra-ui/image'
 import dayjs from 'dayjs'
-import NextImage from 'next/image'
 import { Calendar, MapPin } from 'react-feather'
 import { Link as RemixLink } from '@remix-run/react'
 
@@ -33,7 +32,6 @@ export default function EventCard({ post }) {
           <AspectRatio ratio={16 / 9}>
             <Box h="100%" w="100%" style={{ mixBlendMode: 'luminosity' }}>
               <Image
-                as={NextImage}
                 layout="fill"
                 objectFit="cover"
                 src={post?.featuredImage?.data?.attributes?.url}

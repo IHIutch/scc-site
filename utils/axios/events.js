@@ -1,10 +1,10 @@
 import axios from 'redaxios'
 
-const { NEXT_PUBLIC_STRAPI_API_URL } = process.env
+const { PUBLIC_STRAPI_API_URL } = process.env
 
 export const getEvents = async (params = null) => {
   const { data } = await axios
-    .get(`${NEXT_PUBLIC_STRAPI_API_URL}/events`, {
+    .get(`${PUBLIC_STRAPI_API_URL}/events`, {
       params: {
         ...params,
         populate: '*',
@@ -18,7 +18,7 @@ export const getEvents = async (params = null) => {
 
 export const getEvent = async (id) => {
   const { data } = await axios
-    .get(`${NEXT_PUBLIC_STRAPI_API_URL}/events/${id}`, {
+    .get(`${PUBLIC_STRAPI_API_URL}/events/${id}`, {
       params: {
         populate: '*',
       },
