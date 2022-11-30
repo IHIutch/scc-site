@@ -5,8 +5,8 @@ import { Box, Container, Flex, Link, Text } from '@chakra-ui/layout'
 import { Button } from '@chakra-ui/button'
 import { CloseButton } from '@chakra-ui/close-button'
 import Icon from '@chakra-ui/icon'
-import NextLink from 'next/link'
 import { trackGoal } from 'fathom-client'
+import { Link as RemixLink } from '@remix-run/react'
 
 export default function Navbar({ sx, isHeroInView }) {
   const { isOpen, onToggle } = useDisclosure()
@@ -49,26 +49,26 @@ export default function Navbar({ sx, isHeroInView }) {
         <Container maxW="container.xl">
           <Flex wrap="wrap" align="center">
             <Box>
-              <NextLink href="/" passHref>
-                <Link
-                  d="flex"
-                  alignItems="center"
-                  px="4"
-                  mx="-4"
-                  h="16"
-                  _hover=""
-                  fontSize="2xl"
-                  fontWeight="bold"
-                  color="white"
-                >
-                  <Text as="span" d={{ base: 'none', md: 'inline' }}>
-                    Scajaquada Corridor Coalition
-                  </Text>
-                  <Text as="span" d={{ base: 'flex', md: 'none' }}>
-                    SCC
-                  </Text>
-                </Link>
-              </NextLink>
+              <Link
+                as={RemixLink}
+                to="/"
+                d="flex"
+                alignItems="center"
+                px="4"
+                mx="-4"
+                h="16"
+                _hover=""
+                fontSize="2xl"
+                fontWeight="bold"
+                color="white"
+              >
+                <Text as="span" d={{ base: 'none', md: 'inline' }}>
+                  Scajaquada Corridor Coalition
+                </Text>
+                <Text as="span" d={{ base: 'flex', md: 'none' }}>
+                  SCC
+                </Text>
+              </Link>
             </Box>
             <Flex align="center" ml="auto">
               <Button
@@ -109,19 +109,20 @@ export default function Navbar({ sx, isHeroInView }) {
               fontWeight="bold"
             >
               {navItemsRight.map((link, idx) => (
-                <NextLink key={idx} href={link.path} passHref>
-                  <Link
-                    h="16"
-                    d={{ base: 'flex', [mobileBreakpoint]: 'inline-flex' }}
-                    fontWeight="medium"
-                    alignItems="center"
-                    px={{ base: '4', [mobileBreakpoint]: '8' }}
-                    mx={{ base: '-4', [mobileBreakpoint]: '0' }}
-                    isExternal={link.isExternal}
-                  >
-                    {link.name}
-                  </Link>
-                </NextLink>
+                <Link
+                  as={RemixLink}
+                  key={idx}
+                  to={link.path}
+                  h="16"
+                  d={{ base: 'flex', [mobileBreakpoint]: 'inline-flex' }}
+                  fontWeight="medium"
+                  alignItems="center"
+                  px={{ base: '4', [mobileBreakpoint]: '8' }}
+                  mx={{ base: '-4', [mobileBreakpoint]: '0' }}
+                  isExternal={link.isExternal}
+                >
+                  {link.name}
+                </Link>
               ))}
             </Box>
             <Button

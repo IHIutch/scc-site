@@ -1,4 +1,3 @@
-import React from 'react'
 import { Box, Heading, Link, Text } from '@chakra-ui/react'
 
 export default function Attribution({ title, author, source }) {

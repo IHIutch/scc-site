@@ -1,5 +1,4 @@
 import { Box, Flex, Icon, IconButton, Stack, Text } from '@chakra-ui/react'
-import React from 'react'
 import { Facebook, Twitter } from 'react-feather'
 import { FacebookShareButton, TwitterShareButton } from './shareButtons'
 

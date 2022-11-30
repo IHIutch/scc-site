@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
   AspectRatio,
   Flex,
@@ -9,9 +9,9 @@ import {
   Box,
 } from '@chakra-ui/layout'
 import { Image } from '@chakra-ui/image'
-import NextLink from 'next/link'
 import dayjs from 'dayjs'
-import NextImage from 'next/image'
+import { Link } from '@chakra-ui/react'
+import { Link as RemixLink } from '@remix-run/react'
 
 export default function PostCard({ post }) {
   const [isActive, setIsActive] = useState(false)
@@ -28,7 +28,6 @@ export default function PostCard({ post }) {
           <AspectRatio ratio={16 / 9}>
             <Box h="100%" w="100%" style={{ mixBlendMode: 'luminosity' }}>
               <Image
-                as={NextImage}
                 layout="fill"
                 objectFit="cover"
                 src={post?.featuredImage?.data?.attributes?.url}
@@ -49,15 +48,16 @@ export default function PostCard({ post }) {
               WebkitBoxOrient: 'vertical',
             }}
           >
-            <NextLink
-              href={{
+            <Link
+              as={RemixLink}
+              to={{
                 pathname: '/blog/[slug]',
                 query: { slug: post.slug },
               }}
               passHref
             >
               <LinkOverlay>{post.title}</LinkOverlay>
-            </NextLink>
+            </Link>
           </Heading>
           {post.publishedAt && (
             <Box>

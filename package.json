@@ -1,70 +1,47 @@
 {
-  "name": "scc-site",
   "private": true,
+  "sideEffects": false,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "eslint --ext .js,.jsx --ignore-path .gitignore . --fix",
-    "prepare": "husky install"
+    "build": "remix build",
+    "dev": "remix dev"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.7.2",
+    "@chakra-ui/react": "^1.8.9",
     "@emotion/react": "^11",
+    "@emotion/server": "^11",
     "@emotion/styled": "^11",
     "@fontsource/crimson-pro": "^4.5.1",
+    "@remix-run/node": "^1.7.6",
+    "@remix-run/react": "^1.7.6",
+    "@remix-run/vercel": "^1.7.6",
+    "@vercel/node": "^2.6.2",
     "dayjs": "^1.10.7",
     "fathom-client": "^3.2.0",
-    "framer-motion": "^4",
+    "framer-motion": "^6",
     "micromark-extension-mdx-jsx": "^1.0.2",
-    "next": "^12.1.6",
-    "next-mdx-remote": "^3.0.8",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-feather": "^2.0.9",
     "react-intersection-observer": "^8.32.5",
     "react-markdown": "^8.0.0",
-    "redaxios": "^0.4.1",
-    "sharp": "^0.29.3"
+    "redaxios": "^0.4.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.6.0",
-    "@typescript-eslint/parser": "^5.6.0",
-    "babel-eslint": "^10.1.0",
+    "@remix-run/dev": "^1.7.6",
+    "@remix-run/eslint-config": "^1.7.6",
+    "@remix-run/serve": "^1.7.6",
     "eslint": "^8.4.1",
-    "eslint-config-next": "^12.0.7",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-flowtype": "^8.0.3",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jest": "^25.3.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-testing-library": "^5.0.1",
     "husky": "^8.0.0",
     "lint-staged": "^12.1.2",
     "prettier": "^2.5.1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "engines": {
+    "node": ">=14"
   },
   "lint-staged": {
     "*.{js,jsx}": "yarn lint:fix"

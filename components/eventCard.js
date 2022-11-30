@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import {
   AspectRatio,
   Flex,
@@ -9,12 +9,13 @@ import {
   Box,
   Icon,
   Stack,
+  Link,
 } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/image'
-import NextLink from 'next/link'
 import dayjs from 'dayjs'
 import NextImage from 'next/image'
 import { Calendar, MapPin } from 'react-feather'
+import { Link as RemixLink } from '@remix-run/react'
 
 export default function EventCard({ post }) {
   const [isActive, setIsActive] = useState(false)
@@ -53,15 +54,16 @@ export default function EventCard({ post }) {
               WebkitBoxOrient: 'vertical',
             }}
           >
-            <NextLink
-              href={{
+            <Link
+              as={RemixLink}
+              to={{
                 pathname: '/events/[slug]',
                 query: { slug: post.slug },
               }}
               passHref
             >
               <LinkOverlay>{post.title}</LinkOverlay>
-            </NextLink>
+            </Link>
           </Heading>
           <Stack>
             {post.startingAt && (

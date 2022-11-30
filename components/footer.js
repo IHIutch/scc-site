@@ -15,7 +15,7 @@ import {
 import { Facebook, Twitter } from 'react-feather'
 import Icon from '@chakra-ui/icon'
 import { trackGoal } from 'fathom-client'
-import NextLink from 'next/link'
+import { Link as RemixLink } from '@remix-run/react'
 
 export default function Footer() {
   const handleDonateClick = () => trackGoal('VLTP3IJR')
@@ -36,29 +36,28 @@ export default function Footer() {
               fontSize="2xl"
             >
               <Box>
-                <NextLink href="/" passHref>
-                  <Link>Home</Link>
-                </NextLink>
+                <Link as={RemixLink} to="/">
+                  Home
+                </Link>
               </Box>
               <Box>
-                <NextLink href="/blog" passHref>
-                  <Link>Blog</Link>
-                </NextLink>
+                <Link as={RemixLink} to="/blog">
+                  Blog
+                </Link>
               </Box>
               <Box>
-                <NextLink href="/event" passHref>
-                  <Link>Events</Link>
-                </NextLink>
+                <Link as={RemixLink} to="/events">
+                  Events
+                </Link>
               </Box>
               <Box>
-                <NextLink
+                <Link
                   href="https://www.paypal.com/donate?hosted_button_id=FNKWNMDKXRUZG"
-                  passHref
+                  onClick={handleDonateClick}
+                  isExternal
                 >
-                  <Link onClick={handleDonateClick} isExternal>
-                    Donate
-                  </Link>
-                </NextLink>
+                  Donate
+                </Link>
               </Box>
             </Stack>
           </GridItem>
@@ -134,22 +133,26 @@ export default function Footer() {
                 fontWeight="semibold"
                 textTransform="uppercase"
               >
-                <NextLink href={process.env.SITE_META.facebookUrl} passHref>
-                  <Link isExternal>
-                    <Flex align="center">
-                      <Icon boxSize="6" as={Facebook} />
-                      <Text ml="2">Facebook</Text>
-                    </Flex>
-                  </Link>
-                </NextLink>
-                <NextLink href={process.env.SITE_META.twitterUrl} passHref>
-                  <Link isExternal>
-                    <Flex ml="12" align="center">
-                      <Icon boxSize="6" as={Twitter} />
-                      <Text ml="2">Twitter</Text>
-                    </Flex>
-                  </Link>
-                </NextLink>
+                <Link
+                  as={RemixLink}
+                  to={process.env.SITE_META.facebookUrl}
+                  isExternal
+                >
+                  <Flex align="center">
+                    <Icon boxSize="6" as={Facebook} />
+                    <Text ml="2">Facebook</Text>
+                  </Flex>
+                </Link>
+                <Link
+                  as={RemixLink}
+                  to={process.env.SITE_META.twitterUrl}
+                  isExternal
+                >
+                  <Flex ml="12" align="center">
+                    <Icon boxSize="6" as={Twitter} />
+                    <Text ml="2">Twitter</Text>
+                  </Flex>
+                </Link>
               </Flex>
             </Stack>
           </GridItem>
