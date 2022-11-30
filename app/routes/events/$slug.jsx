@@ -211,7 +211,6 @@ export default function EventsPost() {
                   Support the removal of the Scajaquada Expressway by following
                   us on{' '}
                   <Link
-                    as={RemixLink}
                     to={SITE_META.twitterUrl}
                     fontWeight="bold"
                     textDecoration="underline"
@@ -221,7 +220,6 @@ export default function EventsPost() {
                   </Link>{' '}
                   and{' '}
                   <Link
-                    as={RemixLink}
                     to={SITE_META.facebookUrl}
                     fontWeight="bold"
                     textDecoration="underline"

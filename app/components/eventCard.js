@@ -9,7 +9,6 @@ import {
   Box,
   Icon,
   Stack,
-  Link,
   Img,
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
@@ -50,9 +49,9 @@ export default function EventCard({ post }) {
               WebkitBoxOrient: 'vertical',
             }}
           >
-            <Link as={RemixLink} to={'/events/' + post.slug}>
-              <LinkOverlay>{post.title}</LinkOverlay>
-            </Link>
+            <LinkOverlay as={RemixLink} to={'/events/' + post.slug}>
+              {post.title}
+            </LinkOverlay>
           </Heading>
           <Stack>
             {post.startingAt && (

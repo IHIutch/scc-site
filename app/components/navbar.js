@@ -32,7 +32,7 @@ export default function Navbar({ sx, isHeroInView }) {
     },
     {
       name: 'Subscribe',
-      path: 'http://eepurl.com/gnIkIv',
+      path: 'https://eepurl.com/gnIkIv',
       isExternal: true,
     },
   ]
@@ -115,9 +115,10 @@ export default function Navbar({ sx, isHeroInView }) {
             >
               {navItemsRight.map((link, idx) => (
                 <Link
-                  as={RemixLink}
+                  as={link.isExternal ? Link : RemixLink}
                   key={idx}
                   to={link.path}
+                  href={link.path}
                   h="16"
                   d={{ base: 'flex', [mobileBreakpoint]: 'inline-flex' }}
                   fontWeight="medium"
@@ -133,7 +134,6 @@ export default function Navbar({ sx, isHeroInView }) {
             <Button
               d={{ base: 'none', [mobileBreakpoint]: 'flex' }}
               ml="4"
-              // onClick={handleDonateClick}
               href={paypalLink}
               isExternal
               px="8"

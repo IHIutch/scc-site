@@ -8,7 +8,6 @@ import {
   Text,
   Box,
   Img,
-  Link,
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import { Link as RemixLink } from '@remix-run/react'
@@ -46,9 +45,9 @@ export default function PostCard({ post }) {
               WebkitBoxOrient: 'vertical',
             }}
           >
-            <Link as={RemixLink} to={'/blog/' + post.slug}>
-              <LinkOverlay>{post.title}</LinkOverlay>
-            </Link>
+            <LinkOverlay as={RemixLink} to={'/blog/' + post.slug}>
+              {post.title}
+            </LinkOverlay>
           </Heading>
           {post.publishedAt && (
             <Box>
