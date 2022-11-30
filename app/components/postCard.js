@@ -7,7 +7,7 @@ import {
   LinkOverlay,
   Text,
   Box,
-  Image,
+  Img,
   Link,
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
@@ -25,15 +25,13 @@ export default function PostCard({ post }) {
     >
       <Box borderColor="tealGreen.700" borderWidth="2px">
         {post?.featuredImage?.data && (
-          <AspectRatio ratio={16 / 9}>
-            <Box h="100%" w="100%" style={{ mixBlendMode: 'luminosity' }}>
-              <Image
-                layout="fill"
-                objectFit="cover"
-                src={post?.featuredImage?.data?.attributes?.url}
-                alt={post.title}
-              />
-            </Box>
+          <AspectRatio ratio={16 / 9} style={{ mixBlendMode: 'luminosity' }}>
+            <Img
+              boxSize="100%"
+              objectFit="cover"
+              src={post?.featuredImage?.data?.attributes?.url}
+              alt={post.title}
+            />
           </AspectRatio>
         )}
         <Box p="4" color="tealGreen.700">

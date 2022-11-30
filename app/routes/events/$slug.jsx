@@ -18,6 +18,7 @@ import {
   Link,
   Stack,
   Text,
+  Img,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 
@@ -81,19 +82,14 @@ export default function EventsPost() {
             left="0"
             bg="tealGreen.700"
           >
-            <Box
+            <Img
               style={{ mixBlendMode: 'luminosity' }}
               opacity="20%"
-              w="100%"
-              h="100%"
-            >
-              <Image
-                layout="fill"
-                objectFit="cover"
-                src={event?.featuredImage?.data?.attributes?.url || b_render}
-                alt={event.title}
-              />
-            </Box>
+              boxSize="100%"
+              objectFit="cover"
+              src={event?.featuredImage?.data?.attributes?.url || b_render}
+              alt={event.title}
+            />
           </Box>
           <Box mt="auto" pt="5" w="100%" mb="12" position="relative">
             <Container maxW="container.xl">

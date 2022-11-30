@@ -9,7 +9,7 @@ import {
   Heading,
   Link,
   Text,
-  Image,
+  Img,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 
@@ -49,20 +49,14 @@ export default function Home() {
             left="0"
             bg="tealGreen.700"
           >
-            <Box
+            <Img
               style={{ mixBlendMode: 'luminosity' }}
               opacity="20%"
-              w="100%"
-              h="100%"
-            >
-              <Image
-                placeholder="blur"
-                layout="fill"
-                objectFit="cover"
-                src={delaware_full1}
-                alt="A beautiful view of Hoyt Lake"
-              />
-            </Box>
+              boxSize="100%"
+              objectFit="cover"
+              src={delaware_full1}
+              alt="A beautiful view of Hoyt Lake"
+            />
           </Box>
           <Box mt="auto" pt="5" w="100%" mb="12" position="relative">
             <Container maxW="container.xl">
@@ -178,7 +172,7 @@ export default function Home() {
             borderWidth="2px"
             borderColor="tealGreen.700"
           >
-            <Image
+            <Img
               src={a_render}
               alt="Aerial view facing North-West over the Scajaquada Expressway."
               placeholder="blur"
@@ -230,7 +224,7 @@ export default function Home() {
             borderWidth="2px"
             borderColor="tealGreen.700"
           >
-            <Image
+            <Img
               src={b_render}
               alt="Facing East on the Scajaquada Expressway, between Wegmans on
               Amherst Street and Buffalo State College."
@@ -290,7 +284,7 @@ export default function Home() {
             borderWidth="2px"
             borderColor="tealGreen.700"
           >
-            <Image
+            <Img
               src={c_render}
               alt="Facing North-West on the Kensington Expressway, between Sisters
               Hospital and Canisius College."
@@ -344,7 +338,7 @@ export default function Home() {
             borderWidth="2px"
             borderColor="tealGreen.700"
           >
-            <Image
+            <Img
               src={d_render}
               alt="Facing South-West in Delaware Park, from the Point of the Meadow
               Shelter and Soccer Fields."

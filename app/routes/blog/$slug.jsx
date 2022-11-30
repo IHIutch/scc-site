@@ -14,6 +14,7 @@ import {
   Image,
   Link,
   Text,
+  Img,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 
@@ -23,6 +24,7 @@ import ShareContainer from '~/components/shareContainer'
 import { json } from '@remix-run/node'
 import { useLoaderData, Link as RemixLink, useLocation } from '@remix-run/react'
 import Markdoc from '@markdoc/markdoc'
+import b_render from 'public/assets/images/b_render.jpg'
 
 export default function BlogPost() {
   const { post, posts, preview, SITE_META } = useLoaderData()
@@ -74,21 +76,14 @@ export default function BlogPost() {
             left="0"
             bg="tealGreen.700"
           >
-            {post?.featuredImage?.data && (
-              <Box
-                style={{ mixBlendMode: 'luminosity' }}
-                opacity="20%"
-                w="100%"
-                h="100%"
-              >
-                <Image
-                  layout="fill"
-                  objectFit="cover"
-                  src={post?.featuredImage?.data?.attributes?.url}
-                  alt={post.title}
-                />
-              </Box>
-            )}
+            <Img
+              style={{ mixBlendMode: 'luminosity' }}
+              opacity="20%"
+              boxSize="100%"
+              objectFit="cover"
+              src={post?.featuredImage?.data?.attributes?.url || b_render}
+              alt={post.title}
+            />
           </Box>
           <Box mt="auto" pt="5" w="100%" mb="12" position="relative">
             <Container maxW="container.xl">
