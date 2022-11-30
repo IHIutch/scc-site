@@ -1,5 +1,5 @@
-import Navbar from '@/components/navbar'
-import PostCard from '@/components/postCard'
+import Navbar from '~/components/navbar'
+import PostCard from '~/components/postCard'
 import {
   Box,
   Container,
@@ -13,14 +13,14 @@ import {
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 
-import { getPosts } from '@/utils/axios/posts'
-import delaware_full1 from '@/public/assets/images/delaware_full1.webp'
-import a_render from '@/public/assets/images/web/a_render.jpg'
-import b_render from '@/public/assets/images/web/b_render.jpg'
-import c_render from '@/public/assets/images/web/c_render.jpg'
-import d_render from '@/public/assets/images/web/d_render.jpg'
-import { getEvents } from '@/utils/axios/events'
-import EventCard from '@/components/eventCard'
+import { getPosts } from 'utils/axios/posts'
+import delaware_full1 from 'public/assets/images/delaware_full1.webp'
+import a_render from 'public/assets/images/web/a_render.jpg'
+import b_render from 'public/assets/images/web/b_render.jpg'
+import c_render from 'public/assets/images/web/c_render.jpg'
+import d_render from 'public/assets/images/web/d_render.jpg'
+import { getEvents } from 'utils/axios/events'
+import EventCard from '~/components/eventCard'
 import { json } from '@remix-run/node'
 import { useLoaderData, Link as RemixLink } from '@remix-run/react'
 
@@ -56,7 +56,6 @@ export default function Home() {
               h="100%"
             >
               <Image
-                priority={true}
                 placeholder="blur"
                 layout="fill"
                 objectFit="cover"

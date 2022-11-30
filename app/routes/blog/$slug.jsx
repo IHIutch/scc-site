@@ -1,7 +1,7 @@
 import React from 'react'
-import { getPost, getPosts } from '@/utils/axios/posts'
+import { getPost, getPosts } from 'utils/axios/posts'
 
-import Navbar from '@/components/navbar'
+import Navbar from '~/components/navbar'
 import {
   Alert,
   AlertIcon,
@@ -18,14 +18,15 @@ import {
 import { useInView } from 'react-intersection-observer'
 
 import dayjs from 'dayjs'
-import PostCard from '@/components/postCard'
-import ShareContainer from '@/components/shareContainer'
+import PostCard from '~/components/postCard'
+import ShareContainer from '~/components/shareContainer'
 import { json } from '@remix-run/node'
-import { useLoaderData, Link as RemixLink } from '@remix-run/react'
+import { useLoaderData, Link as RemixLink, useLocation } from '@remix-run/react'
 import Markdoc from '@markdoc/markdoc'
 
 export default function BlogPost() {
-  const { post, posts, preview } = useLoaderData()
+  const { post, posts, preview, SITE_META } = useLoaderData()
+  const { pathname } = useLocation()
 
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -81,7 +82,6 @@ export default function BlogPost() {
                 h="100%"
               >
                 <Image
-                  priority={true}
                   layout="fill"
                   objectFit="cover"
                   src={post?.featuredImage?.data?.attributes?.url}
@@ -132,12 +132,12 @@ export default function BlogPost() {
         <Container maxW="container.xl" pt="16" pb="32">
           <Grid templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
-              {/* <ShareContainer
+              <ShareContainer
                 label="Share this post"
-                url={window.SITE_META.siteUrl + asPath}
+                url={SITE_META.siteUrl + pathname}
                 title={post.title}
                 mb="8"
-              /> */}
+              />
               <Box className="post-content">
                 {Markdoc.renderers.react(post.content, React, {
                   components: {
@@ -157,7 +157,7 @@ export default function BlogPost() {
                   us on{' '}
                   <Link
                     as={RemixLink}
-                    to={window.SITE_META.twitterUrl}
+                    to={SITE_META.twitterUrl}
                     fontWeight="bold"
                     textDecoration="underline"
                     isExternal
@@ -167,7 +167,7 @@ export default function BlogPost() {
                   and{' '}
                   <Link
                     as={RemixLink}
-                    to={window.SITE_META.facebookUrl}
+                    to={SITE_META.facebookUrl}
                     fontWeight="bold"
                     textDecoration="underline"
                     isExternal
@@ -253,5 +253,10 @@ export const loader = async ({ params, preview = false }) => {
     post,
     posts,
     preview,
+    SITE_META: {
+      twitterUrl: 'https://twitter.com/RightSize198',
+      facebookUrl: 'https://www.facebook.com/sccbuffalo/',
+      siteUrl: process.env.SITE_URL,
+    },
   })
 }

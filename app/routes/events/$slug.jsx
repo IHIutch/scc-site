@@ -1,7 +1,7 @@
 import React from 'react'
-import { getEvent, getEvents } from '@/utils/axios/events'
+import { getEvent, getEvents } from 'utils/axios/events'
 
-import Navbar from '@/components/navbar'
+import Navbar from '~/components/navbar'
 import {
   Alert,
   AlertIcon,
@@ -23,15 +23,17 @@ import { useInView } from 'react-intersection-observer'
 
 import dayjs from 'dayjs'
 import { Calendar, ExternalLink, MapPin } from 'react-feather'
-import b_render from '@/public/assets/images/b_render.jpg'
-import EventCard from '@/components/eventCard'
-import ShareContainer from '@/components/shareContainer'
+import b_render from 'public/assets/images/b_render.jpg'
+import EventCard from '~/components/eventCard'
+import ShareContainer from '~/components/shareContainer'
 import { json } from '@remix-run/node'
-import { useLoaderData, Link as RemixLink } from '@remix-run/react'
+import { useLoaderData, Link as RemixLink, useLocation } from '@remix-run/react'
 import Markdoc from '@markdoc/markdoc'
 
 export default function EventsPost() {
-  const { event, upcomingEvents, preview } = useLoaderData()
+  const { event, upcomingEvents, preview, SITE_META } = useLoaderData()
+
+  const { pathname } = useLocation()
 
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -86,7 +88,6 @@ export default function EventsPost() {
               h="100%"
             >
               <Image
-                priority={true}
                 layout="fill"
                 objectFit="cover"
                 src={event?.featuredImage?.data?.attributes?.url || b_render}
@@ -190,12 +191,12 @@ export default function EventsPost() {
         <Container maxW="container.xl" pt="16" pb="32">
           <Grid templateColumns="repeat(12, 1fr)" gap="6">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
-              {/* <ShareContainer
+              <ShareContainer
                 label="Share this event"
-                url={window.SITE_META.siteUrl + asPath}
+                url={SITE_META.siteUrl + pathname}
                 title={event.title}
                 mb="8"
-              /> */}
+              />
               <Box className="post-content">
                 {Markdoc.renderers.react(event.content, React, {
                   components: {
@@ -215,7 +216,7 @@ export default function EventsPost() {
                   us on{' '}
                   <Link
                     as={RemixLink}
-                    to={window.SITE_META.twitterUrl}
+                    to={SITE_META.twitterUrl}
                     fontWeight="bold"
                     textDecoration="underline"
                     isExternal
@@ -225,7 +226,7 @@ export default function EventsPost() {
                   and{' '}
                   <Link
                     as={RemixLink}
-                    to={window.SITE_META.facebookUrl}
+                    to={SITE_META.facebookUrl}
                     fontWeight="bold"
                     textDecoration="underline"
                     isExternal
@@ -314,5 +315,10 @@ export const loader = async ({ params, preview = false }) => {
     event,
     upcomingEvents,
     preview,
+    SITE_META: {
+      twitterUrl: 'https://twitter.com/RightSize198',
+      facebookUrl: 'https://www.facebook.com/sccbuffalo/',
+      siteUrl: process.env.SITE_URL,
+    },
   })
 }

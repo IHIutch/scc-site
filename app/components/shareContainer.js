@@ -1,6 +1,9 @@
 import { Box, Flex, Icon, IconButton, Stack, Text } from '@chakra-ui/react'
 import { Facebook, Twitter } from 'react-feather'
-import { FacebookShareButton, TwitterShareButton } from './shareButtons'
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+} from '~/components/shareButtons'
 
 export default function ShareContainer({ label, title, url, ...props }) {
   return (

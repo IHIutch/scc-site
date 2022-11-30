@@ -1,6 +1,6 @@
-import Navbar from '@/components/navbar'
-import EventCard from '@/components/eventCard'
-import { getEvents } from '@/utils/axios/events'
+import Navbar from '~/components/navbar'
+import EventCard from '~/components/eventCard'
+import { getEvents } from 'utils/axios/events'
 import { useInView } from 'react-intersection-observer'
 import {
   Box,

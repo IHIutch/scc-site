@@ -1,9 +1,3 @@
-import '@fontsource/crimson-pro/400.css'
-import '@fontsource/crimson-pro/500.css'
-import '@fontsource/crimson-pro/600.css'
-import '@fontsource/crimson-pro/700.css'
-import '@fontsource/crimson-pro/800.css'
-
 const customTheme = {
   fonts: {
     heading: 'Crimson Pro',
