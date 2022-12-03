@@ -14,7 +14,6 @@ import {
   Heading,
   HStack,
   Icon,
-  Image,
   Link,
   Stack,
   Text,
@@ -30,6 +29,7 @@ import ShareContainer from '~/components/shareContainer'
 import { json } from '@remix-run/node'
 import { useLoaderData, Link as RemixLink, useLocation } from '@remix-run/react'
 import Markdoc from '@markdoc/markdoc'
+import { parseMarkdown } from '~/models/articles.server'
 
 export default function EventsPost() {
   const { event, upcomingEvents, preview, SITE_META } = useLoaderData()
@@ -196,7 +196,25 @@ export default function EventsPost() {
               <Box className="post-content">
                 {Markdoc.renderers.react(event.content, React, {
                   components: {
-                    img: (props) => <Image width="100%" {...props} />,
+                    Image: (props) => <Img width="100%" {...props} />,
+                    ExternalLink: (props) => {
+                      return (
+                        <a
+                          href={props.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {props.children}
+                        </a>
+                      )
+                    },
+                    InternalLink: (props) => {
+                      return (
+                        <RemixLink to={props.pathname}>
+                          {props.children}
+                        </RemixLink>
+                      )
+                    },
                   },
                 })}
               </Box>
@@ -302,8 +320,7 @@ export const loader = async ({ params, preview = false }) => {
     data: { attributes: event },
   } = await getEvent(foundEvent.id)
 
-  const ast = Markdoc.parse(event.content)
-  event.content = Markdoc.transform(ast)
+  event.content = parseMarkdown(event.content)
 
   return json({
     event,

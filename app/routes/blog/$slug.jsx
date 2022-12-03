@@ -11,7 +11,6 @@ import {
   Grid,
   GridItem,
   Heading,
-  Image,
   Link,
   Text,
   Img,
@@ -25,6 +24,7 @@ import { json } from '@remix-run/node'
 import { useLoaderData, Link as RemixLink, useLocation } from '@remix-run/react'
 import Markdoc from '@markdoc/markdoc'
 import b_render from 'public/assets/images/b_render.jpg'
+import { parseMarkdown } from '~/models/articles.server'
 
 export default function BlogPost() {
   const { post, posts, preview, SITE_META } = useLoaderData()
@@ -136,7 +136,25 @@ export default function BlogPost() {
               <Box className="post-content">
                 {Markdoc.renderers.react(post.content, React, {
                   components: {
-                    img: (props) => <Image width="100%" {...props} />,
+                    Image: (props) => <Img width="100%" {...props} />,
+                    ExternalLink: (props) => {
+                      return (
+                        <a
+                          href={props.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {props.children}
+                        </a>
+                      )
+                    },
+                    InternalLink: (props) => {
+                      return (
+                        <RemixLink to={props.pathname}>
+                          {props.children}
+                        </RemixLink>
+                      )
+                    },
                   },
                 })}
               </Box>
@@ -239,8 +257,7 @@ export const loader = async ({ params, preview = false }) => {
     data: { attributes: post },
   } = await getPost(foundPost.id)
 
-  const ast = Markdoc.parse(post.content)
-  post.content = Markdoc.transform(ast)
+  post.content = parseMarkdown(post.content)
 
   return json({
     post,
