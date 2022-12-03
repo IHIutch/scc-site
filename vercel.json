@@ -1,5 +1,11 @@
 {
   "github": {
     "silent": true
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/sitemap/:path*",
+      "destination": "https://scc-strapi.up.railway.app/sitemap/:path*"
+    }
+  ]
 }
