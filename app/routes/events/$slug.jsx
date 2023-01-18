@@ -117,9 +117,8 @@ export default function EventsPost() {
                             fontFamily="crimson"
                             fontWeight="semibold"
                           >
-                            {dayjs(event.startingAt).format(
-                              'dddd, MMMM D h:mma'
-                            )}
+                            {dayjs(event.startingAt).format('dddd, MMMM D')} at{' '}
+                            {dayjs(event.startingAt).format('h:mma')}
                             {event.endingAt && (
                               <> - {dayjs(event.endingAt).format('h:mma')}</>
                             )}
@@ -300,6 +299,7 @@ export const loader = async ({ params, preview = false }) => {
 
   const { data: eventsData } = await getEvents({
     publicationState: preview ? 'preview' : 'live',
+    sort: 'startingAt:desc',
   })
 
   const upcomingEvents = eventsData
@@ -313,7 +313,6 @@ export const loader = async ({ params, preview = false }) => {
       startingAt: event.attributes.startingAt,
       location: event.attributes.location,
     }))
-    .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
     .slice(0, 3)
 
   const {

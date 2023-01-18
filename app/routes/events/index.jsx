@@ -116,13 +116,13 @@ export default function BlogArchive() {
 export const loader = async ({ preview }) => {
   const { data } = await getEvents({
     publicationState: preview ? 'preview' : 'live',
+    sort: 'startingAt:desc',
   })
-  const events = data
-    .map((event) => ({
-      ...event.attributes,
-      isUpcoming: new Date(event.attributes.startingAt) > new Date(),
-    }))
-    .sort((a, b) => new Date(a.startingAt) - new Date(b.startingAt))
+
+  const events = data.map((event) => ({
+    ...event.attributes,
+    isUpcoming: new Date(event.attributes.startingAt) > new Date(),
+  }))
 
   return json({
     events,

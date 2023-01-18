@@ -58,7 +58,9 @@ export default function EventCard({ post }) {
               <Stack direction="row" alignItems="center">
                 <Icon boxSize="5" as={Calendar} />
                 <Text fontWeight="semibold" mb="2">
-                  {dayjs(post.startingAt).format('dddd, MMMM D h:mma')}
+                  {post.isUpcoming
+                    ? dayjs(post.startingAt).format('dddd, MMM D h:mma')
+                    : dayjs(post.startingAt).format('MMM D, YYYY')}
                 </Text>
               </Stack>
             )}
