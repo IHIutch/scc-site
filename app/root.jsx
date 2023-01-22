@@ -108,6 +108,15 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
         ))}
       </head>
       <body>
+        {children}
+        <ScrollRestoration />
+        {process.env.NODE_ENV === 'production' ? (
+          <script
+            src="https://cdn.usefathom.com/script.js"
+            data-site="BFWJFNRB"
+            defer
+          />
+        ) : null}
         <script
           dangerouslySetInnerHTML={{
             __html: `window.SITE_META = ${JSON.stringify(
@@ -115,8 +124,6 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
             )}`,
           }}
         />
-        {children}
-        <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
