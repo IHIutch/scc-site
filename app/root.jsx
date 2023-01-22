@@ -69,6 +69,7 @@ export const loader = () => {
         'http://localhost:3000',
       twitterUrl: 'https://twitter.com/RightSize198',
       facebookUrl: 'https://www.facebook.com/sccbuffalo/',
+      instagramUrl: 'https://www.instagram.com/sccoalition/',
     },
   })
 }

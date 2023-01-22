@@ -15,7 +15,7 @@ import {
   InputRightElement,
   Icon,
 } from '@chakra-ui/react'
-import { Facebook, Twitter } from 'react-feather'
+import { Facebook, Twitter, Instagram } from 'react-feather'
 import { trackGoal } from 'fathom-client'
 import { Link as RemixLink } from '@remix-run/react'
 
@@ -135,14 +135,20 @@ export default function Footer({ SITE_META }) {
                 fontWeight="semibold"
                 textTransform="uppercase"
               >
-                <Link as={RemixLink} to={SITE_META.facebookUrl} isExternal>
+                <Link href={SITE_META.facebookUrl} isExternal>
                   <Flex align="center">
                     <Icon boxSize="6" as={Facebook} />
                     <Text ml="2">Facebook</Text>
                   </Flex>
                 </Link>
-                <Link as={RemixLink} to={SITE_META.twitterUrl} isExternal>
-                  <Flex ml="12" align="center">
+                <Link ml="12" href={SITE_META.twitterUrl} isExternal>
+                  <Flex align="center">
+                    <Icon boxSize="6" as={Instagram} />
+                    <Text ml="2">Instagram</Text>
+                  </Flex>
+                </Link>
+                <Link ml="12" href={SITE_META.instagramUrl} isExternal>
+                  <Flex align="center">
                     <Icon boxSize="6" as={Twitter} />
                     <Text ml="2">Twitter</Text>
                   </Flex>

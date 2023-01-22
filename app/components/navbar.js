@@ -44,7 +44,7 @@ export default function Navbar({ sx, isHeroInView }) {
         position="fixed"
         transition="0.2s ease background-color"
         bg={!isHeroInView || isOpen ? 'tealGreen.700' : 'transparent'}
-        zIndex="1"
+        zIndex="2"
         top="0"
         left="0"
         right="0"
