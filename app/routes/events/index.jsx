@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react'
 import { useLoaderData } from '@remix-run/react'
 import { json } from '@remix-run/node'
-import { getSEO } from '~/models/seo'
+import { getSEO } from 'utils/seo'
 
 export const meta = () => {
   const SEO = getSEO({ title: 'All Events' })

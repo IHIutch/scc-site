@@ -32,7 +32,6 @@ export default function Home() {
   })
   return (
     <>
-      {/* <SEO /> */}
       <Navbar isHeroInView={inView} />
       <main>
         <Flex

@@ -1,6 +1,5 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { withEmotionCache } from '@emotion/react'
-import { json } from '@remix-run/node'
 import {
   Links,
   LiveReload,
@@ -9,6 +8,7 @@ import {
   Scripts,
   ScrollRestoration,
   useCatch,
+  useLoaderData,
 } from '@remix-run/react'
 import Footer from '~/components/footer'
 import { useContext, useEffect } from 'react'
@@ -19,27 +19,24 @@ import CrimsonPro500 from '@fontsource/crimson-pro/500.css'
 import CrimsonPro600 from '@fontsource/crimson-pro/600.css'
 import CrimsonPro700 from '@fontsource/crimson-pro/700.css'
 import CrimsonPro800 from '@fontsource/crimson-pro/800.css'
+import { getSEO } from '../utils/seo'
+import { json } from '@remix-run/node'
+import b_render from 'public/assets/images/web/b_render.jpg'
 
-export const loader = () => {
-  return json({
-    SITE_META: {
-      title: 'Scajaquada Corridor Coalition',
-      siteUrl: process.env.SITE_URL,
-      titleTemplate: ' · Scajaquada Corridor Coalition',
-      description:
-        'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
-      image: '/assets/images/meta-image.jpg',
-      twitterUrl: 'https://twitter.com/RightSize198',
-      facebookUrl: 'https://www.facebook.com/sccbuffalo/',
-    },
+export const meta = () => {
+  const SEO = getSEO({
+    title: 'Scajaquada Corridor Coalition',
+    description:
+      'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
+    image: b_render,
   })
+  return {
+    charset: 'utf-8',
+    viewport: 'width=device-width,initial-scale=1',
+    'google-site-verification': '4G-BG38xle3j3JMWw4-D7b4gPRj77EMFx-bkjNhyAuM',
+    ...SEO,
+  }
 }
-
-export const meta = () => ({
-  charset: 'utf-8',
-  viewport: 'width=device-width,initial-scale=1',
-  'google-site-verification': '4G-BG38xle3j3JMWw4-D7b4gPRj77EMFx-bkjNhyAuM',
-})
 
 export const links = () => [
   {
@@ -64,9 +61,23 @@ export const links = () => [
   },
 ]
 
+export const loader = () => {
+  return json({
+    SITE_META: {
+      baseUrl:
+        process?.env?.SITE_URL ??
+        process?.env?.VERCEL_URL ??
+        'http://localhost:3000',
+      twitterUrl: 'https://twitter.com/RightSize198',
+      facebookUrl: 'https://www.facebook.com/sccbuffalo/',
+    },
+  })
+}
+
 const Document = withEmotionCache(({ children }, emotionCache) => {
   const serverStyleData = useContext(ServerStyleContext)
   const clientStyleData = useContext(ClientStyleContext)
+  const loaderData = useLoaderData()
 
   // Only executed on client
   useEffect(() => {
@@ -97,11 +108,13 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
         ))}
       </head>
       <body>
-        {/* <script
+        <script
           dangerouslySetInnerHTML={{
-            __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
+            __html: `window.SITE_META = ${JSON.stringify(
+              loaderData.SITE_META
+            )}`,
           }}
-        /> */}
+        />
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -142,12 +155,13 @@ export const CatchBoundary = () => {
 
 export default function App() {
   const theme = extendTheme(customTheme)
+  const loaderData = useLoaderData()
 
   return (
     <Document>
       <ChakraProvider theme={theme}>
-        <Outlet />
-        <Footer />
+        <Outlet context={{ SITE_META: loaderData.SITE_META }} />
+        <Footer SITE_META={loaderData.SITE_META} />
       </ChakraProvider>
     </Document>
   )

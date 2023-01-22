@@ -5,7 +5,7 @@ import { Box, Container, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import { useInView } from 'react-intersection-observer'
-import { getSEO } from '~/models/seo'
+import { getSEO } from 'utils/seo'
 
 export const meta = () => {
   const SEO = getSEO({ title: 'All Blog Posts' })

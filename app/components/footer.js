@@ -17,11 +17,10 @@ import {
 } from '@chakra-ui/react'
 import { Facebook, Twitter } from 'react-feather'
 import { trackGoal } from 'fathom-client'
-import { Link as RemixLink, useLoaderData } from '@remix-run/react'
+import { Link as RemixLink } from '@remix-run/react'
 
-export default function Footer() {
+export default function Footer({ SITE_META }) {
   const handleDonateClick = () => trackGoal('VLTP3IJR')
-  const { SITE_META } = useLoaderData()
 
   return (
     <Box as="footer" bg="tealGreen.700" py="24">

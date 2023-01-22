@@ -21,15 +21,23 @@ import dayjs from 'dayjs'
 import PostCard from '~/components/postCard'
 import ShareContainer from '~/components/shareContainer'
 import { json } from '@remix-run/node'
-import { useLoaderData, Link as RemixLink, useLocation } from '@remix-run/react'
+import {
+  useLoaderData,
+  Link as RemixLink,
+  useLocation,
+  useOutletContext,
+} from '@remix-run/react'
 import Markdoc from '@markdoc/markdoc'
 import b_render from 'public/assets/images/b_render.jpg'
 import { parseMarkdown } from '~/models/articles.server'
 import { notFound } from 'remix-utils'
-import { getSEO } from '~/models/seo'
+import { getSEO } from 'utils/seo'
 
 export const meta = ({ data }) => {
-  const SEO = getSEO({ title: data.post?.title })
+  const SEO = getSEO({
+    title: data.post?.title,
+    image: data.post?.featuredImage?.data?.attributes?.url,
+  })
 
   return {
     ...SEO,
@@ -37,8 +45,9 @@ export const meta = ({ data }) => {
 }
 
 export default function BlogPost() {
-  const { post, posts, preview, SITE_META } = useLoaderData()
+  const { post, posts, preview } = useLoaderData()
   const { pathname } = useLocation()
+  const { SITE_META } = useOutletContext()
 
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -46,12 +55,6 @@ export default function BlogPost() {
 
   return (
     <>
-      {/* <SEO
-        title={post?.title}
-        description={post?.lead}
-        slug={`/blog/${post?.slug}`}
-        image={post?.featuredImage?.data?.attributes?.url}
-      /> */}
       {preview && (
         <Box position="fixed" top="0" left="0" right="0" zIndex="2">
           <Alert status="info">
@@ -271,10 +274,5 @@ export const loader = async ({ params, preview = false }) => {
     post,
     posts,
     preview,
-    SITE_META: {
-      twitterUrl: 'https://twitter.com/RightSize198',
-      facebookUrl: 'https://www.facebook.com/sccbuffalo/',
-      siteUrl: process.env.SITE_URL,
-    },
   })
 }
