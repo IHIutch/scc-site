@@ -21,14 +21,13 @@ import CrimsonPro700 from '@fontsource/crimson-pro/700.css'
 import CrimsonPro800 from '@fontsource/crimson-pro/800.css'
 import { getSEO } from '../utils/seo'
 import { json } from '@remix-run/node'
-import b_render from 'public/assets/images/web/b_render.jpg'
 
-export const meta = () => {
+export const meta = ({ data }) => {
   const SEO = getSEO({
     title: 'Scajaquada Corridor Coalition',
     description:
       'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
-    image: b_render,
+    image: data.SITE_META.baseUrl + '/assets/images/meta-image.jpg',
   })
   return {
     charset: 'utf-8',

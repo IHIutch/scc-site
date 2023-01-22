@@ -1,17 +1,38 @@
-export const getSEO = ({ title, url, description, image, type }) => ({
-  title,
-  description,
-  image,
+export const getSEO = ({ title, url, description, image }) => {
+  let seo = {
+    'og:url': url,
+    'og:type': 'website',
 
-  'og:url': url,
-  'og:type': 'website',
-  'og:title': title,
-  'og:description': description,
-  'og:image': image,
+    'twitter:card': 'summary_large_image',
+    'twitter:creator': '@RightSize198',
+  }
 
-  'twitter:card': 'summary_large_image',
-  'twitter:creator': '@RightSize198',
-  'twitter:title': title,
-  'twitter:description': description,
-  'twitter:image': image,
-})
+  if (title) {
+    seo = {
+      ...seo,
+      title,
+      'og:title': title,
+      'twitter:title': title,
+    }
+  }
+
+  if (description) {
+    seo = {
+      ...seo,
+      description,
+      'og:description': description,
+      'twitter:description': description,
+    }
+  }
+
+  if (image) {
+    seo = {
+      ...seo,
+      image,
+      'og:image': image,
+      'twitter:image': image,
+    }
+  }
+
+  return seo
+}

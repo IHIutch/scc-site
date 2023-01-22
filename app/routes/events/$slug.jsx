@@ -43,6 +43,7 @@ export const meta = ({ data }) => {
     title: data.event?.title,
     image: data.event?.featuredImage?.data?.attributes?.url,
   })
+
   return {
     ...SEO,
   }
