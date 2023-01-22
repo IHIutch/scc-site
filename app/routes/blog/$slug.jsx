@@ -25,6 +25,16 @@ import { useLoaderData, Link as RemixLink, useLocation } from '@remix-run/react'
 import Markdoc from '@markdoc/markdoc'
 import b_render from 'public/assets/images/b_render.jpg'
 import { parseMarkdown } from '~/models/articles.server'
+import { notFound } from 'remix-utils'
+import { getSEO } from '~/models/seo'
+
+export const meta = ({ data }) => {
+  const SEO = getSEO({ title: data.post?.title })
+
+  return {
+    ...SEO,
+  }
+}
 
 export default function BlogPost() {
   const { post, posts, preview, SITE_META } = useLoaderData()
@@ -233,9 +243,7 @@ export const loader = async ({ params, preview = false }) => {
   const foundPost = data.find((post) => post.attributes.slug === params.slug)
 
   if (!foundPost) {
-    return {
-      notFound: true,
-    }
+    throw notFound({ message: 'Blog post not found' })
   }
 
   const { data: postsData } = await getPosts({

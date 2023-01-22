@@ -8,6 +8,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useCatch,
 } from '@remix-run/react'
 import Footer from '~/components/footer'
 import { useContext, useEffect } from 'react'
@@ -36,8 +37,8 @@ export const loader = () => {
 
 export const meta = () => ({
   charset: 'utf-8',
-  title: 'New Remix App',
   viewport: 'width=device-width,initial-scale=1',
+  'google-site-verification': '4G-BG38xle3j3JMWw4-D7b4gPRj77EMFx-bkjNhyAuM',
 })
 
 export const links = () => [
@@ -96,6 +97,11 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
         ))}
       </head>
       <body>
+        {/* <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(data.ENV)}`,
+          }}
+        /> */}
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -104,6 +110,35 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
     </html>
   )
 })
+
+export const CatchBoundary = () => {
+  const theme = extendTheme(customTheme)
+  const caught = useCatch()
+
+  return (
+    <Document title={``}>
+      <ChakraProvider theme={theme}>
+        <div>
+          <h1>{caught.status}</h1>
+          <p>{caught.statusText}</p>
+        </div>
+        {/* <Footer /> */}
+      </ChakraProvider>
+    </Document>
+  )
+}
+// {/* <html>
+//   <head>
+//     <title>Oops! - {caught.status}</title>
+//     <Meta />
+//     <Links />
+//   </head>
+//   <body>
+//     <h1>{caught.status}</h1>
+//     <p>{caught.statusText}</p>
+//     <Scripts />
+//   </body>
+// </html> */}
 
 export default function App() {
   const theme = extendTheme(customTheme)

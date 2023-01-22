@@ -30,10 +30,18 @@ import { json } from '@remix-run/node'
 import { useLoaderData, Link as RemixLink, useLocation } from '@remix-run/react'
 import Markdoc from '@markdoc/markdoc'
 import { parseMarkdown } from '~/models/articles.server'
+import { notFound } from 'remix-utils'
+import { getSEO } from '~/models/seo'
+
+export const meta = ({ data }) => {
+  const SEO = getSEO({ title: data.event?.title })
+  return {
+    ...SEO,
+  }
+}
 
 export default function EventsPost() {
   const { event, upcomingEvents, preview, SITE_META } = useLoaderData()
-
   const { pathname } = useLocation()
 
   const { ref, inView } = useInView({
@@ -292,9 +300,7 @@ export const loader = async ({ params, preview = false }) => {
   const foundEvent = data.find((event) => event.attributes.slug === params.slug)
 
   if (!foundEvent) {
-    return {
-      notFound: true,
-    }
+    throw notFound({ message: 'Event not found' })
   }
 
   const { data: eventsData } = await getEvents({

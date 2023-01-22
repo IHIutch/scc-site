@@ -5,6 +5,14 @@ import { Box, Container, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
 import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import { useInView } from 'react-intersection-observer'
+import { getSEO } from '~/models/seo'
+
+export const meta = () => {
+  const SEO = getSEO({ title: 'All Blog Posts' })
+  return {
+    ...SEO,
+  }
+}
 
 export default function BlogArchive() {
   const { posts } = useLoaderData()
@@ -15,7 +23,6 @@ export default function BlogArchive() {
 
   return (
     <>
-      {/* <SEO title="Blog" slug="/blog" /> */}
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>

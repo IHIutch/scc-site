@@ -13,6 +13,14 @@ import {
 } from '@chakra-ui/react'
 import { useLoaderData } from '@remix-run/react'
 import { json } from '@remix-run/node'
+import { getSEO } from '~/models/seo'
+
+export const meta = () => {
+  const SEO = getSEO({ title: 'All Events' })
+  return {
+    ...SEO,
+  }
+}
 
 export default function BlogArchive() {
   const { events } = useLoaderData()
@@ -26,7 +34,6 @@ export default function BlogArchive() {
 
   return (
     <>
-      {/* <SEO title="Events" slug="/events" /> */}
       <Navbar isHeroInView={inView} />
       <main>
         <Box bg="tealGreen.700" pt="32" ref={ref}>
