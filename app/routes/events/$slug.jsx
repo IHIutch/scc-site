@@ -35,13 +35,12 @@ import {
 } from '@remix-run/react'
 import Markdoc from '@markdoc/markdoc'
 import { parseMarkdown } from '~/models/articles.server'
-import { notFound } from 'remix-utils'
 import { getSEO } from 'utils/seo'
 
 export const meta = ({ data }) => {
   const SEO = getSEO({
-    title: data.event?.title,
-    image: data.event?.featuredImage?.data?.attributes?.url,
+    title: data?.event?.title,
+    image: data?.event?.featuredImage?.data?.attributes?.url,
   })
 
   return {
@@ -304,7 +303,9 @@ export const loader = async ({ params, preview = false }) => {
   const foundEvent = data.find((event) => event.attributes.slug === params.slug)
 
   if (!foundEvent) {
-    throw notFound({ message: 'Event not found' })
+    throw new Response('Event Not Found', {
+      status: 404,
+    })
   }
 
   const { data: eventsData } = await getEvents({

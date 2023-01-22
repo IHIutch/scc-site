@@ -30,13 +30,12 @@ import {
 import Markdoc from '@markdoc/markdoc'
 import b_render from 'public/assets/images/b_render.jpg'
 import { parseMarkdown } from '~/models/articles.server'
-import { notFound } from 'remix-utils'
 import { getSEO } from 'utils/seo'
 
 export const meta = ({ data }) => {
   const SEO = getSEO({
-    title: data.post?.title,
-    image: data.post?.featuredImage?.data?.attributes?.url,
+    title: data?.post?.title,
+    image: data?.post?.featuredImage?.data?.attributes?.url,
   })
 
   return {
@@ -246,7 +245,9 @@ export const loader = async ({ params, preview = false }) => {
   const foundPost = data.find((post) => post.attributes.slug === params.slug)
 
   if (!foundPost) {
-    throw notFound({ message: 'Blog post not found' })
+    throw new Response('Blog Post Not Found', {
+      status: 404,
+    })
   }
 
   const { data: postsData } = await getPosts({

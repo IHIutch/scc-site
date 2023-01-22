@@ -7,7 +7,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch,
   useLoaderData,
 } from '@remix-run/react'
 import Footer from '~/components/footer'
@@ -21,13 +20,14 @@ import CrimsonPro700 from '@fontsource/crimson-pro/700.css'
 import CrimsonPro800 from '@fontsource/crimson-pro/800.css'
 import { getSEO } from '../utils/seo'
 import { json } from '@remix-run/node'
+import FourOhFour from './routes/$'
 
 export const meta = ({ data }) => {
   const SEO = getSEO({
     title: 'Scajaquada Corridor Coalition',
     description:
       'Our community vision for a revitalized Scajaquada Creek, a connected Delaware Park, and a restored Humboldt Parkway.',
-    image: data.SITE_META.baseUrl + '/assets/images/meta-image.jpg',
+    image: data?.SITE_META?.baseUrl + '/assets/images/meta-image.jpg',
   })
   return {
     charset: 'utf-8',
@@ -76,7 +76,6 @@ export const loader = () => {
 const Document = withEmotionCache(({ children }, emotionCache) => {
   const serverStyleData = useContext(ServerStyleContext)
   const clientStyleData = useContext(ClientStyleContext)
-  const loaderData = useLoaderData()
 
   // Only executed on client
   useEffect(() => {
@@ -109,20 +108,6 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
       <body>
         {children}
         <ScrollRestoration />
-        {process.env.NODE_ENV === 'production' ? (
-          <script
-            src="https://cdn.usefathom.com/script.js"
-            data-site="BFWJFNRB"
-            defer
-          />
-        ) : null}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.SITE_META = ${JSON.stringify(
-              loaderData.SITE_META
-            )}`,
-          }}
-        />
         <Scripts />
         <LiveReload />
       </body>
@@ -132,17 +117,19 @@ const Document = withEmotionCache(({ children }, emotionCache) => {
 
 export const CatchBoundary = () => {
   const theme = extendTheme(customTheme)
-  const caught = useCatch()
 
   return (
-    <Document title={``}>
+    <Document>
       <ChakraProvider theme={theme}>
-        <div>
-          <h1>{caught.status}</h1>
-          <p>{caught.statusText}</p>
-        </div>
-        {/* <Footer /> */}
+        <FourOhFour />
       </ChakraProvider>
+      {process.env.NODE_ENV === 'production' ? (
+        <script
+          src="https://cdn.usefathom.com/script.js"
+          data-site="BFWJFNRB"
+          defer
+        />
+      ) : null}
     </Document>
   )
 }
@@ -169,6 +156,18 @@ export default function App() {
         <Outlet context={{ SITE_META: loaderData.SITE_META }} />
         <Footer SITE_META={loaderData.SITE_META} />
       </ChakraProvider>
+      {process.env.NODE_ENV === 'production' ? (
+        <script
+          src="https://cdn.usefathom.com/script.js"
+          data-site="BFWJFNRB"
+          defer
+        />
+      ) : null}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.SITE_META = ${JSON.stringify(loaderData.SITE_META)}`,
+        }}
+      />
     </Document>
   )
 }

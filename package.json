@@ -28,8 +28,7 @@
     "react-feather": "^2.0.9",
     "react-intersection-observer": "^8.32.5",
     "react-markdown": "^8.0.0",
-    "redaxios": "^0.4.1",
-    "remix-utils": "^6.0.0"
+    "redaxios": "^0.4.1"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.7.6",
