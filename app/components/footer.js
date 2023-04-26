@@ -128,12 +128,14 @@ export default function Footer({ SITE_META }) {
                 </div>
                 {/* <!--End mc_embed_signup--> */}
               </Box>
-              <Flex
+              <Stack
                 fontSize="lg"
                 letterSpacing="wider"
                 color="white"
                 fontWeight="semibold"
                 textTransform="uppercase"
+                spacing="8"
+                direction={{ base: 'column', md: 'row' }}
               >
                 <Link href={SITE_META.facebookUrl} isExternal>
                   <Flex align="center">
@@ -153,7 +155,7 @@ export default function Footer({ SITE_META }) {
                     <Text ml="2">Twitter</Text>
                   </Flex>
                 </Link>
-              </Flex>
+              </Stack>
             </Stack>
           </GridItem>
         </Grid>
