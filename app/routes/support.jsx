@@ -11,6 +11,7 @@ import { useInView } from 'react-intersection-observer'
 import Navbar from '~/components/navbar'
 import delaware_full1 from 'public/assets/images/delaware_full1.webp'
 import { getSEO } from 'utils/seo'
+import renderings_april_21 from 'public/assets/images/renderings_april_21.jpeg'
 
 export const meta = ({ data }) => {
   const SEO = getSEO({
@@ -81,6 +82,16 @@ export default function SupportPage() {
           </Box>
         </Flex>
         <Container maxW="container.xl" pt="16" pb="32">
+          <Grid pb="16" templateColumns="repeat(12, 1fr)" gap="6">
+            <GridItem colStart={{ lg: '2' }} colSpan={{ base: '12', lg: '10' }}>
+              <Img
+                src={renderings_april_21}
+                alt="Community Vision for a Revitalized Scajaquada Creek Corridor"
+                placeholder="blur"
+              />
+            </GridItem>
+          </Grid>
+
           <Box
             as="iframe"
             mx="auto"
