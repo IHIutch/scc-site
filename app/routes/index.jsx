@@ -10,6 +10,8 @@ import {
   Link,
   Text,
   Img,
+  Button,
+  Icon,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 
@@ -23,6 +25,7 @@ import { getEvents } from 'utils/axios/events'
 import EventCard from '~/components/eventCard'
 import { json } from '@remix-run/node'
 import { useLoaderData, Link as RemixLink } from '@remix-run/react'
+import { ArrowRight } from 'react-feather'
 
 export default function Home() {
   const { posts, upcomingEvents } = useLoaderData()
@@ -92,12 +95,59 @@ export default function Home() {
           </Box>
         </Flex>
         <Container maxW="container.xl">
-          <Grid py="16" templateColumns="repeat(12, 1fr)" gap="6">
+          <Grid py="16" templateColumns="repeat(12, 1fr)" gap="24">
+            <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
+              <Flex
+                padding="8"
+                borderWidth="4px"
+                borderColor="tealGreen.800"
+                direction="column"
+                bg="tealGreen.100"
+              >
+                <Heading
+                  as="h2"
+                  mb="4"
+                  color="tealGreen.800"
+                  fontSize={{ base: '3xl', lg: '4xl' }}
+                  lineHeight="1.2"
+                  textAlign="center"
+                >
+                  We Need Your Support!
+                </Heading>
+                <Text
+                  fontSize={{ base: 'lg', lg: 'xl' }}
+                  lineHeight="1.6"
+                  color="tealGreen.800"
+                  textAlign="center"
+                  mb="8"
+                >
+                  We need your support more than ever. This vision will only
+                  become a reality with visible, consistent, and overwhelming
+                  support from our diverse community, neighborhoods, area
+                  businesses and organizations.
+                </Text>
+                <Box textAlign="center">
+                  <Button
+                    size="lg"
+                    bg="tealGreen.800"
+                    colorScheme="tealGreen"
+                    fontFamily="crimson"
+                    as={RemixLink}
+                    to="/support"
+                    fontSize="lg"
+                    alignItems="center"
+                  >
+                    Sign the Letter of Support
+                    <Icon pl="2" boxSize="6" as={ArrowRight} />
+                  </Button>
+                </Box>
+              </Flex>
+            </GridItem>
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Box>
                 <Text
                   fontSize={{ base: 'xl', lg: '2xl' }}
-                  lineHeight="2"
+                  lineHeight="1.8"
                   color="tealGreen.700"
                 >
                   What is possible for the reimagination of the Scajaquada
@@ -144,8 +194,8 @@ export default function Home() {
             </Box>
           ) : null}
           <Grid
-            pt={{ base: '8', lg: '16' }}
-            pb={{ base: '32', lg: '48' }}
+            pt={{ base: '6', lg: '12' }}
+            pb={{ base: '24', lg: '32' }}
             templateColumns="repeat(12, 1fr)"
             gap="6"
           >
@@ -153,7 +203,7 @@ export default function Home() {
               <Box>
                 <Text
                   fontSize={{ base: 'xl', lg: '2xl' }}
-                  lineHeight="2"
+                  lineHeight="1.8"
                   color="tealGreen.700"
                 >
                   That&apos;s why we&apos;ve designed and visualized a future
@@ -205,7 +255,7 @@ export default function Home() {
                 </Heading>
                 <Text
                   fontSize={{ base: 'xl', lg: '2xl' }}
-                  lineHeight="2"
+                  lineHeight="1.8"
                   color="tealGreen.700"
                 >
                   The Scajaquada Expressway cut communities in half and
@@ -259,7 +309,7 @@ export default function Home() {
                 </Heading>
                 <Text
                   fontSize={{ base: 'xl', lg: '2xl' }}
-                  lineHeight="2"
+                  lineHeight="1.8"
                   color="tealGreen.700"
                 >
                   Scajaquada Creek is one of the most polluted and impaired. For
@@ -319,7 +369,7 @@ export default function Home() {
                 </Heading>
                 <Text
                   fontSize={{ base: 'xl', lg: '2xl' }}
-                  lineHeight="2"
+                  lineHeight="1.8"
                   color="tealGreen.700"
                 >
                   Our vision restores Humboldt Parkway to its historic, lush,
@@ -373,7 +423,7 @@ export default function Home() {
                 </Heading>
                 <Text
                   fontSize={{ base: 'xl', lg: '2xl' }}
-                  lineHeight="2"
+                  lineHeight="1.8"
                   color="tealGreen.700"
                 >
                   The Scajaquada Expressway erased significant portions of
