@@ -95,7 +95,7 @@ export default function Home() {
           </Box>
         </Flex>
         <Container maxW="container.xl">
-          <Grid py="16" templateColumns="repeat(12, 1fr)" gap="24">
+          <Grid py="16" templateColumns="repeat(12, 1fr)">
             <GridItem colStart={{ lg: '3' }} colSpan={{ base: '12', lg: '8' }}>
               <Flex
                 padding="8"
@@ -103,6 +103,7 @@ export default function Home() {
                 borderColor="tealGreen.800"
                 direction="column"
                 bg="tealGreen.100"
+                mb="24"
               >
                 <Heading
                   as="h2"
