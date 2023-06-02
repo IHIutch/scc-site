@@ -26,9 +26,14 @@ import EventCard from '~/components/eventCard'
 import { json } from '@remix-run/node'
 import { useLoaderData, Link as RemixLink } from '@remix-run/react'
 import { ArrowRight } from 'react-feather'
+import { trackGoal } from 'fathom-client'
 
 export default function Home() {
   const { posts, upcomingEvents } = useLoaderData()
+
+  const handleSupportButtonClick = () => {
+    trackGoal('HSFPSJZ7')
+  }
 
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -137,6 +142,7 @@ export default function Home() {
                     to="/support"
                     fontSize="lg"
                     alignItems="center"
+                    onClick={handleSupportButtonClick}
                   >
                     Sign the Letter of Support
                     <Icon pl="2" boxSize="6" as={ArrowRight} />
