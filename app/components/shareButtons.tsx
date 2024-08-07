@@ -1,6 +1,6 @@
 import type { IconButtonProps } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/react'
-import { trackEvent } from 'fathom-client'
+import { trackGoal } from 'fathom-client'
 
 type ShareButtonProps = IconButtonProps & {
   url: string
@@ -9,7 +9,7 @@ type ShareButtonProps = IconButtonProps & {
 }
 
 export function FacebookShareButton({ url, text, children, ...props }: ShareButtonProps) {
-  const handleFacebookShareClick = () => trackEvent('W41FHRDG')
+  const handleFacebookShareClick = () => trackGoal('W41FHRDG', 0)
 
   const handleShare = () => {
     handleFacebookShareClick()
@@ -30,7 +30,7 @@ export function FacebookShareButton({ url, text, children, ...props }: ShareButt
   )
 }
 export function TwitterShareButton({ url, text, children, ...props }: ShareButtonProps) {
-  const handleTwitterShareClick = () => trackEvent('NTYBIWGF')
+  const handleTwitterShareClick = () => trackGoal('NTYBIWGF', 0)
   const handleShare = () => {
     handleTwitterShareClick()
     window.open(

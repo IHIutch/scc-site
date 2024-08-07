@@ -19,7 +19,7 @@ import type { LoaderFunctionArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Link as RemixLink, useLoaderData } from '@remix-run/react'
 import { ArrowRight } from 'react-feather'
-import { trackEvent } from 'fathom-client'
+import { trackGoal } from 'fathom-client'
 import d_render from '~/assets/images/web/d_render.jpg'
 import c_render from '~/assets/images/web/c_render.jpg'
 import b_render from '~/assets/images/web/b_render.jpg'
@@ -33,7 +33,7 @@ export default function Home() {
   const { posts, upcomingEvents } = useLoaderData<typeof loader>()
 
   const handleSupportButtonClick = () => {
-    trackEvent('HSFPSJZ7')
+    trackGoal('HSFPSJZ7', 0)
   }
 
   const { ref, inView } = useInView({

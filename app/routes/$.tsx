@@ -8,7 +8,7 @@ import {
   UnorderedList,
 } from '@chakra-ui/react'
 import { Link as RemixLink, isRouteErrorResponse, useRouteError } from '@remix-run/react'
-import { trackEvent } from 'fathom-client'
+import { trackGoal } from 'fathom-client'
 import Navbar from '~/components/navbar'
 
 export function loader() {
@@ -19,7 +19,7 @@ export function loader() {
 
 export function ErrorBoundary() {
   if (typeof window !== 'undefined') {
-    trackEvent('0TTQFI8Y') // 404
+    trackGoal('0TTQFI8Y', 0) // 404
   }
 
   const error = useRouteError()
@@ -28,7 +28,7 @@ export function ErrorBoundary() {
     ? (
         <>
           <Navbar />
-          <Container maxW="container.xl" mt="32">
+          <Container maxW="container.xl" my="32">
             <Box mb="12">
               <Heading
                 as="h1"

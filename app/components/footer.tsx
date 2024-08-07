@@ -16,12 +16,12 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { Facebook, Instagram, Twitter } from 'react-feather'
-import { trackEvent } from 'fathom-client'
+import { trackGoal } from 'fathom-client'
 import { Link as RemixLink } from '@remix-run/react'
 import { useSiteMeta } from 'utils/use-site-meta'
 
 export default function Footer() {
-  const handleDonateClick = () => trackEvent('VLTP3IJR')
+  const handleDonateClick = () => trackGoal('VLTP3IJR', 0)
   const SITE_META = useSiteMeta()
 
   return (

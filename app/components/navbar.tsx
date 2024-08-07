@@ -13,7 +13,7 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react'
-import { trackEvent } from 'fathom-client'
+import { trackGoal } from 'fathom-client'
 import { Link as RemixLink } from '@remix-run/react'
 
 export default function Navbar({ sx, isHeroInView }: {
@@ -21,7 +21,7 @@ export default function Navbar({ sx, isHeroInView }: {
   isHeroInView?: boolean
 }) {
   const { isOpen, onToggle } = useDisclosure()
-  const handleDonateClick = () => trackEvent('VLTP3IJR')
+  const handleDonateClick = () => trackGoal('VLTP3IJR', 0)
 
   const mobileBreakpoint = 'lg'
   const paypalLink
