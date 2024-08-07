@@ -9,6 +9,8 @@ import {
   Icon,
   Img,
   Link,
+  List,
+  ListItem,
   Text,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
@@ -39,6 +41,27 @@ export default function Home() {
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
+
+  const stakeholders = [
+    'Black Rock Riverside Alliance',
+    'Restore Our Community Coalition',
+    'Vision Niagara',
+    'Parkside Community Association',
+    'Trinidad Neighborhood Block Club',
+    'Buffalo United Front',
+    'GObike',
+    'Buffalo Transit Riders United',
+    'East Side Bike Club',
+    'Buffalo State College',
+    'Buffalo Olmsted Parks Conservancy',
+    'Friends of Broderick Park',
+    'Preservation Buffalo Niagara',
+    'Center for New Urbanism WNY Chapter',
+    'Buffalo Niagara Waterkeeper',
+    'Clean Air Coalition',
+    'Grant Amherst Business Association',
+  ]
+
   return (
     <>
       <Navbar isHeroInView={inView} />
@@ -149,6 +172,31 @@ export default function Home() {
                     <Icon pl="2" boxSize="6" as={ArrowRight} />
                   </Button>
                 </Box>
+                <Box mt="16">
+                  <Text
+                    color="tealGreen.800"
+                    fontSize={{ base: '2xl', lg: '3xl' }}
+                    fontWeight="semibold"
+                    fontFamily="crimson"
+                    lineHeight="1.3"
+                    mb="4"
+                  >
+                    Our vision is supported by stakeholders from across the Scajaquada Corridor, including:
+                  </Text>
+                  <List sx={{
+                    columnCount: {
+                      base: 1,
+                      md: 2,
+                    },
+                  }}
+                  >
+                    {stakeholders.map(s => (
+                      <ListItem pt="2" key={s}>
+                        <Text fontWeight="medium" fontSize="lg">{s}</Text>
+                      </ListItem>
+                    ))}
+                  </List>
+                </Box>
               </Flex>
             </GridItem>
             <GridItem colStart={{ lg: 3 }} colSpan={{ base: 12, lg: 8 }}>
@@ -161,7 +209,11 @@ export default function Home() {
                   What is possible for the reimagination of the Scajaquada
                   Corridor? Many decisions are on the horizon for infrastructure
                   priorities across the nation and in our region. Defining
-                  moments don&apos;t come around very often, and 2021 may
+                  moments don&apos;t come around very often, and
+                  {' '}
+                  {new Date().getFullYear()}
+                  {' '}
+                  may
                   provide the last, best chance in a generation to reclaim our
                   creek and community.
                 </Text>
