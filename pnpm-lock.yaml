@@ -108,9 +108,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.17.0
         version: 7.18.0(eslint@9.7.0)(typescript@5.5.4)
-      eslint:
-        specifier: ^9.7.0
-        version: 9.7.0
       eslint-import-resolver-typescript:
         specifier: ^3.6.1
         version: 3.6.1(@typescript-eslint/parser@7.18.0(eslint@9.7.0)(typescript@5.5.4))(eslint-plugin-import@2.29.1)(eslint@9.7.0)
