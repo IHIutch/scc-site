@@ -60,6 +60,7 @@ export default function Home() {
     'Buffalo Niagara Waterkeeper',
     'Clean Air Coalition',
     'Grant Amherst Business Association',
+    'Pan Amherst Block Club'
   ]
 
   return (
