@@ -43,7 +43,7 @@ export default function Home() {
   })
 
   const stakeholders = [
-    'Black Rock Riverside Alliance',
+    'BRRAlliance, Inc.',
     'Restore Our Community Coalition',
     'Vision Niagara',
     'Parkside Community Association',
