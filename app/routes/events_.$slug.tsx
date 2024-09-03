@@ -353,6 +353,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
       startingAt: event.attributes.startingAt,
       location: event.attributes.location,
     }))
+    .sort((a, b) => new Date(a.startingAt).valueOf() - new Date(b.startingAt).valueOf())
     .slice(0, 3)
 
   const { attributes: event } = await getEvent(foundEvent.id)

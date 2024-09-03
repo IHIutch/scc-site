@@ -28,7 +28,7 @@ export default function BlogArchive() {
     threshold: 0.5,
   })
 
-  const upcomingEvents = events.filter(e => e.isUpcoming)
+  const upcomingEvents = events.filter(e => e.isUpcoming).sort((a, b) => new Date(a.startingAt).valueOf() - new Date(b.startingAt).valueOf())
   const pastEvents = events.filter(e => !e.isUpcoming)
 
   return (
