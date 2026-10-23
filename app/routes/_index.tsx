@@ -10,8 +10,6 @@ import {
   Image,
   Img,
   Link,
-  List,
-  ListItem,
   Text,
 } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
@@ -21,8 +19,8 @@ import { getEvents } from 'utils/axios/events.server'
 import type { LoaderFunctionArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Link as RemixLink, useLoaderData } from '@remix-run/react'
-import { ArrowRight, ExternalLink } from 'react-feather'
-import { trackGoal } from 'fathom-client'
+import { ExternalLink } from 'react-feather'
+import { trackEvent } from 'fathom-client'
 import d_render from '~/assets/images/web/d_render.jpg'
 import c_render from '~/assets/images/web/c_render.jpg'
 import b_render from '~/assets/images/web/b_render.jpg'
@@ -36,34 +34,13 @@ import Navbar from '~/components/navbar'
 export default function Home() {
   const { posts, upcomingEvents } = useLoaderData<typeof loader>()
 
-  const handleSupportButtonClick = () => {
-    trackGoal('HSFPSJZ7', 0)
+  const handlePetitionButtonClick = () => {
+    trackEvent('petition click: change.org')
   }
 
   const { ref, inView } = useInView({
     threshold: 0.5,
   })
-
-  const stakeholders = [
-    'BRRAlliance, Inc.',
-    'Restore Our Community Coalition',
-    'Vision Niagara',
-    'Parkside Community Association',
-    'Trinidad Neighborhood Block Club',
-    'Buffalo United Front',
-    'GObike',
-    'Buffalo Transit Riders United',
-    'East Side Bike Club',
-    'Buffalo State College',
-    'Buffalo Olmsted Parks Conservancy',
-    'Friends of Broderick Park',
-    'Preservation Buffalo Niagara',
-    'Center for New Urbanism WNY Chapter',
-    'Buffalo Niagara Waterkeeper',
-    'Clean Air Coalition',
-    'Grant Amherst Business Association',
-    'Pan Amherst Block Club'
-  ]
 
   return (
     <>
@@ -130,7 +107,21 @@ export default function Home() {
           <Grid py="16" templateColumns="repeat(12, 1fr)">
             <GridItem colStart={{ lg: 3 }} colSpan={{ base: 12, lg: 8 }}>
               <Image src={scc_petitions_graphic} alt="A petition directed to Kathy Hochul and NYSDOT Commissioner Marie Therese Dominguez: Advance Region Central. Honor Mayor Ryan's request. Give Buffalo a lead role. Fund the next step." />
-              <Flex align="center" direction="row" mt="6" w="full" justifyContent="space-between">
+              <Flex
+                mt="6"
+                w="full"
+                justifyContent={{
+                  base: 'center',
+                  sm: 'space-between',
+                }}
+                align={{
+                  sm: 'center',
+                }}
+                flexDirection={{
+                  base: 'column',
+                  sm: 'row',
+                }}
+              >
                 <Heading
                   as="h2"
                   mb="4"
@@ -138,8 +129,10 @@ export default function Home() {
                   fontSize={{ base: '3xl', lg: '4xl' }}
                   lineHeight="1.2"
                   textAlign="center"
-                >Sign the Petition</Heading>
-                 <Button
+                >
+                  Sign the Petition
+                </Heading>
+                <Button
                   as={Link}
                   href="https://www.change.org/p/advance-region-central-now"
                   isExternal
@@ -149,6 +142,11 @@ export default function Home() {
                   fontSize="lg"
                   fontWeight="bold"
                   rightIcon={<Icon as={ExternalLink} />}
+                  onClick={handlePetitionButtonClick}
+                  mt={{
+                    base: '2',
+                    sm: '0',
+                  }}
                 >
                   Change.org
                 </Button>
