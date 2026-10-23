@@ -7,6 +7,7 @@ import {
   GridItem,
   Heading,
   Icon,
+  Image,
   Img,
   Link,
   List,
@@ -20,13 +21,14 @@ import { getEvents } from 'utils/axios/events.server'
 import type { LoaderFunctionArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Link as RemixLink, useLoaderData } from '@remix-run/react'
-import { ArrowRight } from 'react-feather'
+import { ArrowRight, ExternalLink } from 'react-feather'
 import { trackGoal } from 'fathom-client'
 import d_render from '~/assets/images/web/d_render.jpg'
 import c_render from '~/assets/images/web/c_render.jpg'
 import b_render from '~/assets/images/web/b_render.jpg'
 import delaware_full1 from '~/assets/images/delaware_full1.webp'
 import a_render from '~/assets/images/a_render.jpg'
+import scc_petitions_graphic from '~/assets/images/scc_petitions_graphic.jpg'
 import EventCard from '~/components/eventCard'
 import PostCard from '~/components/postCard'
 import Navbar from '~/components/navbar'
@@ -127,14 +129,8 @@ export default function Home() {
         <Container maxW="container.xl">
           <Grid py="16" templateColumns="repeat(12, 1fr)">
             <GridItem colStart={{ lg: 3 }} colSpan={{ base: 12, lg: 8 }}>
-              <Flex
-                padding="8"
-                borderWidth="4px"
-                borderColor="tealGreen.800"
-                direction="column"
-                bg="tealGreen.100"
-                mb="24"
-              >
+              <Image src={scc_petitions_graphic} alt="A petition directed to Kathy Hochul and NYSDOT Commissioner Marie Therese Dominguez: Advance Region Central. Honor Mayor Ryan's request. Give Buffalo a lead role. Fund the next step." />
+              <Flex align="center" direction="row" mt="6" w="full" justifyContent="space-between">
                 <Heading
                   as="h2"
                   mb="4"
@@ -142,83 +138,21 @@ export default function Home() {
                   fontSize={{ base: '3xl', lg: '4xl' }}
                   lineHeight="1.2"
                   textAlign="center"
+                >Sign the Petition</Heading>
+                 <Button
+                  as={Link}
+                  href="https://www.change.org/p/advance-region-central-now"
+                  isExternal
+                  colorScheme="tealGreen"
+                  bg="tealGreen.700"
+                  color="white"
+                  fontSize="lg"
+                  fontWeight="bold"
+                  rightIcon={<Icon as={ExternalLink} />}
                 >
-                  We Need Your Support!
-                </Heading>
-                <Text
-                  fontSize={{ base: 'lg', lg: 'xl' }}
-                  lineHeight="1.6"
-                  color="tealGreen.800"
-                  textAlign="center"
-                  mb="8"
-                >
-                  We need your support more than ever. This vision will only
-                  become a reality with visible, consistent, and overwhelming
-                  support from our diverse community, neighborhoods, area
-                  businesses and organizations.
-                </Text>
-                <Box textAlign="center">
-                  <Button
-                    size="lg"
-                    bg="tealGreen.800"
-                    colorScheme="tealGreen"
-                    fontFamily="crimson"
-                    as={RemixLink}
-                    to="/support"
-                    fontSize="lg"
-                    alignItems="center"
-                    onClick={handleSupportButtonClick}
-                  >
-                    Sign the Letter of Support
-                    <Icon pl="2" boxSize="6" as={ArrowRight} />
-                  </Button>
-                </Box>
-                <Box mt="16">
-                  <Text
-                    color="tealGreen.800"
-                    fontSize={{ base: '2xl', lg: '3xl' }}
-                    fontWeight="semibold"
-                    fontFamily="crimson"
-                    lineHeight="1.3"
-                    mb="4"
-                  >
-                    Our vision is supported by stakeholders from across the Scajaquada Corridor, including:
-                  </Text>
-                  <List sx={{
-                    columnCount: {
-                      base: 1,
-                      md: 2,
-                    },
-                  }}
-                  >
-                    {stakeholders.map(s => (
-                      <ListItem pt="2" key={s}>
-                        <Text fontWeight="medium" fontSize="lg">{s}</Text>
-                      </ListItem>
-                    ))}
-                  </List>
-                </Box>
+                  Change.org
+                </Button>
               </Flex>
-            </GridItem>
-            <GridItem colStart={{ lg: 3 }} colSpan={{ base: 12, lg: 8 }}>
-              <Box>
-                <Text
-                  fontSize={{ base: 'xl', lg: '2xl' }}
-                  lineHeight="1.8"
-                  color="tealGreen.700"
-                >
-                  What is possible for the reimagination of the Scajaquada
-                  Corridor? Many decisions are on the horizon for infrastructure
-                  priorities across the nation and in our region. Defining
-                  moments don&apos;t come around very often, and
-                  {' '}
-                  {new Date().getFullYear()}
-                  {' '}
-                  may
-                  provide the last, best chance in a generation to reclaim our
-                  creek and community.
-                </Text>
-              </Box>
             </GridItem>
           </Grid>
           {upcomingEvents.length > 0
