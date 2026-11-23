@@ -1,0 +1,734 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "title": "Route 33 Scoping Meeting - Morning Session",
+        "slug": "route-33-scoping-meeting-morning-session",
+        "startingAt": "2022-06-30T15:00:00.000Z",
+        "endingAt": "2022-06-30T18:00:00.000Z",
+        "content": "The State Department of Transportation is launching its formal engagement process and will host two public meetings on the Kensington Expressway project.\n\nThese public engagement sessions will provide community members with an opportunity to learn about the various options being considered for the project and to provide feedback to Department of Transportation officials. The input received at these sessions and other public involvement opportunities to be held during the environmental review will help inform the decision-making process for the Project. ",
+        "createdAt": "2022-06-17T17:01:47.731Z",
+        "updatedAt": "2022-06-29T11:41:04.460Z",
+        "publishedAt": "2022-06-29T11:41:04.456Z",
+        "featuredImage": {
+          "data": null
+        },
+        "seo": null,
+        "location": null
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "title": "Route 33 Scoping Meeting - Evening Session",
+        "slug": "route-33-scoping-meeting-evening-session",
+        "startingAt": "2022-06-30T21:00:00.000Z",
+        "endingAt": "2022-07-01T00:00:00.000Z",
+        "content": "The State Department of Transportation is launching its formal engagement process and will host two public meetings on the Kensington Expressway project.\n\nThese public engagement sessions will provide community members with an opportunity to learn about the various options being considered for the project and to provide feedback to Department of Transportation officials. The input received at these sessions and other public involvement opportunities to be held during the environmental review will help inform the decision-making process for the Project. ",
+        "createdAt": "2022-06-17T17:03:15.338Z",
+        "updatedAt": "2022-06-29T11:40:07.940Z",
+        "publishedAt": "2022-06-29T11:39:09.906Z",
+        "featuredImage": {
+          "data": null
+        },
+        "seo": null,
+        "location": null
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "title": "Route 198 Scoping Session",
+        "slug": "route-198-scoping-session",
+        "startingAt": "2022-07-13T21:30:00.000Z",
+        "endingAt": "2022-06-29T23:30:00.000Z",
+        "content": "**NOTE:** This meeting was originally intended to be held on June 29, 2022. Please note the updated date of July 13, 2022 and the updated location of the [Canisius College Science Hall](https://goo.gl/maps/pQtn95caJRyBnTnN7).\n\nThis meeting will be the same as the May 4, 2022 meeting at Buffalo State and will present four scenarios for reimagining the Scajaquada Corridor and will provide an opportunity for public comment.\n\nThe scenarios for Region Central have been developed over 12 months of research, planning, community outreach, and analysis and represents a range of possibilities for the future of mobility in the Scajaquada Corridor.\n\nThe public is invited to watch a recording of the presentation from the May 4, 2022 Public Meeting at Buffalo State; review the four scenarios; and provide feedback. Visit https://www.gbnrtc.org/regioncentral-events for more details.",
+        "createdAt": "2022-06-17T17:05:10.417Z",
+        "updatedAt": "2022-06-29T11:46:07.108Z",
+        "publishedAt": "2022-06-25T20:16:23.833Z",
+        "featuredImage": {
+          "data": null
+        },
+        "seo": null,
+        "location": null
+      }
+    },
+    {
+      "id": 4,
+      "attributes": {
+        "title": "Presenting Plans for the Future of the Scajaquada Corridor",
+        "slug": "presenting-plans-for-the-future-of-the-scajaquada-corridor",
+        "startingAt": "2022-05-04T21:30:00.000Z",
+        "endingAt": "2022-05-04T23:30:00.000Z",
+        "content": "## How to Get There\n* Parking is available in Lot G-21\n* The closest bus stop is the NFTA Metro #3/Grant bus at Grant St. and Rockwell Road\n\nThe Greater Buffalo Niagara Regional Transportation Council (GBNRTC) [has announced](https://www.gbnrtc.org/regioncentral-events) a public meeting to present four mobility scenarios for Region Central, a.k.a. the Scajaquada Corridor. We encourage you all to attend!\n\nAs a courtesy to the organizers, they ask you <a href=\"https://www.eventbrite.com/e/region-central-public-meeting-tickets-317724912767\" target=\"_blank\">**register in advance**</a>.\n\n### Ways to Help Spread the Word\n\n1. Share this post with family and friends!\n2. Follow <a href=\"https://www.instagram.com/sccoalition/\" target=\"_blank\">@SCCoalition on Instagram</a>, <a href=\"https://twitter.com/RightSize198\" target=\"_blank\">@RightSize198 on Twitter</a> and <a href=\"https://www.facebook.com/sccbuffalo\" target=\"_blank\">@SCCBuffalo on Facebook</a>.\n3. Read and share our recent blog posts on [the impact of the Scajaquada Expressway](https://www.sccoalition.net/blog/the-scajaquada-expressway-causes-traffic-problems-it-doesnt-solve-them) and [walkability](https://www.sccoalition.net/blog/for-region-central-investments-in-walkability-are-a-necessity).\n\n\n[Learn more about Region Central](https://www.gbnrtc.org/regioncentral-events)",
+        "createdAt": "2022-06-20T09:39:09.759Z",
+        "updatedAt": "2022-11-25T23:07:43.360Z",
+        "publishedAt": "2022-06-20T13:39:14.994Z",
+        "featuredImage": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "expressway_google_earth.png",
+              "alternativeText": "expressway_google_earth.png",
+              "caption": "expressway_google_earth.png",
+              "width": 1444,
+              "height": 521,
+              "formats": {
+                "large": {
+                  "ext": ".png",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614679/large_expressway_google_earth_ce52e130c5.png",
+                  "hash": "large_expressway_google_earth_ce52e130c5",
+                  "mime": "image/png",
+                  "name": "large_expressway_google_earth.png",
+                  "path": null,
+                  "size": 978.28,
+                  "width": 1000,
+                  "height": 361,
+                  "provider_metadata": {
+                    "public_id": "large_expressway_google_earth_ce52e130c5",
+                    "resource_type": "image"
+                  }
+                },
+                "small": {
+                  "ext": ".png",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614681/small_expressway_google_earth_ce52e130c5.png",
+                  "hash": "small_expressway_google_earth_ce52e130c5",
+                  "mime": "image/png",
+                  "name": "small_expressway_google_earth.png",
+                  "path": null,
+                  "size": 243.92,
+                  "width": 500,
+                  "height": 180,
+                  "provider_metadata": {
+                    "public_id": "small_expressway_google_earth_ce52e130c5",
+                    "resource_type": "image"
+                  }
+                },
+                "medium": {
+                  "ext": ".png",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614680/medium_expressway_google_earth_ce52e130c5.png",
+                  "hash": "medium_expressway_google_earth_ce52e130c5",
+                  "mime": "image/png",
+                  "name": "medium_expressway_google_earth.png",
+                  "path": null,
+                  "size": 551.55,
+                  "width": 750,
+                  "height": 271,
+                  "provider_metadata": {
+                    "public_id": "medium_expressway_google_earth_ce52e130c5",
+                    "resource_type": "image"
+                  }
+                },
+                "thumbnail": {
+                  "ext": ".png",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614677/thumbnail_expressway_google_earth_ce52e130c5.png",
+                  "hash": "thumbnail_expressway_google_earth_ce52e130c5",
+                  "mime": "image/png",
+                  "name": "thumbnail_expressway_google_earth.png",
+                  "path": null,
+                  "size": 58.4,
+                  "width": 245,
+                  "height": 89,
+                  "provider_metadata": {
+                    "public_id": "thumbnail_expressway_google_earth_ce52e130c5",
+                    "resource_type": "image"
+                  }
+                }
+              },
+              "hash": "expressway_google_earth_ce52e130c5",
+              "ext": ".png",
+              "mime": "image/png",
+              "size": 580.72,
+              "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614676/expressway_google_earth_ce52e130c5.png",
+              "previewUrl": null,
+              "provider": "cloudinary",
+              "provider_metadata": {
+                "public_id": "expressway_google_earth_ce52e130c5",
+                "resource_type": "image"
+              },
+              "createdAt": "2022-11-16T16:04:42.236Z",
+              "updatedAt": "2023-01-22T23:41:36.869Z"
+            }
+          }
+        },
+        "seo": null,
+        "location": null
+      }
+    },
+    {
+      "id": 6,
+      "attributes": {
+        "title": "Preferred Scenario for Reimagining the Scajaquada Corridor",
+        "slug": "preferred-scenario-for-reimagining-the-scajaquada-corridor",
+        "startingAt": "2023-01-17T23:00:00.000Z",
+        "endingAt": null,
+        "content": "Learn about the preferred scenario for Region Central. It has been developed over 18 months of research, planning, community outreach, analysis & it represents a range of possibilities for the future of mobility in the Scajaquada Corridor.\n\nRegister to Attend In Person: [Attend In Person](https://www.eventbrite.com/e/region-centralscajaquada-corridor-public-meeting-tickets-487980822777)\n\nRegister to Attend Virtually, via Zoom: [Attend Virtually](https://us02web.zoom.us/webinar/register/WN_EioLN6rBSZO_dqvE-G_LuA). You may also use this link to attend day-of.\n\nCanisius College is accessible by Metrorail at the **Delavan-College** stop.\n\nAll are welcome, but in-person attendance is limited to 150 people due to space constraints.",
+        "createdAt": "2023-01-12T18:44:55.135Z",
+        "updatedAt": "2023-01-12T19:13:53.767Z",
+        "publishedAt": "2023-01-12T18:45:01.654Z",
+        "featuredImage": {
+          "data": null
+        },
+        "seo": null,
+        "location": {
+          "id": 1,
+          "streetAddress": "1901 Main St",
+          "city": "Buffalo",
+          "state": "NY",
+          "googleMapsUrl": "https://goo.gl/maps/jFXK2fncYTy5bQEBA",
+          "zipCode": "14208",
+          "title": "Canisius College Science Hall"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "attributes": {
+        "title": "Vision for Scajaquada Presentation | Parkside Lodge",
+        "slug": "vision-for-scajaquada-presentation-parkside-lodge",
+        "startingAt": "2026-12-10T22:30:00.000Z",
+        "endingAt": "2026-12-11T00:00:00.000Z",
+        "content": "After years of planning to repair the damage caused by Rte 198, progress remains stalled, with a lengthy environmental review process still ahead.\n\nWhat if we started now?\nWe know that the Scajaquada Corridor shouldn\u2019t function as an expressway. What if simple, affordable changes could begin transforming it now? We have ideas to move the One Region Central vision forward. Let\u2019s Talk.\n\nRSVP encouraged here: [RSVP form](https://forms.gle/AMURoBgPxxHcbhpr9)\n\n![Restore the Vision Flyer](https://res.cloudinary.com/ihiutch/image/upload/v1792518240/1_533bbe4b28.jpg)",
+        "createdAt": "2026-10-20T17:46:30.604Z",
+        "updatedAt": "2026-10-23T21:14:29.370Z",
+        "publishedAt": "2026-10-20T17:46:33.077Z",
+        "featuredImage": {
+          "data": {
+            "id": 10,
+            "attributes": {
+              "name": "SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+              "alternativeText": "SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+              "caption": "SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+              "width": 1920,
+              "height": 1079,
+              "formats": {
+                "large": {
+                  "ext": ".jpeg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614675/large_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+                  "hash": "large_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                  "mime": "image/jpeg",
+                  "name": "large_SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+                  "path": null,
+                  "size": 110.35,
+                  "width": 1000,
+                  "height": 562,
+                  "provider_metadata": {
+                    "public_id": "large_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                    "resource_type": "image"
+                  }
+                },
+                "small": {
+                  "ext": ".jpeg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614676/small_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+                  "hash": "small_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                  "mime": "image/jpeg",
+                  "name": "small_SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+                  "path": null,
+                  "size": 31.29,
+                  "width": 500,
+                  "height": 281,
+                  "provider_metadata": {
+                    "public_id": "small_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                    "resource_type": "image"
+                  }
+                },
+                "medium": {
+                  "ext": ".jpeg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614675/medium_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+                  "hash": "medium_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                  "mime": "image/jpeg",
+                  "name": "medium_SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+                  "path": null,
+                  "size": 65.11,
+                  "width": 750,
+                  "height": 421,
+                  "provider_metadata": {
+                    "public_id": "medium_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                    "resource_type": "image"
+                  }
+                },
+                "thumbnail": {
+                  "ext": ".jpeg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614674/thumbnail_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+                  "hash": "thumbnail_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+                  "path": null,
+                  "size": 8.7,
+                  "width": 245,
+                  "height": 137,
+                  "provider_metadata": {
+                    "public_id": "thumbnail_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                    "resource_type": "image"
+                  }
+                }
+              },
+              "hash": "SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+              "ext": ".jpeg",
+              "mime": "image/jpeg",
+              "size": 216.46,
+              "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614673/SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+              "previewUrl": null,
+              "provider": "cloudinary",
+              "provider_metadata": {
+                "public_id": "SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                "resource_type": "image"
+              },
+              "createdAt": "2022-11-16T16:04:37.328Z",
+              "updatedAt": "2022-11-16T16:04:37.328Z"
+            }
+          }
+        },
+        "seo": null,
+        "location": {
+          "id": 7,
+          "streetAddress": "84 Parkside Avenue",
+          "city": "Buffalo",
+          "state": "NY",
+          "googleMapsUrl": "https://maps.app.goo.gl/UqbS5adFt1K5uGKD7",
+          "zipCode": "14214",
+          "title": "Parkside Lodge"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "attributes": {
+        "title": "Scajaquada Full Circle Speaker Series - Event 4",
+        "slug": "scajaquada-full-circle-speaker-series-event-4",
+        "startingAt": "2024-09-24T22:00:00.000Z",
+        "endingAt": "2024-09-25T00:00:00.000Z",
+        "content": "[Register for this Event](https://www.eventbrite.com/e/scajaquada-full-circle-speaker-series-tickets-965309616047)  |  [View Event flyer](https://res.cloudinary.com/ihiutch/image/upload/v1725372970/Scajaquada_Full_Circle_Flyer_September_2024_019f1926c5.pdf)\n\nPlease join us at the Burchfield Penney Art Center Auditorium on Tuesdays in September for a continuing speaker series on the Scajaquada Creek Corridor that touches on all aspects of how this critical area of Buffalo waterfront has shaped the city - including the historical, environmental, cultural, and modern day changes and issues affecting the corridor.\n\nRegistration is free. Please confirm attendance for all engagements you wish to attend.\n\n## Event 4 Agenda\n\n**Part 1 \u2014 6:00 PM - 8:00 PM** \nMoving to Action\nA candid panel discussion with community leaders.\n\n[Register for this Event](https://www.eventbrite.com/e/scajaquada-full-circle-speaker-series-tickets-965309616047)\n\nSponsored by the generosity of the Baird Foundation, City of Buffalo Common Councilmember Joseph Golombek, and the Erie County Environmental Management Council.",
+        "createdAt": "2024-09-03T14:06:30.931Z",
+        "updatedAt": "2024-09-03T14:38:42.341Z",
+        "publishedAt": "2024-09-03T14:06:32.611Z",
+        "featuredImage": {
+          "data": {
+            "id": 46,
+            "attributes": {
+              "name": "https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 600,
+              "height": 300,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+                  "hash": "small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                  "mime": "image/jpeg",
+                  "name": "small_https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+                  "path": null,
+                  "size": 42.45,
+                  "width": 500,
+                  "height": 250,
+                  "provider_metadata": {
+                    "public_id": "small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                    "resource_type": "image"
+                  }
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+                  "hash": "thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+                  "path": null,
+                  "size": 10.31,
+                  "width": 245,
+                  "height": 123,
+                  "provider_metadata": {
+                    "public_id": "thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                    "resource_type": "image"
+                  }
+                }
+              },
+              "hash": "https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 61.13,
+              "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+              "previewUrl": null,
+              "provider": "cloudinary",
+              "provider_metadata": {
+                "public_id": "https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                "resource_type": "image"
+              },
+              "createdAt": "2024-09-03T13:41:36.715Z",
+              "updatedAt": "2024-09-03T13:41:36.715Z"
+            }
+          }
+        },
+        "seo": null,
+        "location": {
+          "id": 5,
+          "streetAddress": "1300 Elmwood Avenue",
+          "city": "Buffalo",
+          "state": "NY",
+          "googleMapsUrl": "https://maps.app.goo.gl/1r2EEBYXXXQaNboEA",
+          "zipCode": "14222",
+          "title": "Burchfield Penney Art Center"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "Scajaquada Full Circle Speaker Series - Event 3",
+        "slug": "scajaquada-full-circle-speaker-series-event-3",
+        "startingAt": "2024-09-17T22:00:00.000Z",
+        "endingAt": "2024-09-18T00:00:00.000Z",
+        "content": "[Register for this Event](https://www.eventbrite.com/e/scajaquada-full-circle-speaker-series-tickets-965309616047)  |  [View Event flyer](https://res.cloudinary.com/ihiutch/image/upload/v1725372970/Scajaquada_Full_Circle_Flyer_September_2024_019f1926c5.pdf)\n\nPlease join us at the Burchfield Penney Art Center Auditorium on Tuesdays in September for a continuing speaker series on the Scajaquada Creek Corridor that touches on all aspects of how this critical area of Buffalo waterfront has shaped the city - including the historical, environmental, cultural, and modern day changes and issues affecting the corridor.\n\nRegistration is free. Please confirm attendance for all engagements you wish to attend.\n\n## Event 3 Agenda\n\n**Part 1 \u2014 6:00 PM - 7:00 PM** \nThe Scajaquada Corridor as Economic Driver: the Bigger Picture \u2013 Paris Roselli, President of the Richardson-Olmsted Campus and Lisa Ludwig, Executive Director, Shakespeare in Delaware Park\n\nIn this presentation Scajaquada Corridor Coalition members Paris Roselli and Lisa Ludwig will highlight the recent history and context of the Scajaquada Creek Corridor and how by working together the people of Buffalo can transform this area into a more powerful economic tool for the region.\n\n**Part 1 \u2014 7:00 PM - 8:00 PM** \nEconomc Implications of the Region Central project and Plan for Implementation - Hal Morse, Project Manager, Greater Buffalo Niagara Regional Transportation Council (GBNRTC), Professional Certification as Project Mangement Professional (PMP)\n\nThe Region Central planning project generated a proposed solution to improve mobiity, environmental improvement and economic development in the central portion of this region. In this presentation GBNRTC Project Manager Hal Morse will discuss how these factors can be integrated to generate positive improvements. Also included will be project status and the path forward to implementation.\n\nFor more information on this project, please visit the [GBNRTC website](https://www.gbnrtc.org/regioncentral).\n\n[Register for this Event](https://www.eventbrite.com/e/scajaquada-full-circle-speaker-series-tickets-965309616047)\n\nSponsored by the generosity of the Baird Foundation, City of Buffalo Common Councilmember Joseph Golombek, and the Erie County Environmental Management Council.",
+        "createdAt": "2024-09-03T14:03:56.137Z",
+        "updatedAt": "2024-09-03T14:38:35.538Z",
+        "publishedAt": "2024-09-03T14:03:58.491Z",
+        "featuredImage": {
+          "data": {
+            "id": 46,
+            "attributes": {
+              "name": "https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 600,
+              "height": 300,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+                  "hash": "small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                  "mime": "image/jpeg",
+                  "name": "small_https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+                  "path": null,
+                  "size": 42.45,
+                  "width": 500,
+                  "height": 250,
+                  "provider_metadata": {
+                    "public_id": "small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                    "resource_type": "image"
+                  }
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+                  "hash": "thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+                  "path": null,
+                  "size": 10.31,
+                  "width": 245,
+                  "height": 123,
+                  "provider_metadata": {
+                    "public_id": "thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                    "resource_type": "image"
+                  }
+                }
+              },
+              "hash": "https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 61.13,
+              "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+              "previewUrl": null,
+              "provider": "cloudinary",
+              "provider_metadata": {
+                "public_id": "https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                "resource_type": "image"
+              },
+              "createdAt": "2024-09-03T13:41:36.715Z",
+              "updatedAt": "2024-09-03T13:41:36.715Z"
+            }
+          }
+        },
+        "seo": null,
+        "location": {
+          "id": 4,
+          "streetAddress": "1300 Elmwood Avenue",
+          "city": "Buffalo",
+          "state": "NY",
+          "googleMapsUrl": "https://maps.app.goo.gl/1r2EEBYXXXQaNboEA",
+          "zipCode": "14222",
+          "title": "Burchfield Penney Art Center"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "attributes": {
+        "title": "Scajaquada Full Circle Speaker Series - Event 2",
+        "slug": "scajaquada-full-circle-speaker-series-event-2",
+        "startingAt": "2024-09-10T22:00:00.000Z",
+        "endingAt": "2024-09-11T00:00:00.000Z",
+        "content": "[Register for this Event](https://www.eventbrite.com/e/scajaquada-full-circle-speaker-series-tickets-965309616047)  |  [View Event flyer](https://res.cloudinary.com/ihiutch/image/upload/v1725372970/Scajaquada_Full_Circle_Flyer_September_2024_019f1926c5.pdf)\n\nPlease join us at the Burchfield Penney Art Center Auditorium on Tuesdays in September for a continuing speaker series on the Scajaquada Creek Corridor that touches on all aspects of how this critical area of Buffalo waterfront has shaped the city - including the historical, environmental, cultural, and modern day changes and issues affecting the corridor.\n\nRegistration is free. Please confirm attendance for all engagements you wish to attend.\n\n## Event 2 Agenda\n\n**Part 1 \u2014 6:00 PM - 7:00 PM** \nEnvironmental Impact of the Creek \nMigratory birdway, RAMSAR designation, fisheries, navigable recreation and eco-tourism \u2013 Connie Adams and Erin Redding, New York State Department of Environmental Conservation\n\n**Part 2 \u2014 7:00 PM - 8:00 PM**\nEnvironmental Improvements and Planning \u2013 Sandra Smith, Buffalo Niagara Waterkeeper\n\n[Register for this Event](https://www.eventbrite.com/e/scajaquada-full-circle-speaker-series-tickets-965309616047)\n\nSponsored by the generosity of the Baird Foundation, City of Buffalo Common Councilmember Joseph Golombek, and the Erie County Environmental Management Council.\n",
+        "createdAt": "2024-09-03T13:52:05.718Z",
+        "updatedAt": "2024-09-03T14:38:29.555Z",
+        "publishedAt": "2024-09-03T13:52:31.718Z",
+        "featuredImage": {
+          "data": {
+            "id": 46,
+            "attributes": {
+              "name": "https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 600,
+              "height": 300,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+                  "hash": "small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                  "mime": "image/jpeg",
+                  "name": "small_https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+                  "path": null,
+                  "size": 42.45,
+                  "width": 500,
+                  "height": 250,
+                  "provider_metadata": {
+                    "public_id": "small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                    "resource_type": "image"
+                  }
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+                  "hash": "thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+                  "path": null,
+                  "size": 10.31,
+                  "width": 245,
+                  "height": 123,
+                  "provider_metadata": {
+                    "public_id": "thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                    "resource_type": "image"
+                  }
+                }
+              },
+              "hash": "https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 61.13,
+              "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+              "previewUrl": null,
+              "provider": "cloudinary",
+              "provider_metadata": {
+                "public_id": "https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                "resource_type": "image"
+              },
+              "createdAt": "2024-09-03T13:41:36.715Z",
+              "updatedAt": "2024-09-03T13:41:36.715Z"
+            }
+          }
+        },
+        "seo": null,
+        "location": {
+          "id": 3,
+          "streetAddress": "1300 Elmwood Avenue",
+          "city": "Buffalo",
+          "state": "NY",
+          "googleMapsUrl": "https://maps.app.goo.gl/1r2EEBYXXXQaNboEA",
+          "zipCode": "14222",
+          "title": "Burchfield Penney Art Center"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "attributes": {
+        "title": "Scajaquada Full Circle Speaker Series - Event 1",
+        "slug": "scajaquada-full-circle-speaker-series-event-1",
+        "startingAt": "2024-09-03T22:00:00.000Z",
+        "endingAt": "2024-09-04T00:00:00.000Z",
+        "content": "[Register for this Event](https://www.eventbrite.com/e/scajaquada-full-circle-speaker-series-tickets-965309616047)  |  [View Event flyer](https://res.cloudinary.com/ihiutch/image/upload/v1725372970/Scajaquada_Full_Circle_Flyer_September_2024_019f1926c5.pdf)\n\nPlease join us at the Burchfield Penney Art Center Auditorium on Tuesdays in September for a continuing speaker series on the Scajaquada Creek Corridor that touches on all aspects of how this critical area of Buffalo waterfront has shaped the city - including the historical, environmental, cultural, and modern day changes and issues affecting the corridor.\n\nRegistration is free. Please confirm attendance for all engagements you wish to attend.\n\n## Event 1 Agenda\n\n**Part 1 \u2014 6:00 PM - 7:00 PM** \nThe Indigenous lifeline, the use of the creek and the people of the region - Jason Corwin PhD, clinical assistant professor of Indigenous Studies, University at Buffalo and member of Seneca Nation Deer Clan\n\n**Part 2 \u2014 7:00 PM - 8:00 PM**\nA Brief History of Black Rock & Scajaquada Creek: c.1620 to the Present Day - Ryan F. Austin, Ph.D., RPA, University at Buffalo, Dept of Archeology\n\nThis presentation discusses the intertwined histories of Black Rock and the Scajaquada Creek, between the early 17th century and the present day. Topics that will be covered include: The colonial period of the Niagara Frontier (1620s \u2013 1780s); Land speculation and early settlement (1790s \u2013 1812); Black Rock and the War of 1812 (1812-1815); the Competition with Buffalo for the Erie Canal Terminus and the Development of Black Rock\u2019s Harbor (1816-1840s); The Industrialization, Urbanization and Expansion of (Lower) Black Rock (1850s-1920s); the Economic Downturn and Disillusionment with Urban Renewal (1930s-1990s); and finally the community\u2019s early 21st century renaissance (2000s-present).\n\nDr. Austin's presentation is provided with thanks to the University at Buffalo Archaeological Survey, and its director, Dr. Douglas J. Perrelli, Ph.D., RPA.\n\n[Register for this Event](https://www.eventbrite.com/e/scajaquada-full-circle-speaker-series-tickets-965309616047)\n\nSponsored by the generosity of the Baird Foundation, City of Buffalo Common Councilmember Joseph Golombek, and the Erie County Environmental Management Council.",
+        "createdAt": "2024-09-03T13:43:47.281Z",
+        "updatedAt": "2024-09-03T14:38:22.245Z",
+        "publishedAt": "2024-09-03T13:44:13.432Z",
+        "featuredImage": {
+          "data": {
+            "id": 46,
+            "attributes": {
+              "name": "https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 600,
+              "height": 300,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+                  "hash": "small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                  "mime": "image/jpeg",
+                  "name": "small_https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+                  "path": null,
+                  "size": 42.45,
+                  "width": 500,
+                  "height": 250,
+                  "provider_metadata": {
+                    "public_id": "small_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                    "resource_type": "image"
+                  }
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+                  "hash": "thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_https___cdn.evbuc.com_images_816518529_305307216454_1_original.jpg",
+                  "path": null,
+                  "size": 10.31,
+                  "width": 245,
+                  "height": 123,
+                  "provider_metadata": {
+                    "public_id": "thumbnail_https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                    "resource_type": "image"
+                  }
+                }
+              },
+              "hash": "https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 61.13,
+              "url": "https://res.cloudinary.com/ihiutch/image/upload/v1725370896/https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261.jpg",
+              "previewUrl": null,
+              "provider": "cloudinary",
+              "provider_metadata": {
+                "public_id": "https_cdn_evbuc_com_images_816518529_305307216454_1_original_3034920261",
+                "resource_type": "image"
+              },
+              "createdAt": "2024-09-03T13:41:36.715Z",
+              "updatedAt": "2024-09-03T13:41:36.715Z"
+            }
+          }
+        },
+        "seo": null,
+        "location": {
+          "id": 2,
+          "streetAddress": "1300 Elmwood Avenue",
+          "city": "Buffalo",
+          "state": "NY",
+          "googleMapsUrl": "https://maps.app.goo.gl/1r2EEBYXXXQaNboEA",
+          "zipCode": "14222",
+          "title": "Burchfield Penney Art Center"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "attributes": {
+        "title": "Vision for Scajaquada Presentation | Oct 26, 2026",
+        "slug": "vision-for-scajaquada-presentation-oct-26-2026",
+        "startingAt": "2026-10-26T21:30:00.000Z",
+        "endingAt": "2026-10-26T23:00:00.000Z",
+        "content": "After years of planning to repair the damage caused by Rte 198, progress remains stalled, with a lengthy environmental review process still ahead.\n\nWhat if we started now?\nWe know that the Scajaquada Corridor shouldn\u2019t function as an expressway. What if simple, affordable changes could begin transforming it now? We have ideas to move the One Region Central vision forward. Let\u2019s Talk.\n\nRSVP encouraged here: [RSVP form](https://forms.gle/AMURoBgPxxHcbhpr9)\n![Restore the Vision Flyer](https://res.cloudinary.com/ihiutch/image/upload/v1792518240/1_533bbe4b28.jpg)",
+        "createdAt": "2026-10-22T18:06:47.289Z",
+        "updatedAt": "2026-10-23T21:15:35.523Z",
+        "publishedAt": "2026-10-22T18:06:50.560Z",
+        "featuredImage": {
+          "data": {
+            "id": 10,
+            "attributes": {
+              "name": "SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+              "alternativeText": "SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+              "caption": "SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+              "width": 1920,
+              "height": 1079,
+              "formats": {
+                "large": {
+                  "ext": ".jpeg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614675/large_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+                  "hash": "large_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                  "mime": "image/jpeg",
+                  "name": "large_SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+                  "path": null,
+                  "size": 110.35,
+                  "width": 1000,
+                  "height": 562,
+                  "provider_metadata": {
+                    "public_id": "large_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                    "resource_type": "image"
+                  }
+                },
+                "small": {
+                  "ext": ".jpeg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614676/small_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+                  "hash": "small_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                  "mime": "image/jpeg",
+                  "name": "small_SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+                  "path": null,
+                  "size": 31.29,
+                  "width": 500,
+                  "height": 281,
+                  "provider_metadata": {
+                    "public_id": "small_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                    "resource_type": "image"
+                  }
+                },
+                "medium": {
+                  "ext": ".jpeg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614675/medium_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+                  "hash": "medium_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                  "mime": "image/jpeg",
+                  "name": "medium_SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+                  "path": null,
+                  "size": 65.11,
+                  "width": 750,
+                  "height": 421,
+                  "provider_metadata": {
+                    "public_id": "medium_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                    "resource_type": "image"
+                  }
+                },
+                "thumbnail": {
+                  "ext": ".jpeg",
+                  "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614674/thumbnail_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+                  "hash": "thumbnail_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_SCCVisionRevitalizedScajaquadaCreekCorridor.jpeg",
+                  "path": null,
+                  "size": 8.7,
+                  "width": 245,
+                  "height": 137,
+                  "provider_metadata": {
+                    "public_id": "thumbnail_SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                    "resource_type": "image"
+                  }
+                }
+              },
+              "hash": "SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+              "ext": ".jpeg",
+              "mime": "image/jpeg",
+              "size": 216.46,
+              "url": "https://res.cloudinary.com/ihiutch/image/upload/v1668614673/SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4.jpg",
+              "previewUrl": null,
+              "provider": "cloudinary",
+              "provider_metadata": {
+                "public_id": "SCC_Vision_Revitalized_Scajaquada_Creek_Corridor_71234efba4",
+                "resource_type": "image"
+              },
+              "createdAt": "2022-11-16T16:04:37.328Z",
+              "updatedAt": "2022-11-16T16:04:37.328Z"
+            }
+          }
+        },
+        "seo": null,
+        "location": {
+          "id": 8,
+          "streetAddress": "52 Amherst St",
+          "city": "Buffalo",
+          "state": "NY",
+          "googleMapsUrl": "https://maps.app.goo.gl/KfgDvcPSBx1XFFNi8",
+          "zipCode": "14207",
+          "title": "BRRAlliance Headquarters"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 100,
+      "pageCount": 1,
+      "total": 11
+    }
+  }
+}

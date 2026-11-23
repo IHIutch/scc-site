@@ -1,0 +1,147 @@
+---
+import { getSeoMeta } from 'emdash';
+import type { SiteEntry } from '../lib/site';
+import { PortableText } from 'emdash/ui';
+import Base from '../layouts/Base.astro';
+import Hero from './Hero.astro';
+import Card from './Card.astro';
+import { site, imageUrl, formatDate, publicationDate } from '../lib/site';
+interface Props {
+  entry: SiteEntry<'posts'> | SiteEntry<'events'>;
+  event?: boolean;
+  related: Array<SiteEntry<'posts'> | SiteEntry<'events'>>;
+}
+const { entry, event = false, related } = Astro.props;
+const data = entry.data;
+const location = 'location_title' in data ? data : null;
+const collection = event ? 'events' : 'posts';
+const origin = process.env.SITE_URL || site.url;
+const url = new URL(Astro.url.pathname, origin).href;
+const seo = getSeoMeta(entry, {
+  siteTitle: site.title,
+  siteUrl: origin,
+  path: Astro.url.pathname,
+  defaultOgImage: imageUrl(data.featured_image),
+});
+const start = location?.starting_at;
+const end = location?.ending_at;
+---
+
+<Base
+  title={seo.ogTitle || data.title}
+  description={seo.description || data.lead || site.description}
+  image={seo.ogImage}
+  canonical={seo.canonical}
+  robots={seo.robots}
+  content={{ collection, id: data.id, slug: entry.id }}
+  article
+>
+  <article>
+    <Hero
+      title={data.title}
+      lead={data.lead}
+      titleEdit={entry.edit.title}
+      leadEdit={entry.edit.lead}
+      image={imageUrl(data.featured_image) || '/assets/images/b_render.jpg'}
+      alt={data.title}
+    >
+      {event && start ? (
+        <p class="event-date">
+          {formatDate(start, true)}
+          {end && <> to {formatDate(end, true)}</>}
+        </p>
+      ) : (
+        <p class="article-date">{formatDate(publicationDate(data))}</p>
+      )}
+      {event && location && (
+        <address>
+          {location.location_title && (
+            <strong>
+              {location.location_title}
+              <br />
+            </strong>
+          )}
+          {location.street_address && (
+            <>
+              {location.street_address}
+              <br />
+            </>
+          )}
+          {[location.city, location.state, location.zip_code]
+            .filter(Boolean)
+            .join(', ')}
+          {location.maps_url && (
+            <div>
+              <a
+                class="button"
+                href={location.maps_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get Directions ↗
+              </a>
+            </div>
+          )}
+        </address>
+      )}
+    </Hero>
+    <div class="container article-content">
+      <div class="reading-width">
+        <nav
+          class="share-links"
+          aria-label={event ? 'Share this event' : 'Share this post'}
+        >
+          <span>Share this {event ? 'event' : 'post'}</span>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Facebook
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(data.title)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter
+          </a>
+          <a
+            href={`mailto:?subject=${encodeURIComponent(data.title)}&body=${encodeURIComponent(url)}`}
+          >
+            Email
+          </a>
+        </nav>
+        <div class="prose">
+          <PortableText value={data.content} />
+        </div>
+        <aside class="follow-callout">
+          Support the removal of the Scajaquada Expressway by following us on{' '}
+          <a href={site.twitter} target="_blank" rel="noopener noreferrer">
+            Twitter
+          </a>{' '}
+          and{' '}
+          <a href={site.facebook} target="_blank" rel="noopener noreferrer">
+            Facebook
+          </a>
+          .
+        </aside>
+      </div>
+      {related.length > 0 && (
+        <section>
+          <div class="section-heading">
+            <h2>{event ? 'Upcoming Events' : 'Our Latest Posts'}</h2>
+            <a href={event ? '/events' : '/blog'}>
+              See All {event ? 'Events' : 'Posts'} →
+            </a>
+          </div>
+          <div class="cards three">
+            {related.map((entry) => (
+              <Card entry={entry} event={event} />
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,38 @@
+---
+import type { FieldAnnotation } from 'emdash';
+interface Props {
+  title: string;
+  lead?: string | null;
+  image?: string;
+  alt?: string;
+  compact?: boolean;
+  titleEdit?: Partial<FieldAnnotation>;
+  leadEdit?: Partial<FieldAnnotation>;
+}
+const {
+  title,
+  lead,
+  image,
+  alt = '',
+  compact = false,
+  titleEdit,
+  leadEdit,
+} = Astro.props;
+---
+
+<section class:list={['hero', { compact }]}>
+  {image && (
+    <img class="hero-image" src={image} alt={alt} fetchpriority="high" />
+  )}
+  <div class="container">
+    <div class="reading-width hero-copy">
+      <h1 {...titleEdit}>{title}</h1>
+      <slot />
+      {lead && (
+        <p class="hero-lead" {...leadEdit}>
+          {lead}
+        </p>
+      )}
+    </div>
+  </div>
+</section>

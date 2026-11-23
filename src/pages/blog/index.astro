@@ -1,0 +1,25 @@
+---
+import { getEmDashCollection } from 'emdash';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Card from '../../components/Card.astro';
+import { newestFirst } from '../../lib/site';
+const { entries, error } = await getEmDashCollection('posts', { limit: 100 });
+if (error) throw error;
+---
+
+<Base title="All Blog Posts">
+  <Hero
+    title="Blog"
+    lead="Stay up to date on the latest updates of our mission: Creating a better Buffalo through community collaboration and strategic thinking."
+    compact
+  />
+  <div class="container listing-section">
+    <div class="reading-width cards">
+      {newestFirst(entries).map((entry) => (
+        <Card entry={entry} />
+      ))}
+    </div>
+    {entries.length === 0 && <p class="reading-width">No posts yet.</p>}
+  </div>
+</Base>

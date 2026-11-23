@@ -1,0 +1,83 @@
+---
+import { getEmDashEntry, getEmDashCollection } from 'emdash';
+import { Image, PortableText } from 'emdash/ui';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Card from '../components/Card.astro';
+import { imageUrl, newestFirst } from '../lib/site';
+const [{ entry: home, error }, postResult, eventResult] = await Promise.all([
+  getEmDashEntry('pages', 'home'),
+  getEmDashCollection('posts', { limit: 100 }),
+  getEmDashCollection('events', { limit: 100 }),
+]);
+if (error || postResult.error || eventResult.error)
+  throw error || postResult.error || eventResult.error;
+if (!home) return Astro.rewrite('/404');
+const posts = newestFirst(postResult.entries).slice(0, 3);
+const upcoming = eventResult.entries
+  .filter((e) => new Date(e.data.starting_at) > new Date())
+  .sort(
+    (a, b) =>
+      new Date(a.data.starting_at).valueOf() -
+      new Date(b.data.starting_at).valueOf(),
+  )
+  .slice(0, 3);
+const data = home.data;
+---
+
+<Base content={{ collection: 'pages', id: data.id, slug: 'home' }}>
+  <Hero
+    title={data.title}
+    lead={data.lead}
+    titleEdit={home.edit.title}
+    leadEdit={home.edit.lead}
+    image={imageUrl(data.featured_image)}
+    alt="A beautiful view of Hoyt Lake"
+  />
+  <div class="container">
+    {data.petition_url && (
+      <section class="petition reading-width">
+        {data.petition_image && <Image image={data.petition_image} />}
+        <div class="section-heading">
+          <h2>Sign the Petition</h2>
+          <a
+            class="button primary"
+            href={data.petition_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-petition
+          >
+            Change.org ↗
+          </a>
+        </div>
+      </section>
+    )}
+    {upcoming.length > 0 && (
+      <section class="listing-section ruled">
+        <div class="section-heading">
+          <h2>Upcoming Events</h2>
+          <a href="/events">See All Events →</a>
+        </div>
+        <div class="cards three">
+          {upcoming.map((entry) => (
+            <Card entry={entry} event />
+          ))}
+        </div>
+      </section>
+    )}
+    <div class="prose home-content">
+      <PortableText value={data.content} />
+    </div>
+    <section class="listing-section ruled">
+      <div class="section-heading">
+        <h2>Our Latest Posts</h2>
+        <a href="/blog">See All Posts →</a>
+      </div>
+      <div class="cards three">
+        {posts.map((entry) => (
+          <Card entry={entry} />
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>

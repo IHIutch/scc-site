@@ -1,0 +1,15 @@
+---
+import { getEmDashEntry, getEmDashCollection } from 'emdash';
+import Article from '../../components/Article.astro';
+import { newestFirst } from '../../lib/site';
+const { entry, error } = await getEmDashEntry('posts', Astro.params.slug!);
+if (error) throw error;
+if (!entry) return Astro.rewrite('/404');
+const result = await getEmDashCollection('posts', { limit: 100 });
+if (result.error) throw result.error;
+const related = newestFirst(result.entries)
+  .filter((item) => item.id !== entry.id)
+  .slice(0, 3);
+---
+
+<Article entry={entry} related={related} />

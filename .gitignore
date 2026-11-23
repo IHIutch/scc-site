@@ -1,11 +1,17 @@
 node_modules
-
-.cache
+dist/
+.astro/
+.emdash/
 .env
-.vercel
-.output
+.env.*
+!.env.example
+data.db*
+uploads/
+.DS_Store
+.cloudflare/
+.wrangler/
+.dev.vars*
+*.emdash
 
-/build/
-/public/build
-/api/index.js
-/api/index.js.map
+# Local verification output
+migration/verification.json
