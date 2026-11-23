@@ -1,0 +1,36 @@
+---
+import { Image } from 'emdash/ui';
+import { formatDate, publicationDate } from '../lib/site';
+import type { SiteEntry } from '../lib/site';
+interface Props {
+  entry: SiteEntry<'posts'> | SiteEntry<'events'>;
+  event?: boolean;
+}
+const { entry, event = false } = Astro.props;
+const data = entry.data;
+const start = 'starting_at' in data ? data.starting_at : null;
+const venue = 'location_title' in data ? data.location_title : null;
+const date = event ? start : publicationDate(data);
+---
+
+<article class="card">
+  {data.featured_image && (
+    <div class="card-image">
+      <Image image={data.featured_image} alt={data.title} />
+    </div>
+  )}
+  <div class="card-body">
+    <h3>
+      <a href={`/${event ? 'events' : 'blog'}/${entry.id}`}>{data.title}</a>
+    </h3>
+    {date && (
+      <p class="card-date">
+        {formatDate(date, event && new Date(date) > new Date())}
+      </p>
+    )}
+    {event && venue && <p>{venue}</p>}
+  </div>
+  <div class="card-action">
+    {event ? 'View Event Details' : 'Keep Reading'} →
+  </div>
+</article>

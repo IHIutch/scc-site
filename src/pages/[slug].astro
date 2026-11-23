@@ -1,0 +1,46 @@
+---
+import { getEmDashEntry } from 'emdash';
+import { PortableText } from 'emdash/ui';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import { imageUrl } from '../lib/site';
+if (Astro.params.slug === 'home') return Astro.redirect('/', 301);
+const { entry, error } = await getEmDashEntry('pages', Astro.params.slug!);
+if (error) throw error;
+if (!entry) return Astro.rewrite('/404');
+const data = entry.data;
+---
+
+<Base
+  title={data.title}
+  description={data.lead}
+  content={{ collection: 'pages', id: data.id, slug: entry.id }}
+>
+  <Hero
+    title={data.title}
+    lead={data.lead}
+    titleEdit={entry.edit.title}
+    leadEdit={entry.edit.lead}
+    image={imageUrl(data.featured_image)}
+  />
+  <div class="container article-content">
+    <div class="prose page-content">
+      <PortableText value={data.content} />
+    </div>
+    {data.form_url && (
+      <>
+        <p class="reading-width">
+          <a href={data.form_url} target="_blank" rel="noopener noreferrer">
+            Open the support form in a new tab ↗
+          </a>
+        </p>
+        <iframe
+          class="support-form"
+          src={data.form_url}
+          title="Letter of support form"
+          loading="lazy"
+        >Loading…</iframe>
+      </>
+    )}
+  </div>
+</Base>

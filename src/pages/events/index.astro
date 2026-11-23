@@ -1,0 +1,58 @@
+---
+import { getEmDashCollection } from 'emdash';
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Card from '../../components/Card.astro';
+const { entries, error } = await getEmDashCollection('events', { limit: 100 });
+if (error) throw error;
+const upcoming = entries
+  .filter((e) => new Date(e.data.starting_at) > new Date())
+  .sort(
+    (a, b) =>
+      new Date(a.data.starting_at).valueOf() -
+      new Date(b.data.starting_at).valueOf(),
+  );
+const past = entries
+  .filter((e) => new Date(e.data.starting_at) <= new Date())
+  .sort(
+    (a, b) =>
+      new Date(b.data.starting_at).valueOf() -
+      new Date(a.data.starting_at).valueOf(),
+  );
+---
+
+<Base title="All Events">
+  <Hero
+    title="Events"
+    lead="Stay up to date on the latest updates of our mission: Creating a better Buffalo through community collaboration and strategic thinking."
+    compact
+  />
+  <div class="container listing-section">
+    <div class="reading-width">
+      <section>
+        <h2>Upcoming Events</h2>
+        {upcoming.length ? (
+          <div class="cards">
+            {upcoming.map((entry) => (
+              <Card entry={entry} event />
+            ))}
+          </div>
+        ) : (
+          <p>No upcoming events planned</p>
+        )}
+      </section>
+      <section class="past-events">
+        <h2>Past Events</h2>
+        {past.length ? (
+          <div class="cards">
+            {past.map((entry) => (
+              <Card entry={entry} event />
+            ))}
+          </div>
+        ) : (
+          <p>No past events</p>
+        )}
+      </section>
+    </div>
+  </div>
+</Base>

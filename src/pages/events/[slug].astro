@@ -1,0 +1,22 @@
+---
+import { getEmDashEntry, getEmDashCollection } from 'emdash';
+import Article from '../../components/Article.astro';
+const { entry, error } = await getEmDashEntry('events', Astro.params.slug!);
+if (error) throw error;
+if (!entry) return Astro.rewrite('/404');
+const result = await getEmDashCollection('events', { limit: 100 });
+if (result.error) throw result.error;
+const related = result.entries
+  .filter(
+    (item) =>
+      item.id !== entry.id && new Date(item.data.starting_at) > new Date(),
+  )
+  .sort(
+    (a, b) =>
+      new Date(a.data.starting_at).valueOf() -
+      new Date(b.data.starting_at).valueOf(),
+  )
+  .slice(0, 3);
+---
+
+<Article entry={entry} related={related} event />

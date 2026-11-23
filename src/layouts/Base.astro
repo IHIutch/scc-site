@@ -1,0 +1,233 @@
+---
+import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from 'emdash/ui';
+import { createPublicPageContext } from 'emdash/page';
+import { site } from '../lib/site';
+import '../styles/site.css';
+interface Props {
+  title?: string;
+  description?: string | null;
+  image?: string | null;
+  content?: { collection: string; id: string; slug?: string | null };
+  article?: boolean;
+  canonical?: string | null;
+  robots?: string | null;
+}
+const {
+  title = site.title,
+  description = site.description,
+  image,
+  content,
+  article,
+  canonical,
+  robots,
+} = Astro.props;
+const fullTitle = title === site.title ? title : `${title} | ${site.title}`;
+const origin = process.env.SITE_URL || site.url;
+const page = createPublicPageContext({
+  Astro,
+  kind: content ? 'content' : 'custom',
+  pageType: article ? 'article' : 'website',
+  title: fullTitle,
+  pageTitle: title,
+  description,
+  image: new URL(image || '/assets/images/meta-image.jpg', origin).href,
+  canonical: canonical || new URL(Astro.url.pathname, origin).href,
+  content,
+  siteName: site.title,
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="google-site-verification"
+      content="4G-BG38xle3j3JMWw4-D7b4gPRj77EMFx-bkjNhyAuM"
+    />
+    {robots && <meta name="robots" content={robots} />}
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>{fullTitle}</title>
+    <EmDashHead page={page} />
+  </head>
+  <body>
+    <EmDashBodyStart page={page} />
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+    <header class="site-header">
+      <nav class="container nav" aria-label="Main navigation">
+        <a class="brand" href="/">
+          <span class="brand-full">{site.title}</span>
+          <span class="brand-short">SCC</span>
+        </a>
+        <a
+          class="button mobile-donate"
+          href={site.donate}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-donate
+        >
+          Donate
+        </a>
+        <button
+          class="menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          ☰
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a
+            href="/blog"
+            aria-current={
+              Astro.url.pathname.startsWith('/blog') ? 'page' : undefined
+            }
+          >
+            Blog
+          </a>
+          <a
+            href="/events"
+            aria-current={
+              Astro.url.pathname.startsWith('/events') ? 'page' : undefined
+            }
+          >
+            Events
+          </a>
+          <a href={site.subscribe} target="_blank" rel="noopener noreferrer">
+            Subscribe
+          </a>
+          <a
+            class="button desktop-donate"
+            href={site.donate}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-donate
+          >
+            Donate
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <nav aria-label="Footer navigation">
+          <a href="/">Home</a>
+          <a href="/blog">Blog</a>
+          <a href="/events">Events</a>
+          <a href="/support">Support</a>
+          <a
+            href={site.donate}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-donate
+          >
+            Donate
+          </a>
+        </nav>
+        <div>
+          <form
+            action="https://sccoalition.us18.list-manage.com/subscribe/post?u=51f05a4ccef31c3fd7476eb6f&amp;id=b0bef5e224"
+            method="post"
+            target="_blank"
+          >
+            <label for="newsletter-email">Subscribe to Our Newsletter</label>
+            <div class="newsletter">
+              <input
+                id="newsletter-email"
+                name="EMAIL"
+                type="email"
+                autocomplete="email"
+                required
+              />
+              <button class="button" type="submit">
+                Subscribe
+              </button>
+            </div>
+            <div class="honeypot" aria-hidden="true">
+              <input
+                name="b_51f05a4ccef31c3fd7476eb6f_b0bef5e224"
+                type="text"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+          </form>
+          <div class="social-links">
+            <a href={site.facebook} target="_blank" rel="noopener noreferrer">
+              Facebook
+            </a>
+            <a href={site.instagram} target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+            <a href={site.twitter} target="_blank" rel="noopener noreferrer">
+              Twitter
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <EmDashBodyEnd page={page} />
+    {import.meta.env.PROD && Astro.url.origin === site.url && (
+      <script
+        is:inline
+        src="https://cdn.usefathom.com/script.js"
+        data-site="BFWJFNRB"
+        defer
+      ></script>
+    )}
+    <script>
+      const header = document.querySelector<HTMLElement>('.site-header');
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      toggle?.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') !== 'true';
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        header?.classList.toggle('menu-open', open);
+      });
+      document.addEventListener('keydown', (event) => {
+        if (
+          event.key === 'Escape' &&
+          toggle?.getAttribute('aria-expanded') === 'true'
+        ) {
+          toggle.click();
+          toggle.focus();
+        }
+      });
+      const hero = document.querySelector('.hero');
+      if (header && hero)
+        new IntersectionObserver(
+          ([entry]) =>
+            header.classList.toggle('over-hero', entry.isIntersecting),
+          { threshold: 0.5 },
+        ).observe(hero);
+      type AnalyticsWindow = Window & {
+        fathom?: {
+          trackGoal: (goal: string, value: number) => void;
+          trackEvent: (name: string) => void;
+        };
+      };
+      document
+        .querySelectorAll('[data-donate]')
+        .forEach((link) =>
+          link.addEventListener('click', () =>
+            (window as AnalyticsWindow).fathom?.trackGoal('VLTP3IJR', 0),
+          ),
+        );
+      document
+        .querySelectorAll('[data-petition]')
+        .forEach((link) =>
+          link.addEventListener('click', () =>
+            (window as AnalyticsWindow).fathom?.trackEvent(
+              'petition click: change.org',
+            ),
+          ),
+        );
+    </script>
+  </body>
+</html>
